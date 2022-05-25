@@ -130,6 +130,7 @@ signal palabra_UC : STD_LOGIC_VECTOR (1 downto 0);
 -- Nueva señal: indica que la memoria cache todavia esta procesando una peticion
 -- de lectura (0) o escritura (1).
 signal re_enable, re_reset, served_re, wr_enable, wr_reset, busy_wr : STD_LOGIC;
+signal server_re_reset, busy_wr_reset : STD_LOGIC;
 -------------------------------------------------------------------------------
 begin
 
@@ -142,18 +143,20 @@ hit <= hit0 or hit1;
 -- dentro de una transferencia de bloque (1, 2...).
 word_counter: counter_2bits port map (clk, reset, count_enable, palabra_UC);
 
+server_re_reset <= reset or re_reset;
 served_re_Reg : reg1 port map (
 	Din   => '1',
 	clk   => clk,
-	reset => reset or re_reset,
+	reset => server_re_reset,
 	load  => re_enable,
 	Dout  => served_re
 );
 
+busy_wr_reset <= reset or wr_reset;
 busy_wr_Reg : reg1 port map (
 	Din   => '1',
 	clk   => clk,
-	reset => reset or wr_reset,
+	reset => busy_wr_reset,
 	load  => wr_enable,
 	Dout  => busy_wr
 );
@@ -185,8 +188,8 @@ OUTPUT_DECODE: process (state, served_re, busy_wr, RE, WE, hit0, hit1, hit,
 begin
 	-- Valores por defecto.
 	next_state <= state;
-	re_reset <= 0;
-	wr_reset <= 0;
+	re_reset <= '0';
+	wr_reset <= '0';
 	Bus_req <= '0';
 	buffer_enable <= '0';
 	rd_wr_addr <= '0';
@@ -216,7 +219,7 @@ begin
 				next_state <= Send_addr;
 				if (RE = '1') then
 					re_reset <= '1';
-				else (WE = '1') then
+				else
 					wr_enable <= '1';
 					buffer_enable <= '1';
 					MC_WE0 <= hit0;
@@ -269,7 +272,7 @@ begin
 						last_word  <= '1';
 					end if;
 
-					if (server_re = '1' and RE = '0' and WE = '0') then
+					if (served_re = '1' and RE = '0' and WE = '0') then
 						ready <= '1';
 					end if;
 				else
@@ -284,7 +287,7 @@ begin
 				MC_send_data <= '1';
 				last_word <= '1';
 				if (RE = '0' and WE = '0') or (RE = '1' and hit = '1') then
-					ready <= 1;
+					ready <= '1';
 				end if;
 			end if;
 		end if;
