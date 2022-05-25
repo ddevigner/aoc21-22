@@ -4,7 +4,7 @@
 -- 
 -- Create Date:    15:02:29 04/04/2014 
 -- Design Name: 
--- Module Name:    reg32 - Behavioral 
+-- Module Name:    Arbitro - Behavioral 
 -- Project Name: 
 -- Target Devices: 
 -- Tool versions: 
@@ -45,7 +45,15 @@ end Arbitro;
 
 architecture Behavioral of Arbitro is
 signal priority : std_logic;
+
+-- Señales para solapamiento de ultimo ciclo.
+signal overlap : std_logic;
+
 begin
+
+overlap <= '1' when (bus_frame= '1') and (last_word = '1') and (Bus_TRDY = '1')
+	  else '0';
+
 -- La prioridad de concesion es round robin. Es decir se alterna la prioridad 
 -- entre los dos dispositivos.
 SYNC_PROC: process (clk)
@@ -55,15 +63,19 @@ begin
 			priority <= '0';
 		-- Cuando sabemos que la transferencia esta en su ultimo ciclo se 
 		-- cambian las prioridades.
+		--elsif (overlap = '1') then
 		elsif (bus_frame= '1') and (last_word = '1') and (Bus_TRDY = '1') then
 			priority <= not priority;
 		end if;        
 	end if;
 end process;
 
+-- Si req0 esta activado y prioridad vale 0	y se concede el bus al dispositivo 0.
+--grant0 <= (overlap and ((Req0 and not(priority)) or (Req0 and not(Req1)))); 
+grant0 <= (not(bus_frame) and ((Req0 and not(priority)) or (Req0 and not(Req1)))); 
+
 -- Si req 1 esta activado y prioridad vale 1 se concede el bus al dispositivo 1.
+--grant1 <= (overlap and ((Req1 and priority) or (Req1 and not(Req0))));
 grant1 <= (not(bus_frame) and ((Req1 and priority) or (Req1 and not(Req0))));
 
--- Si req0 esta activado y prioridad vale 0	y se concede el bus al dispositivo 0.
-grant0 <= (not(bus_frame) and ((Req0 and not(priority)) or (Req0 and not(Req1)))); 
 end Behavioral;
