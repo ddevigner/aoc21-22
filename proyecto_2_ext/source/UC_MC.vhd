@@ -129,7 +129,7 @@ signal hit : std_logic;
 signal palabra_UC : STD_LOGIC_VECTOR (1 downto 0);
 -- Nueva señal: indica que la memoria cache todavia esta procesando una peticion
 -- de lectura (0) o escritura (1).
-signal set_busy_rd_wr, busy_rd_wr, e_busy_rd_wr : STD_LOGIC;
+signal re_enable, re_reset, served_re, wr_enable, wr_reset, busy_wr : STD_LOGIC;
 -------------------------------------------------------------------------------
 begin
 
@@ -142,12 +142,20 @@ hit <= hit0 or hit1;
 -- dentro de una transferencia de bloque (1, 2...).
 word_counter: counter_2bits port map (clk, reset, count_enable, palabra_UC);
 
-busy_rd_wr_reg : reg1 port map (
-	Din   => set_busy_rd_wr,
+served_re_Reg : reg1 port map (
+	Din   => '1',
 	clk   => clk,
-	reset => reset,
-	load  => e_busy_rd_wr,
-	Dout  => busy_rd_wr
+	reset => reset or re_reset,
+	load  => re_enable,
+	Dout  => served_re
+);
+
+busy_wr_Reg : reg1 port map (
+	Din   => '1',
+	clk   => clk,
+	reset => reset or wr_reset,
+	load  => wr_enable,
+	Dout  => busy_wr
 );
 
 -- Se activa cuando estamos pidiendo la ultima palabra.
@@ -171,13 +179,14 @@ begin
 end process;
 
 -- Automata Mealy.
-OUTPUT_DECODE: process (state, RE, WE, hit0, hit1, hit, addr_non_cacheable, 
-	bus_TRDY, Bus_DevSel, via_2_rpl, Bus_grant, last_word_block, req_word, palabra_UC)
+OUTPUT_DECODE: process (state, served_re, busy_wr, RE, WE, hit0, hit1, hit, 
+	addr_non_cacheable, bus_TRDY, Bus_DevSel, via_2_rpl, Bus_grant, 
+	last_word_block, req_word, palabra_UC)
 begin
 	-- Valores por defecto.
 	next_state <= state;
-	set_busy_rd_wr <= '0';
-	e_busy_rd_wr <= '0';
+	re_reset <= 0;
+	wr_reset <= 0;
 	Bus_req <= '0';
 	buffer_enable <= '0';
 	rd_wr_addr <= '0';
@@ -199,17 +208,16 @@ begin
 
 	-- Estado Fetch:
 	if (state = Fetch) then
-		if (RE = '0' and WE = '0') or (hit = '1' and RE = '1') then 
+		if (RE = '0' and WE = '0') or (RE = '1' and hit = '1') then 
 			ready <= '1';
 		else
 			Bus_req <= '1';
-
 			if (Bus_grant = '1') then
 				next_state <= Send_addr;
-				e_busy_rd_wr <= '1';
-
-				if (WE = '1') then
-					set_busy_rd_wr <= '1';
+				if (RE = '1') then
+					re_reset <= '1';
+				else (WE = '1') then
+					wr_enable <= '1';
 					buffer_enable <= '1';
 					MC_WE0 <= hit0;
 					MC_WE1 <= hit1;
@@ -223,13 +231,13 @@ begin
 		MC_send_addr_ctrl <= '1';
 		Frame <= '1';
 
-		if (busy_rd_wr = '0') then
+		if (busy_wr = '0') then
 			block_addr <= not(addr_non_cacheable);
 		else 
 			rd_wr_addr <= '1';
 			MC_bus_Rd_Wr <= '1';
 
-			if (RE = '0' and WE = '0') or (hit = '1' and RE = '1') then
+			if (RE = '0' and WE = '0') or (RE = '1' and hit = '1') then
 				ready <= '1';
 			end if;
 		end if;
@@ -242,7 +250,7 @@ begin
 	elsif (state = Data_trnf) then
 		Frame <= '1';
 		if (Bus_TRDY = '1') then
-			if (busy_rd_wr = '0') then
+			if (busy_wr = '0') then
 				if (addr_non_cacheable = '0') then
 					count_enable <= '1';
 					mux_origen <= '1';
@@ -250,6 +258,7 @@ begin
 					MC_WE1 <= via_2_rpl;
 
 					if (req_word = palabra_UC) then
+						re_enable <= '1';
 						ready <= '1';
 						mux_output <= '1';
 					end if;
@@ -260,9 +269,9 @@ begin
 						last_word  <= '1';
 					end if;
 
-					-- if (RE = '0' and WE = '0') then 
-					-- 	ready <= '1';
-					-- end if;
+					if (server_re = '1' and RE = '0' and WE = '0') then
+						ready <= '1';
+					end if;
 				else
 					next_state <= Fetch;
 					ready <= '1';
@@ -271,11 +280,11 @@ begin
 				end if;
 			else
 				next_state <= Fetch;
+				wr_reset <= '1';
 				MC_send_data <= '1';
 				last_word <= '1';
-
-				if (RE = '0' and WE = '0') or (hit = '1' and RE = '1') then
-					ready <= '1';
+				if (RE = '0' and WE = '0') or (RE = '1' and hit = '1') then
+					ready <= 1;
 				end if;
 			end if;
 		end if;
