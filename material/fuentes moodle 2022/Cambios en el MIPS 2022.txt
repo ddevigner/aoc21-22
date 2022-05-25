@@ -1,0 +1,101 @@
+-------------------------------
+--MODIFICACIONES MIPS 
+
+En la P2 hay que trabajar con el procesador de la P1 pero sustituyendo el componente de memoria de datos por el la nueva jerarquía de memoria con MC y MD conectados por un bus.
+
+Para ello en el proyecto hay que quitar la antigua memoria de datos e incluir las nuevas fuentes.
+
+Además hay que hacer algunas modificaciones en el MIPS:
+
+1. Debes quitar el componente memoriaRAM_D
+
+component memoriaRAM_D is port (
+		CLK : in std_logic;
+		ADDR : in std_logic_vector (31 downto 0); --Dir 
+        Din : in std_logic_vector (31 downto 0);--entrada de datos para el puerto de escritura
+        WE : in std_logic;		-- write enable	
+		RE : in std_logic;		-- read enable		  
+		Dout : out std_logic_vector (31 downto 0));
+end component;
+
+y sustituirlo por:
+
+--Nuevo componente:
+component MD_mas_MC is port (
+	CLK : in std_logic;
+	reset: in std_logic; 
+	ADDR : in std_logic_vector (31 downto 0); --Dir solicitada por el Mips
+	Din : in std_logic_vector (31 downto 0);--entrada de datos desde el Mips
+	WE : in std_logic;		-- write enable	del MIPS
+	RE : in std_logic;		-- read enable del MIPS	
+	IO_input: in std_logic_vector (31 downto 0); --dato que viene de una entrada del sistema
+	Mem_ready: out std_logic; -- indica si podemos hacer la operación solicitada en el ciclo actual
+	Dout : out std_logic_vector (31 downto 0) --dato que se envía al Mips
+		  ); 
+end component;
+
+Lo mismo al instanciarlo. Hay que sustituir:
+
+Mem_D: memoriaRAM_D PORT MAP (CLK => CLK, ADDR => ALU_out_MEM, Din => BusB_MEM, WE => MemWrite_MEM, RE => MemRead_MEM, Dout => Mem_out);
+
+por:
+
+-- Nuevo. Hay que añadir las señales:reset => reset, IO_input => Din, Mem_ready => Mem_ready,
+Mem_D: MD_mas_MC PORT MAP (CLK => CLK, ADDR => ALU_out_MEM, Din => BusB_MEM, WE => MemWrite_MEM, RE => MemRead_MEM, reset => reset, IO_input => IO_input, Mem_ready => Mem_ready, Dout => Mem_out);
+
+
+2. Tambien hay que declarar la señal Mem_ready de esta forma:
+
+signal Mem_ready : std_logic;
+
+Después debéis usar la señal Mem_ready para parar el procesador cuando corresponda.
+
+3. Hay que añadir el nuevo contador para las paradas de memoria. 
+
+Para ello hay que incluir el componente counter:
+
+component counter is
+    Port ( clk : in  STD_LOGIC;
+           reset : in  STD_LOGIC;
+           count_enable : in  STD_LOGIC;
+           load : in  STD_LOGIC;
+           D_in  : in  STD_LOGIC_VECTOR (7 downto 0);
+		   count : out  STD_LOGIC_VECTOR (7 downto 0));
+end component;	  
+
+E instanciarlo  
+
+cont_paradas_memoria: counter port map (clk => clk, reset => reset, count_enable => inc_paradas_mem , load=> '0', D_in => "00000000", count => paradas_mem);
+
+Además hay que declarar las señales:
+
+signal paradas_mem: std_logic_vector(7 downto 0); 
+signal inc_paradas_mem : std_logic; 
+--Por supuesto debéis dar valor a paradas_mem para ue cuente cuente proceda.
+
+4. Además hay que añadir una nueva entrada en el MIPS:
+	   
+--Nuevo
+IO_input: in STD_LOGIC_VECTOR (31 downto 0);
+
+
+-------------------------------
+--MODIFICACIONES TESTBENCH_MIPS
+Como hemos modificado la entidad del MIPS, habrá que actualizar su tesbench. Habrá que instanciar el componente así:
+
+ -- Component Declaration
+          COMPONENT MIPs_segmentado is
+			 Port ( clk : in  STD_LOGIC;
+				reset : in  STD_LOGIC;
+				--Nuevo
+			    IO_input: in STD_LOGIC_VECTOR (31 downto 0);
+	  	        output : out  STD_LOGIC_VECTOR (31 downto 0));
+			END COMPONENT;
+			
+Y añadir la señal IO_input:
+          SIGNAL output, IO_input :  std_logic_vector(31 downto 0);			
+          
+Y darle un valor, por ejemplo:
+
+--Nuevo      
+	IO_input <= x"00ABCDEF";

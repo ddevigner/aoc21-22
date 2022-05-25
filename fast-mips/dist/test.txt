@@ -1,0 +1,33 @@
+LW R0,0(R0)     ; R0 = @[0] = 32
+nop
+LWFP R5,-16(R0) ; R5 = @[4] = -1.618033989 (bfcf1bbd)
+LW R3,12(R1)    ; R3 = @[3] = 8 
+LW R2,8(R1)     ; R2 = @[2] = 2
+LW R1,4(R1)     ; R1 = @[1] = -1
+nop             ; No hay riesgo. UD lo ignora.
+LWFP R1,0(R0)   ; FP1 = @[8,10] = [5.64 (40b47ae1), 1.23 (3f9d70a4)]
+LWFP R2,4(R0)   ; FP2 = @[9,11] = [2.18 (400b851f), 0.95 (3f733333)]
+ADD R2,R1,R2    ; R2 += R1 = [1,0]
+nop
+ADDFP R3,R1,R2  ; FP3 = FP1 + FP2 = [7.82 (40fa3d71), 2.18 (400b851f)]
+nop
+nop
+nop
+nop
+nop
+ADDFP R4,R3,R4  ; FP4 += FP3 = [7.82 (40fa3d71), 10.0 (41200000)]
+nop
+nop
+nop
+BEQ R2,R6,80    ; Si (R2 == 0) Salto a store.
+ADD R0,R0,R3    ; R0 = R0 + R3 = R0 + 8.
+nop             ; Sin riesgo.
+nop
+BEQ R0,R0,104    ; Salto a loop.
+ADDFP R5, R4, R5  ; R5 += R4 = 8.381966011 (41061c88)
+nop
+nop
+nop
+nop
+nop
+SWFP R5,8(R0)   ; @[48] = 8.381966011 (41061c88)

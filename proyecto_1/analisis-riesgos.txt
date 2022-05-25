@@ -1,0 +1,145 @@
+-------------------------------------------------------------------------------
+ Mips para el proyecto 1 de AOC2 del 2022. Para simularlo hay que incluir las 
+ memorias que estan en las carpetas de test.
+-------------------------------------------------------------------------------
+- RIESGOS Y DEPENDENCIAS ANALIZADAS -------------------------------------------
+- ADD Rd, Rs, Rt:
+	Dependencia de datos ADD-NOP. Lo considera, pero no supone riesgo.
+    ADD R0, R1, R1      ; La UA considera la anticipacion.
+    nop                 ; No supone ningun riesgo.
+    nop                 ;
+
+	Dependencia de datos ADD-ADD. Nvl +1, +2. Desde Rs, Rt, ambos => UA (EX-MEM).
+    ADD R3, R1, R1      ; Se soluciona con UA.
+    ADD R4, R3, R1      ; Nivel +1.
+    ADD R5, R3, R1      ; Nivel +2.
+
+	Dependencia de datos ADD-LW. Nvl +1, +2. Desde Rs => UA (EX-MEM).
+    ADD R3, R1, R1      ; Se soluciona con UA.
+    LW  R5, 0(R3)       ; Nivel +1.
+    LW  R1, 4(R3)       ; Nivel +2.
+
+	Dependencia de datos ADD-SW. Nvl +1, +2. Desde Rs, Rt, ambos => UA (EX-MEM).
+    ADD R3, R1, R1      ; Se soluciona con UA.
+    SW  R6, 0(R3)       ; Nivel +1.
+    SW  R3, 4(R3)       ; Nivel +2.
+
+    Dependencia de datos ADD-BEQ. Nvl +1, +2. Desde Rs, Rt, ambos => UD (se debe bloquear).
+    ADD R2, R1, R1      ; Se soluciona con UD. Nivel +1:   F D E M W
+    BEQ R1, R2, 0       ; Rw = Rt.                            F D D D E M W
+     ó BEQ R2, R1, 0    ; Rw = Rs.         
+     ó BEQ R2, R2, 0    ; Rw = Rs = Rt. 
+     
+    ADD R2, R1, R1      ; Se soluciona con UD. Nivel +2:   F D E M W
+    ADD R3, R2, R1      ;                                     F D E M W
+    BEQ R1, R2, 0       ; Rw = Rt.                              F D D E M W
+     ó BEQ R2, R1, 0    ; Rw = Rs.
+     ó BEQ R2, R2, 0    ; Rw = Rs = Rt.  
+
+	Dependencia de datos ADD-ADDFP. No existe dependencia.
+
+	Dependencia de datos ADD-LWFP. Nvl +1, +2. Desde Rs => UA(EX-MEM).
+    ADD  R3, R1, R1     ; Se soluciona con UA.
+    LWFP FP4, 0(R3)      ; Nivel +1.
+    LWFP FP4, 8(R3)      ; Nivel +2.
+
+	Dependencia de datos ADD-SWFP. Nvl +1, +2. Desde Rs => UA(EX-MEM).
+    ADD  R3, R1, R1     ; Se soluciona con UA.
+    SWFP FP5, 0(R3)     ; Nivel +1.
+    SWFP FP5, 4(R3)     ; Nivel +2.
+
+- LW Rt, inm(Rs):
+	Riesgo de datos (Ld-Uso). LW-NOP. Lo debe ignorar.
+    LW R0, 0(R1)        ; La UD debe ignorar el caso. 
+    nop                 ; Rw = Rs & Rw = Rt.
+    nop                 ; Pero no hay riesgo.
+
+	Riesgo de datos (Ld-Uso). LW-ADD. Nvl +1. Desde Rs, Rt, ambos => UD.
+    LW R1, 0(R0)        ; Se soluciona con UD + anticipacion UA. Nivel +1: 
+    ADD R2, R1, R0      ; Riesgo Rw = Rs.
+     ó ADD R2, R0, R1   ; Riesgo Rw = Rt.
+     ó ADD R2, R1, R1   ; Riesgo Rw = Rs = Rt.
+    No existe riesgo en Nivel +2.
+
+	Riesgo de datos (Ld-Uso). LW-LW. Nvl +1. Desde Rs, Rt, ambos => UD.
+    LW R1, 0(R0)        ; Se soluciona con UD + anticipacion UA. Nivel +1:
+    LW R0, 4(R1)        ; Riesgo Rw = Rs.
+    No existe riesgo de Nivel +2.
+
+	Riesgo de datos (Ld-Uso). LW-SW. Nvl +1. Desde Rs, Rt, ambos => UD.
+    LW R1, 0(R0)        ; Se soluciona con UD + anticipacion UA. Nivel +1:
+    SW R1, 4(R0)        ; Riesgo Rw = Rt
+     ó SW R2, 4(R1)     ; Riesgo Rw = Rs
+     ó SW R1, 4(R1)     ; Riesgo Rw = Rs = Rt
+    No existe riesgo de Nivel +2.
+
+	Riesgo de datos (Ld-Uso). LW-BEQ. Nvl +1. Desde Rs, Rt, ambos => UD.
+
+	Riesgo de datos (Ld-Uso). LW-ADDFP. No existe dependencia.
+
+	Riesgo de datos (Ld-Uso). LW-LWFP. Nvl +1. Desde Rs => UD.
+    LW R2, 0(R0)       ; Se soluciona con UD + anticipacion UA. Nivel +1:
+    LWFP FP1, 0(R2)    ; Riesgo Rw = Rs.
+    No existe riesgo de Nivel +2. 
+
+	Riesgo de datos (Ld-Uso). LW-SWFP. Nvl +1. Desde Rs => UD.
+    LW R2, 0(R0)       ; Se soluciona con UD + anticipacion UA. Nivel +1:
+    SWFP FP1, 0(R2)    ; Riesgo Rw = Rs. Consume de MIPSINT solo por Rs.
+    No existe riesgo de Nivel +2.
+
+- SW  Rt, inm(Rs):
+    Solo existe dependencia con SW. No produce.
+
+- BEQ Rs, Rt, inm:
+    Riesgo de control. BEQ-INST. Nvl +1 => UD. Puede o no tomar el salto.
+    BEQ R0, R3, 3       ; Se soluciona con UD. Nivel +1:
+    Instruccion         ; Se puede o no producir el salto.
+    No existe riesgo de Nivel +2.
+    
+- ADDFP Rdfp, Rsfp, Rtfp:
+    Riesgo estructural. ADDFP-INST. Atrasa todas las intrucciones x ciclos:
+    ADDFP FP0, FP1, FP3 ; Se soluciona con UD. Nivel +1:
+    Instruccion         ; Hasta que FP_done = 1 se retrasa x ciclo toda instruccion.
+
+    Riesgo de datos. ADDFP-ADDFP. Nvl +1, Nvl +2. Desde FPs, FPt, ambos.
+    ADDFP FP0, FP1, FP3 ; Se soluciona con UD. Nivel +1:
+    ADDFP FP2, FP0, FP3 ; Dependencia de datos pero el riesgo estructural es mas predominante.
+
+    Riesgo de datos. ADDFP-SWFP. Nvl +1, Nvl +2. Desde FPt.
+
+    No existen mas riesgos de datos con ADDFP.
+
+
+- LWFP  Rtfp, inm(Rs):
+    No existen riesgos de datos con LWFP e instrucciones del MIPSINT.
+
+    Riesgo de datos. LWFP-ADDFP. Nvl +1, +2. Desde FPs, FPt => UD.
+    LWFP FP1, 0(R1)         ; Se soluciona con UD. Nivel +1:    F D E M W
+    ADDFP FP2, FP1, FP0     ; FPw = FPs                           F D D D E M W
+     ó ADDFP FP2, FP0, FP1  ; FPw = FPt
+     ó ADDFP FP2, FP1, FP1  ; FPw = FPs = FPw
+
+    LWFP FP1, 0(R1)         ; Se soluciona con UD. Nivel +2:    F D E M W
+    ADD R1, R1, R0          ;                                     F D E M W
+    ADDFP FP2, FP1, FP0     ; FPw = FPs                             F D D E M W
+     ó ADDFP FP2, FP0, FP1  ; FPw = FPt
+     ó ADDFP FP2, FP1, FP1  ; FPw = FPs = FPw
+
+    No existe riesgo entre dos LWFP.
+
+    Riesgo de datos. LWFP-SWFP. Nvl +1, +2. Desde FPt => UD.
+    LWFP FP1, 0(R1)         ; Se soluciona con UD. Nivel +2:    F D E M W
+    ADD R1, R1, R0          ;                                     F D E M W
+    SWFP FP1, 4(R1)         ; FPw = FPt                             F D D E M W     
+
+    LWFP FP1, 0(R1)         ; Se soluciona con UD. Nivel +1:    F D E M W
+    SWFP FP1, 4(R1)         ; FPw = FPt                           F D D D E M W
+
+    LWFP FP1, 0(R1)         ; Se soluciona con UD. Nivel +2:    F D E M W
+    ADD R1, R1, R0          ;                                     F D E M W
+    SWFP FP1, 4(R1)         ; FPw = FPt                             F D D E M W
+
+
+- SWFP  Rtfp, inm(Rs):
+	Solo existe dependencia con SWFP. No produce.
+-------------------------------------------------------------------------------
