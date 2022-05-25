@@ -38,18 +38,19 @@ entity UC_MC is
 		hit0               : in STD_LOGIC; -- Se activa si hay acierto en la via 0.
 		hit1               : in STD_LOGIC; -- Se activa si hay acierto en la via 1.
 		addr_non_cacheable : in STD_LOGIC; -- Indica que la direccion no debe almacenarse en MC. En este caso porque pertenece a la scratch.
-		bus_TRDY           : in STD_LOGIC; -- Indica que el esclavo no puede realizar la operacion solicitada en este ciclo.
-		Bus_DevSel         : in STD_LOGIC; -- Indica que el esclavo ha reconocido que la direccion esta dentro de su rango.
-		via_2_rpl          : in STD_LOGIC; -- Indica que via se va a reemplazar.
-		Bus_grant          : in STD_LOGIC; -- Indica la concesion del uso del bus.
-		Bus_req      	   : out STD_LOGIC; -- Indica la peticion al arbitro del uso del bus.
+		bus_TRDY           : in STD_LOGIC; -- Indica que el esclavo no puede realizar la operacion solicitada en este ciclo
+		Bus_DevSel         : in STD_LOGIC; -- Indica que el esclavo ha reconocido que la direccion esta dentro de su rango
+		via_2_rpl          : in STD_LOGIC; -- Indica que via se va a reemplazar
+		Bus_grant          : in STD_LOGIC; -- Indica la concesion del uso del bus
+		req_word		   : in STD_LOGIC_VECTOR (1 downto 0); -- Indica la palabra pedida por el procesador.
+		Bus_req      	   : out STD_LOGIC; -- Indica la peticion al arbitro del uso del bus
         buffer_enable	   : out STD_LOGIC; -- Habilita los buffers de direccion y datos.
 		rd_wr_addr		   : out STD_LOGIC;	-- Elige entre direccion de lectura o escritura.
 		MC_WE0       	   : out STD_LOGIC; -- Write enable de la via 0.
         MC_WE1       	   : out STD_LOGIC; -- Write enable de la via 1.
         MC_bus_Rd_Wr 	   : out STD_LOGIC; -- 0 si lectura, 1 si escritura en Memoria.
-        MC_tags_WE 		   : out STD_LOGIC; -- Para escribir la etiqueta en la memoria de etiquetas.
-        palabra    		   : out STD_LOGIC_VECTOR (1 downto 0); -- Indica la palabra actual dentro de una transferencia de bloque (1, 2, ...).
+        MC_tags_WE 		   : out STD_LOGIC; -- Para escribir la etiqueta en la memoria de etiquetas
+        palabra    		   : out STD_LOGIC_VECTOR (1 downto 0); -- Indica la palabra actual dentro de una transferencia de bloque (1, 2...)
         mux_origen 		   : out STD_LOGIC; -- Se utiliza para elegir si el origen de la direccion y el dato es el Mips (cuando vale 0) o la UC y el bus (cuando vale 1)
         ready      		   : out STD_LOGIC; -- indica si podemos procesar la orden actual del MIPS en este ciclo. En caso contrario habra que detener el MIPs
         block_addr 		   : out STD_LOGIC; -- indica si la direccion a enviar es la de bloque (rm) o la de palabra (w)
@@ -171,7 +172,7 @@ end process;
 
 -- Automata Mealy.
 OUTPUT_DECODE: process (state, RE, WE, hit0, hit1, hit, addr_non_cacheable, 
-	bus_TRDY, Bus_DevSel, via_2_rpl, Bus_grant, last_word_block)
+	bus_TRDY, Bus_DevSel, via_2_rpl, Bus_grant, last_word_block, req_word, palabra_UC)
 begin
 	-- Valores por defecto.
 	next_state <= state;
@@ -202,9 +203,11 @@ begin
 			ready <= '1';
 		else
 			Bus_req <= '1';
+
 			if (Bus_grant = '1') then
 				next_state <= Send_addr;
 				e_busy_rd_wr <= '1';
+
 				if (WE = '1') then
 					set_busy_rd_wr <= '1';
 					buffer_enable <= '1';
@@ -219,15 +222,18 @@ begin
 	elsif (state = Send_addr) then 
 		MC_send_addr_ctrl <= '1';
 		Frame <= '1';
+
 		if (busy_rd_wr = '0') then
 			block_addr <= not(addr_non_cacheable);
 		else 
 			rd_wr_addr <= '1';
 			MC_bus_Rd_Wr <= '1';
+
 			if (RE = '0' and WE = '0') or (hit = '1' and RE = '1') then
 				ready <= '1';
-			end if;		
+			end if;
 		end if;
+
 		if (Bus_DevSel = '1') then
 			next_state <= Data_trnf;
 		end if;
@@ -243,14 +249,23 @@ begin
 					MC_WE0 <= not(via_2_rpl);
 					MC_WE1 <= via_2_rpl;
 
+					if (req_word = palabra_UC) then
+						ready <= '1';
+						mux_output <= '1';
+					end if;
+
 					if (last_word_block = '1') then
 						next_state <= Fetch;
 						MC_tags_WE <= '1';
 						last_word  <= '1';
 					end if;
+
+					-- if (RE = '0' and WE = '0') then 
+					-- 	ready <= '1';
+					-- end if;
 				else
 					next_state <= Fetch;
-					ready 	   <= '1';
+					ready <= '1';
 					mux_output <= '1';
 					last_word  <= '1';
 				end if;
@@ -258,6 +273,7 @@ begin
 				next_state <= Fetch;
 				MC_send_data <= '1';
 				last_word <= '1';
+
 				if (RE = '0' and WE = '0') or (hit = '1' and RE = '1') then
 					ready <= '1';
 				end if;

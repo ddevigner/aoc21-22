@@ -30,28 +30,25 @@ use IEEE.STD_LOGIC_1164.ALL;
 --use UNISIM.VComponents.all;
 
 entity reg32 is
-    Port ( Din : in  STD_LOGIC_VECTOR (31 downto 0);
-           clk : in  STD_LOGIC;
-			  reset : in  STD_LOGIC;
-           load : in  STD_LOGIC;
-           Dout : out  STD_LOGIC_VECTOR (31 downto 0));
+   Port (
+		Din : in  STD_LOGIC_VECTOR (31 downto 0);
+        clk : in  STD_LOGIC;
+		reset : in  STD_LOGIC;
+        load : in  STD_LOGIC;
+        Dout : out  STD_LOGIC_VECTOR (31 downto 0)
+	);
 end reg32;
 
 architecture Behavioral of reg32 is
-
 begin
-SYNC_PROC: process (clk)
-   begin
-      if (clk'event and clk = '1') then
-         if (reset = '1') then
-            Dout <= "00000000000000000000000000000000";
-         else
-            if (load='1') then 
-					Dout <= Din;
-				end if;	
-         end if;        
-      end if;
-   end process;
-
+	SYNC_PROC: process (clk)
+	begin
+	    if (clk'event and clk = '1') then
+	        if (reset = '1') then
+	            Dout <= "00000000000000000000000000000000";
+	        elsif (load='1') then 
+				Dout <= Din;
+			end if;	
+	    end if;
+	end process;
 end Behavioral;
-
