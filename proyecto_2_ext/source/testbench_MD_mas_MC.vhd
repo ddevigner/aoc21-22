@@ -130,7 +130,7 @@ begin
 	---------------------------------------------------------------------------
 	-- Debe ser un fallo de escritura. NO se trae el bloque. Escribimos FF en 
 	-- memoria.
-	Addr <= conv_std_logic_vector(76, 32); -- x"0000004C"
+	Addr <= conv_std_logic_vector(96, 32); -- x"0000004C"
 	RE <= '0';
 	WE <= '1';
 	wait for 1 ns;
@@ -147,7 +147,7 @@ begin
 	wait for clk_period;
 
 	---------------------------------------------------------------------------
-	-- Prueba 5. Read-Miss: TAG2 SET0 W1
+	-- Prueba 5. Read-Miss: TAG2 SET0 W1 WORD 0.
 	--	@MC_T[SET0] = 2, @MC_D[SET0 W1 0-3] = [0x9,0xa,0xb,0xc]
 	---------------------------------------------------------------------------
 	-- IO_input. Tercer valor
@@ -172,7 +172,7 @@ begin
 	wait for clk_period;
 
 	---------------------------------------------------------------------------
-	-- Prueba 6. Read-Hit: TAG1 SET0 W0
+	-- Prueba 6. Read-Hit: TAG1 SET0 W0 WORD 0.
 	--	Dout = @MC_D[SET0 W0 0] = 1
 	---------------------------------------------------------------------------
 	-- Debe ser acierto de lectura.
@@ -193,7 +193,7 @@ begin
 	wait for clk_period;
 
 	---------------------------------------------------------------------------
-	-- Prueba 7. Read-Miss: TAG4 SET0 W0
+	-- Prueba 7. Read-Miss: TAG4 SET0 W0 WORD 0
 	--	@MC_T[SET0] = 4, @MC_D[SET0 W1 0-3] = [0xc,0xd,0xe,0xf]
 	---------------------------------------------------------------------------
 	-- Debe ser fallo de lectura y reemplazar el cjto 0 de la via 0. Traemos 
@@ -215,7 +215,7 @@ begin
 	wait for clk_period;
 
 	---------------------------------------------------------------------------
-	-- Prueba 8. Read-Miss: TAG3 SET0 W1
+	-- Prueba 8. Read-Miss: TAG3 SET0 W1 WORD 0
 	--	@MC_T[SET0] = 3, @MC_D[SET0 W1 0-3] = [0x10,0x11,0x12,0x13]
 	---------------------------------------------------------------------------
 	-- Debe ser fallo de lectura y reemplazar el cjto 0 de la via 1. Traemos 

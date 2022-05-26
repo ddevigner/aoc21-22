@@ -226,7 +226,7 @@ begin
 				end if;
 			else
 				buffer_enable <= '1';
-				next_state <= Send_addr;
+				next_state <= Sav_state;
 				set_busy_wr <= '1';
 				wr_enable <= '1';
 				MC_WE0 <= hit0;

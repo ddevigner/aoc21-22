@@ -138,16 +138,13 @@ Model Technology ModelSim - Intel FPGA Edition vcom 2021.1 Compiler 2021.02 Feb 
 -- Compiling entity two_bits_shifter
 -- Compiling architecture Behavioral of two_bits_shifter
 
-} {} {}} {G:/Mi unidad/unizar/ingi_ii/aoc2/aoc21-22/proyecto_2_ext/source/testbench_MD_mas_MC.vhd} {1 {vcom -work work -2002 -explicit -stats=none {G:/Mi unidad/unizar/ingi_ii/aoc2/aoc21-22/proyecto_2_ext/source/testbench_MD_mas_MC.vhd}
+} {} {}} {G:/Mi unidad/unizar/ingi_ii/aoc2/aoc21-22/proyecto_2_ext/source/UC_MC.vhd} {1 {vcom -work work -2002 -explicit -stats=none {G:/Mi unidad/unizar/ingi_ii/aoc2/aoc21-22/proyecto_2_ext/source/UC_MC.vhd}
 Model Technology ModelSim - Intel FPGA Edition vcom 2021.1 Compiler 2021.02 Feb  3 2021
 -- Loading package STANDARD
 -- Loading package TEXTIO
 -- Loading package std_logic_1164
--- Loading package NUMERIC_STD
--- Loading package std_logic_arith
--- Loading package STD_LOGIC_UNSIGNED
--- Compiling entity testbench_MD_mas_MC
--- Compiling architecture behavior of testbench_MD_mas_MC
+-- Compiling entity UC_MC
+-- Compiling architecture Behavioral of UC_MC
 
 } {} {}} {G:/Mi unidad/unizar/ingi_ii/aoc2/aoc21-22/proyecto_2_ext/source/reg1.vhd} {1 {vcom -work work -2002 -explicit -stats=none {G:/Mi unidad/unizar/ingi_ii/aoc2/aoc21-22/proyecto_2_ext/source/reg1.vhd}
 Model Technology ModelSim - Intel FPGA Edition vcom 2021.1 Compiler 2021.02 Feb  3 2021

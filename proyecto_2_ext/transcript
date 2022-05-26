@@ -3506,3 +3506,400 @@ run
 # ** Note: Simulation time : 185000 ps.  Data written: 0, in ADDR = 0
 #    Time: 185 ns  Iteration: 1  Instance: /testbench_md_mas_mc/uut/M_scratch/MD_scratch
 run
+# Compile of UC_MC.vhd was successful.
+restart
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# Loading work.uc_mc(behavioral)
+run
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /testbench_md_mas_mc/uut/M_scratch
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /testbench_md_mas_mc/uut/controlador_MD
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /testbench_md_mas_mc/uut/controlador_MD
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /testbench_md_mas_mc/uut/controlador_MD
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /testbench_md_mas_mc/uut/controlador_MD
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /testbench_md_mas_mc/uut/controlador_MD
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /testbench_md_mas_mc/uut/controlador_MD
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /testbench_md_mas_mc/uut/MC/Info_FIFO
+# ** Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+#    Time: 0 ps  Iteration: 0  Instance: /testbench_md_mas_mc/uut/MC/Info_FIFO
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /testbench_md_mas_mc/uut/MC/Via_1
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /testbench_md_mas_mc/uut/MC/Via_1
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /testbench_md_mas_mc/uut/MC/Via_1
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /testbench_md_mas_mc/uut/MC/Via_1
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /testbench_md_mas_mc/uut/MC/Via_1
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /testbench_md_mas_mc/uut/MC/Via_1
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /testbench_md_mas_mc/uut/MC/Via_1
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /testbench_md_mas_mc/uut/MC/Via_1
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /testbench_md_mas_mc/uut/MC/Via_1
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /testbench_md_mas_mc/uut/MC/Via_1
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /testbench_md_mas_mc/uut/MC/Via_1
+# ** Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+#    Time: 0 ps  Iteration: 0  Instance: /testbench_md_mas_mc/uut/MC/Via_1
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /testbench_md_mas_mc/uut/MC/Via_0
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /testbench_md_mas_mc/uut/MC/Via_0
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /testbench_md_mas_mc/uut/MC/Via_0
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /testbench_md_mas_mc/uut/MC/Via_0
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /testbench_md_mas_mc/uut/MC/Via_0
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /testbench_md_mas_mc/uut/MC/Via_0
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /testbench_md_mas_mc/uut/MC/Via_0
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /testbench_md_mas_mc/uut/MC/Via_0
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /testbench_md_mas_mc/uut/MC/Via_0
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /testbench_md_mas_mc/uut/MC/Via_0
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /testbench_md_mas_mc/uut/MC/Via_0
+# ** Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+#    Time: 0 ps  Iteration: 0  Instance: /testbench_md_mas_mc/uut/MC/Via_0
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /testbench_md_mas_mc/uut/MC
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 1  Instance: /testbench_md_mas_mc/uut/controlador_MD
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 1  Instance: /testbench_md_mas_mc/uut/M_scratch
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 1  Instance: /testbench_md_mas_mc/uut/controlador_MD
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 1  Instance: /testbench_md_mas_mc/uut/controlador_MD
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 1  Instance: /testbench_md_mas_mc/uut/MC/Via_1
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 1  Instance: /testbench_md_mas_mc/uut/MC/Via_0
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 2  Instance: /testbench_md_mas_mc/uut/controlador_MD
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 5 ns  Iteration: 2  Instance: /testbench_md_mas_mc/uut/controlador_MD
+run
+run
+run
+run
+run
+run
+run
+run
+run
+# ** Note: Simulation time : 95000 ps.  Data written in via 0: 1, in Dir_cjto = 0
+#    Time: 95 ns  Iteration: 1  Instance: /testbench_md_mas_mc/uut/MC/Via_0
+run
+run
+# ** Note: Simulation time : 115000 ps.  Data written in via 0: 2, in Dir_cjto = 0
+#    Time: 115 ns  Iteration: 1  Instance: /testbench_md_mas_mc/uut/MC/Via_0
+run
+run
+# ** Note: Simulation time : 135000 ps.  Data written in via 0: 3, in Dir_cjto = 0
+#    Time: 135 ns  Iteration: 1  Instance: /testbench_md_mas_mc/uut/MC/Via_0
+run
+run
+# ** Note: Simulation time : 155000 ps.  Data written in via 0: 4, in Dir_cjto = 0
+#    Time: 155 ns  Iteration: 1  Instance: /testbench_md_mas_mc/uut/MC/Via_0
+# ** Note: Simulation time : 155000 ps.  Tag written in via 0: 1, in Dir_cjto = 0
+#    Time: 155 ns  Iteration: 1  Instance: /testbench_md_mas_mc/uut/MC/Via_0
+run
+run
+# ** Note: Simulation time : 175000 ps.  Data written in via 0: 255, in Dir_cjto = 0
+#    Time: 175 ns  Iteration: 1  Instance: /testbench_md_mas_mc/uut/MC/Via_0
+run
+# ** Note: Simulation time : 185000 ps.  Data written: 2048, in ADDR = 0
+#    Time: 185 ns  Iteration: 1  Instance: /testbench_md_mas_mc/uut/M_scratch/MD_scratch
+run
+run
+run
+run
+run
+run
+run
+run
+# ** Note: Simulation time : 265000 ps.  Data written: 255, in ADDR = 72
+#    Time: 265 ns  Iteration: 1  Instance: /testbench_md_mas_mc/uut/controlador_MD/MD
+run
+# ** Note: Simulation time : 275000 ps.  Data written in via 0: 255, in Dir_cjto = 0
+#    Time: 275 ns  Iteration: 1  Instance: /testbench_md_mas_mc/uut/MC/Via_0
+run
+# Compile of testbench_MD_mas_MC.vhd was successful.
+restart
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# Loading work.testbench_md_mas_mc(behavior)
+run
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /testbench_md_mas_mc/uut/M_scratch
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /testbench_md_mas_mc/uut/controlador_MD
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /testbench_md_mas_mc/uut/controlador_MD
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /testbench_md_mas_mc/uut/controlador_MD
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /testbench_md_mas_mc/uut/controlador_MD
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /testbench_md_mas_mc/uut/controlador_MD
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /testbench_md_mas_mc/uut/controlador_MD
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /testbench_md_mas_mc/uut/MC/Info_FIFO
+# ** Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+#    Time: 0 ps  Iteration: 0  Instance: /testbench_md_mas_mc/uut/MC/Info_FIFO
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /testbench_md_mas_mc/uut/MC/Via_1
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /testbench_md_mas_mc/uut/MC/Via_1
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /testbench_md_mas_mc/uut/MC/Via_1
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /testbench_md_mas_mc/uut/MC/Via_1
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /testbench_md_mas_mc/uut/MC/Via_1
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /testbench_md_mas_mc/uut/MC/Via_1
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /testbench_md_mas_mc/uut/MC/Via_1
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /testbench_md_mas_mc/uut/MC/Via_1
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /testbench_md_mas_mc/uut/MC/Via_1
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /testbench_md_mas_mc/uut/MC/Via_1
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /testbench_md_mas_mc/uut/MC/Via_1
+# ** Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+#    Time: 0 ps  Iteration: 0  Instance: /testbench_md_mas_mc/uut/MC/Via_1
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /testbench_md_mas_mc/uut/MC/Via_0
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /testbench_md_mas_mc/uut/MC/Via_0
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /testbench_md_mas_mc/uut/MC/Via_0
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /testbench_md_mas_mc/uut/MC/Via_0
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /testbench_md_mas_mc/uut/MC/Via_0
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /testbench_md_mas_mc/uut/MC/Via_0
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /testbench_md_mas_mc/uut/MC/Via_0
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /testbench_md_mas_mc/uut/MC/Via_0
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /testbench_md_mas_mc/uut/MC/Via_0
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /testbench_md_mas_mc/uut/MC/Via_0
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /testbench_md_mas_mc/uut/MC/Via_0
+# ** Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+#    Time: 0 ps  Iteration: 0  Instance: /testbench_md_mas_mc/uut/MC/Via_0
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /testbench_md_mas_mc/uut/MC
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 1  Instance: /testbench_md_mas_mc/uut/controlador_MD
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 1  Instance: /testbench_md_mas_mc/uut/M_scratch
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 1  Instance: /testbench_md_mas_mc/uut/controlador_MD
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 1  Instance: /testbench_md_mas_mc/uut/controlador_MD
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 1  Instance: /testbench_md_mas_mc/uut/MC/Via_1
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 1  Instance: /testbench_md_mas_mc/uut/MC/Via_0
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 2  Instance: /testbench_md_mas_mc/uut/controlador_MD
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 5 ns  Iteration: 2  Instance: /testbench_md_mas_mc/uut/controlador_MD
+run
+run
+run
+run
+run
+run
+run
+run
+run
+# ** Note: Simulation time : 95000 ps.  Data written in via 0: 1, in Dir_cjto = 0
+#    Time: 95 ns  Iteration: 1  Instance: /testbench_md_mas_mc/uut/MC/Via_0
+run
+run
+# ** Note: Simulation time : 115000 ps.  Data written in via 0: 2, in Dir_cjto = 0
+#    Time: 115 ns  Iteration: 1  Instance: /testbench_md_mas_mc/uut/MC/Via_0
+run
+run
+# ** Note: Simulation time : 135000 ps.  Data written in via 0: 3, in Dir_cjto = 0
+#    Time: 135 ns  Iteration: 1  Instance: /testbench_md_mas_mc/uut/MC/Via_0
+run
+run
+# ** Note: Simulation time : 155000 ps.  Data written in via 0: 4, in Dir_cjto = 0
+#    Time: 155 ns  Iteration: 1  Instance: /testbench_md_mas_mc/uut/MC/Via_0
+# ** Note: Simulation time : 155000 ps.  Tag written in via 0: 1, in Dir_cjto = 0
+#    Time: 155 ns  Iteration: 1  Instance: /testbench_md_mas_mc/uut/MC/Via_0
+run
+run
+# ** Note: Simulation time : 175000 ps.  Data written in via 0: 255, in Dir_cjto = 0
+#    Time: 175 ns  Iteration: 1  Instance: /testbench_md_mas_mc/uut/MC/Via_0
+run
+# ** Note: Simulation time : 185000 ps.  Data written: 2048, in ADDR = 0
+#    Time: 185 ns  Iteration: 1  Instance: /testbench_md_mas_mc/uut/M_scratch/MD_scratch
+run
+run
+run
+run
+run
+run
+run
+run
+# ** Note: Simulation time : 265000 ps.  Data written: 255, in ADDR = 72
+#    Time: 265 ns  Iteration: 1  Instance: /testbench_md_mas_mc/uut/controlador_MD/MD
+run
+run
+run
+# ** Note: Simulation time : 295000 ps.  Data written: 4096, in ADDR = 0
+#    Time: 295 ns  Iteration: 1  Instance: /testbench_md_mas_mc/uut/M_scratch/MD_scratch
+run
+run
+run
+run
+run
+run
+run
+run
+# ** Note: Simulation time : 375000 ps.  Data written: 255, in ADDR = 96
+#    Time: 375 ns  Iteration: 1  Instance: /testbench_md_mas_mc/uut/controlador_MD/MD
+run
+run
+run
+# ** Note: Simulation time : 405000 ps.  Data written: 4096, in ADDR = 0
+#    Time: 405 ns  Iteration: 1  Instance: /testbench_md_mas_mc/uut/M_scratch/MD_scratch
+run
+run
+run
+run
+run
+run
+run
+run
+# ** Note: Simulation time : 485000 ps.  Data written in via 1: 9, in Dir_cjto = 0
+#    Time: 485 ns  Iteration: 1  Instance: /testbench_md_mas_mc/uut/MC/Via_1
+run
+run
+# ** Note: Simulation time : 505000 ps.  Data written in via 1: 10, in Dir_cjto = 0
+#    Time: 505 ns  Iteration: 1  Instance: /testbench_md_mas_mc/uut/MC/Via_1
+run
+run
+# ** Note: Simulation time : 525000 ps.  Data written in via 1: 11, in Dir_cjto = 0
+#    Time: 525 ns  Iteration: 1  Instance: /testbench_md_mas_mc/uut/MC/Via_1
+run
+run
+# ** Note: Simulation time : 545000 ps.  Data written in via 1: 12, in Dir_cjto = 0
+#    Time: 545 ns  Iteration: 1  Instance: /testbench_md_mas_mc/uut/MC/Via_1
+# ** Note: Simulation time : 545000 ps.  Tag written in via 1: 2, in Dir_cjto = 0
+#    Time: 545 ns  Iteration: 1  Instance: /testbench_md_mas_mc/uut/MC/Via_1
+run
+run
+run
+# ** Note: Simulation time : 575000 ps.  Data written: 4096, in ADDR = 0
+#    Time: 575 ns  Iteration: 1  Instance: /testbench_md_mas_mc/uut/M_scratch/MD_scratch
+run
+run
+run
+run
+run
+run
+run
+run
+# ** Note: Simulation time : 655000 ps.  Data written in via 0: 12, in Dir_cjto = 0
+#    Time: 655 ns  Iteration: 1  Instance: /testbench_md_mas_mc/uut/MC/Via_0
+run
+run
+# ** Note: Simulation time : 675000 ps.  Data written in via 0: 13, in Dir_cjto = 0
+#    Time: 675 ns  Iteration: 1  Instance: /testbench_md_mas_mc/uut/MC/Via_0
+run
+run
+# ** Note: Simulation time : 695000 ps.  Data written in via 0: 14, in Dir_cjto = 0
+#    Time: 695 ns  Iteration: 1  Instance: /testbench_md_mas_mc/uut/MC/Via_0
+run
+run
+# ** Note: Simulation time : 715000 ps.  Data written in via 0: 15, in Dir_cjto = 0
+#    Time: 715 ns  Iteration: 1  Instance: /testbench_md_mas_mc/uut/MC/Via_0
+# ** Note: Simulation time : 715000 ps.  Tag written in via 0: 4, in Dir_cjto = 0
+#    Time: 715 ns  Iteration: 1  Instance: /testbench_md_mas_mc/uut/MC/Via_0
+run
+run
+run
+# ** Note: Simulation time : 745000 ps.  Data written: 4096, in ADDR = 0
+#    Time: 745 ns  Iteration: 1  Instance: /testbench_md_mas_mc/uut/M_scratch/MD_scratch
+run
+run
+run
+run
+run
+run
+run
+run
+# ** Note: Simulation time : 825000 ps.  Data written in via 1: 16, in Dir_cjto = 0
+#    Time: 825 ns  Iteration: 1  Instance: /testbench_md_mas_mc/uut/MC/Via_1
+run
+run
+# ** Note: Simulation time : 845000 ps.  Data written in via 1: 17, in Dir_cjto = 0
+#    Time: 845 ns  Iteration: 1  Instance: /testbench_md_mas_mc/uut/MC/Via_1
+run
+run
+# ** Note: Simulation time : 865000 ps.  Data written in via 1: 18, in Dir_cjto = 0
+#    Time: 865 ns  Iteration: 1  Instance: /testbench_md_mas_mc/uut/MC/Via_1
+run
+run
+# ** Note: Simulation time : 885000 ps.  Data written in via 1: 19, in Dir_cjto = 0
+#    Time: 885 ns  Iteration: 1  Instance: /testbench_md_mas_mc/uut/MC/Via_1
+# ** Note: Simulation time : 885000 ps.  Tag written in via 1: 3, in Dir_cjto = 0
+#    Time: 885 ns  Iteration: 1  Instance: /testbench_md_mas_mc/uut/MC/Via_1
+run
+run
+run
+# ** Note: Simulation time : 915000 ps.  Data written: 4096, in ADDR = 0
+#    Time: 915 ns  Iteration: 1  Instance: /testbench_md_mas_mc/uut/M_scratch/MD_scratch
+run
+run
+run
+# ** Note: Simulation time : 945000 ps.  Data written: 255, in ADDR = 4
+#    Time: 945 ns  Iteration: 1  Instance: /testbench_md_mas_mc/uut/M_scratch/MD_scratch
+run
+run
+run
+# ** Note: Simulation time : 975000 ps.  Data written: 4096, in ADDR = 0
+#    Time: 975 ns  Iteration: 1  Instance: /testbench_md_mas_mc/uut/M_scratch/MD_scratch
+run
+run
+run
+run
+run
+run
+run
+# ** Note: Simulation time : 1045000 ps.  Data written: 4096, in ADDR = 0
+#    Time: 1045 ns  Iteration: 1  Instance: /testbench_md_mas_mc/uut/M_scratch/MD_scratch
+run
+run
+run
+run
+run
