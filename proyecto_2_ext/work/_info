@@ -16,7 +16,7 @@ Z2 DPx4 ieee 18 std_logic_unsigned 0 22 ;eZjO2D4ZDz<]0>8AL<ne1
 Z3 DPx4 ieee 15 std_logic_arith 0 22 [G314=:2zXJ`VORJe1J@Z1
 Z4 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
 Z5 DPx4 ieee 14 std_logic_1164 0 22 cVAk:aDinOX8^VGI1ekP<3
-!i122 1336
+!i122 1470
 Z6 dG:/Mi unidad/unizar/ingi_ii/aoc2/aoc21-22/proyecto_2_ext
 Z7 8G:/Mi unidad/unizar/ingi_ii/aoc2/aoc21-22/proyecto_2_ext/source/adder32.vhd
 Z8 FG:/Mi unidad/unizar/ingi_ii/aoc2/aoc21-22/proyecto_2_ext/source/adder32.vhd
@@ -26,9 +26,9 @@ V2lc1KL8ze@Q`FPBf6RnMk0
 !s100 FdnT[E<XL_UiCO?C2]0L[0
 Z10 OV;C;2021.1;73
 32
-Z11 !s110 1653573560
+Z11 !s110 1653586604
 !i10b 1
-Z12 !s108 1653573560.000000
+Z12 !s108 1653586604.000000
 Z13 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|G:/Mi unidad/unizar/ingi_ii/aoc2/aoc21-22/proyecto_2_ext/source/adder32.vhd|
 Z14 !s107 G:/Mi unidad/unizar/ingi_ii/aoc2/aoc21-22/proyecto_2_ext/source/adder32.vhd|
 !i113 1
@@ -41,7 +41,7 @@ R3
 R4
 R5
 DEx4 work 7 adder32 0 22 2lc1KL8ze@Q`FPBf6RnMk0
-!i122 1336
+!i122 1470
 l41
 Z17 L39 6
 VR23D[:o=jD_gHo:I?D:o^0
@@ -63,7 +63,7 @@ R2
 R3
 R4
 R5
-!i122 1337
+!i122 1471
 R6
 Z19 8G:/Mi unidad/unizar/ingi_ii/aoc2/aoc21-22/proyecto_2_ext/source/ALU.vhd
 Z20 FG:/Mi unidad/unizar/ingi_ii/aoc2/aoc21-22/proyecto_2_ext/source/ALU.vhd
@@ -73,11 +73,11 @@ V>8@8FKmkU9Gd`HeQ;cJWN3
 !s100 E`1`MV@OJiDZHNeDL6[b81
 R10
 32
-R11
+Z21 !s110 1653586605
 !i10b 1
 R12
-Z21 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|G:/Mi unidad/unizar/ingi_ii/aoc2/aoc21-22/proyecto_2_ext/source/ALU.vhd|
-Z22 !s107 G:/Mi unidad/unizar/ingi_ii/aoc2/aoc21-22/proyecto_2_ext/source/ALU.vhd|
+Z22 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|G:/Mi unidad/unizar/ingi_ii/aoc2/aoc21-22/proyecto_2_ext/source/ALU.vhd|
+Z23 !s107 G:/Mi unidad/unizar/ingi_ii/aoc2/aoc21-22/proyecto_2_ext/source/ALU.vhd|
 !i113 1
 R15
 R16
@@ -88,40 +88,40 @@ R3
 R4
 R5
 DEx4 work 3 alu 0 22 >8@8FKmkU9Gd`HeQ;cJWN3
-!i122 1337
+!i122 1471
 l42
 L40 11
 V4lh_e`;kMkBjdAoLQ4ANR3
 !s100 X[SimW`d>R`c<i=CA]RP[1
 R10
 32
-R11
+R21
 !i10b 1
 R12
-R21
 R22
+R23
 !i113 1
 R15
 R16
 Earbitro
-Z23 w1653512823
+Z24 w1653584274
 R4
 R5
-!i122 1338
+!i122 1472
 R6
-Z24 8G:/Mi unidad/unizar/ingi_ii/aoc2/aoc21-22/proyecto_2_ext/source/arbitro.vhd
-Z25 FG:/Mi unidad/unizar/ingi_ii/aoc2/aoc21-22/proyecto_2_ext/source/arbitro.vhd
+Z25 8G:/Mi unidad/unizar/ingi_ii/aoc2/aoc21-22/proyecto_2_ext/source/arbitro.vhd
+Z26 FG:/Mi unidad/unizar/ingi_ii/aoc2/aoc21-22/proyecto_2_ext/source/arbitro.vhd
 l0
-Z26 L32 1
+Z27 L32 1
 VNDT0zD[bUI@5PJDi:01gE0
 !s100 =EF8i4ozK>d:1a:dWmH2Y1
 R10
 32
-Z27 !s110 1653573561
+R21
 !i10b 1
-R12
-Z28 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|G:/Mi unidad/unizar/ingi_ii/aoc2/aoc21-22/proyecto_2_ext/source/arbitro.vhd|
-Z29 !s107 G:/Mi unidad/unizar/ingi_ii/aoc2/aoc21-22/proyecto_2_ext/source/arbitro.vhd|
+Z28 !s108 1653586605.000000
+Z29 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|G:/Mi unidad/unizar/ingi_ii/aoc2/aoc21-22/proyecto_2_ext/source/arbitro.vhd|
+Z30 !s107 G:/Mi unidad/unizar/ingi_ii/aoc2/aoc21-22/proyecto_2_ext/source/arbitro.vhd|
 !i113 1
 R15
 R16
@@ -129,38 +129,38 @@ Abehavioral
 R4
 R5
 DEx4 work 7 arbitro 0 22 NDT0zD[bUI@5PJDi:01gE0
-!i122 1338
+!i122 1472
 l52
 L46 36
 V;C7T>kD`DbPQOm_XfJVPN2
 !s100 WAaZNT7EagaK?:>RLKBa>0
 R10
 32
-R27
+R21
 !i10b 1
-R12
 R28
 R29
+R30
 !i113 1
 R15
 R16
 Ebanco_ex
-Z30 w1649794101
+Z31 w1649794101
 R4
 R5
-!i122 1339
+!i122 1473
 R6
-Z31 8G:/Mi unidad/unizar/ingi_ii/aoc2/aoc21-22/proyecto_2_ext/source/Banco_EX.vhd
-Z32 FG:/Mi unidad/unizar/ingi_ii/aoc2/aoc21-22/proyecto_2_ext/source/Banco_EX.vhd
+Z32 8G:/Mi unidad/unizar/ingi_ii/aoc2/aoc21-22/proyecto_2_ext/source/Banco_EX.vhd
+Z33 FG:/Mi unidad/unizar/ingi_ii/aoc2/aoc21-22/proyecto_2_ext/source/Banco_EX.vhd
 l0
-R26
+R27
 VM3DF?ZYIh7J2MIokF3=l?2
 !s100 6G=6fM4zLo@ez[]AA73_50
 R10
 32
-R27
+R21
 !i10b 1
-Z33 !s108 1653573561.000000
+R28
 Z34 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|G:/Mi unidad/unizar/ingi_ii/aoc2/aoc21-22/proyecto_2_ext/source/Banco_EX.vhd|
 Z35 !s107 G:/Mi unidad/unizar/ingi_ii/aoc2/aoc21-22/proyecto_2_ext/source/Banco_EX.vhd|
 !i113 1
@@ -170,16 +170,16 @@ Abehavioral
 R4
 R5
 DEx4 work 8 banco_ex 0 22 M3DF?ZYIh7J2MIokF3=l?2
-!i122 1339
+!i122 1473
 l69
 L67 45
 V=>OId_fS`PJ2R4Z3e4LML3
 !s100 dijY]c6fz47fD8QL]jVkK1
 R10
 32
-R27
+R21
 !i10b 1
-R33
+R28
 R34
 R35
 !i113 1
@@ -189,21 +189,21 @@ Ebanco_ex_fp
 R0
 R4
 R5
-!i122 1340
+!i122 1474
 R6
 Z36 8G:/Mi unidad/unizar/ingi_ii/aoc2/aoc21-22/proyecto_2_ext/source/Banco_EX_FP.vhd
 Z37 FG:/Mi unidad/unizar/ingi_ii/aoc2/aoc21-22/proyecto_2_ext/source/Banco_EX_FP.vhd
 l0
-R26
+R27
 V7l?Y1MbO9fTVRHhf]Fjh?2
 !s100 FlKQS;]B267XC@3azB_2N1
 R10
 32
-R27
+Z38 !s110 1653586606
 !i10b 1
-R33
-Z38 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|G:/Mi unidad/unizar/ingi_ii/aoc2/aoc21-22/proyecto_2_ext/source/Banco_EX_FP.vhd|
-Z39 !s107 G:/Mi unidad/unizar/ingi_ii/aoc2/aoc21-22/proyecto_2_ext/source/Banco_EX_FP.vhd|
+R28
+Z39 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|G:/Mi unidad/unizar/ingi_ii/aoc2/aoc21-22/proyecto_2_ext/source/Banco_EX_FP.vhd|
+Z40 !s107 G:/Mi unidad/unizar/ingi_ii/aoc2/aoc21-22/proyecto_2_ext/source/Banco_EX_FP.vhd|
 !i113 1
 R15
 R16
@@ -211,38 +211,38 @@ Abehavioral
 R4
 R5
 DEx4 work 11 banco_ex_fp 0 22 7l?Y1MbO9fTVRHhf]Fjh?2
-!i122 1340
+!i122 1474
 l58
 L56 34
 VH4gekX524Qld_=<[E>XT=3
 !s100 HL[;:B2@Wg4A]MBBB1[BP1
 R10
 32
-R27
-!i10b 1
-R33
 R38
+!i10b 1
+R28
 R39
+R40
 !i113 1
 R15
 R16
 Ebanco_id
-Z40 w1649780678
+Z41 w1649780678
 R4
 R5
-!i122 1341
+!i122 1475
 R6
-Z41 8G:/Mi unidad/unizar/ingi_ii/aoc2/aoc21-22/proyecto_2_ext/source/Banco_ID.vhd
-Z42 FG:/Mi unidad/unizar/ingi_ii/aoc2/aoc21-22/proyecto_2_ext/source/Banco_ID.vhd
+Z42 8G:/Mi unidad/unizar/ingi_ii/aoc2/aoc21-22/proyecto_2_ext/source/Banco_ID.vhd
+Z43 FG:/Mi unidad/unizar/ingi_ii/aoc2/aoc21-22/proyecto_2_ext/source/Banco_ID.vhd
 l0
 L8 1
 Vm;Bh<>n>FEf6^Ceg<oI`D3
 !s100 _m=b:l1iQPCbR2C>j9LbV3
 R10
 32
-Z43 !s110 1653573562
+R38
 !i10b 1
-Z44 !s108 1653573562.000000
+Z44 !s108 1653586606.000000
 Z45 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|G:/Mi unidad/unizar/ingi_ii/aoc2/aoc21-22/proyecto_2_ext/source/Banco_ID.vhd|
 Z46 !s107 G:/Mi unidad/unizar/ingi_ii/aoc2/aoc21-22/proyecto_2_ext/source/Banco_ID.vhd|
 !i113 1
@@ -252,14 +252,14 @@ Abehavioral
 R4
 R5
 DEx4 work 8 banco_id 0 22 m;Bh<>n>FEf6^Ceg<oI`D3
-!i122 1341
+!i122 1475
 l20
 L18 19
 V2UX3^F[UNI2UPXdDGTj:m0
 !s100 ;RP9P;j3>_]lU`h6Xfm1@3
 R10
 32
-R43
+R38
 !i10b 1
 R44
 R45
@@ -271,21 +271,21 @@ Ebanco_mem
 R0
 R4
 R5
-!i122 1342
+!i122 1476
 R6
 Z47 8G:/Mi unidad/unizar/ingi_ii/aoc2/aoc21-22/proyecto_2_ext/source/Banco_MEM.vhd
 Z48 FG:/Mi unidad/unizar/ingi_ii/aoc2/aoc21-22/proyecto_2_ext/source/Banco_MEM.vhd
 l0
-R26
+R27
 V2g>NXEd=ZnBkNX9L5PJK92
 !s100 ?USSIc9eczC<TE>;kaObE1
 R10
 32
-R43
+Z49 !s110 1653586607
 !i10b 1
 R44
-Z49 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|G:/Mi unidad/unizar/ingi_ii/aoc2/aoc21-22/proyecto_2_ext/source/Banco_MEM.vhd|
-Z50 !s107 G:/Mi unidad/unizar/ingi_ii/aoc2/aoc21-22/proyecto_2_ext/source/Banco_MEM.vhd|
+Z50 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|G:/Mi unidad/unizar/ingi_ii/aoc2/aoc21-22/proyecto_2_ext/source/Banco_MEM.vhd|
+Z51 !s107 G:/Mi unidad/unizar/ingi_ii/aoc2/aoc21-22/proyecto_2_ext/source/Banco_MEM.vhd|
 !i113 1
 R15
 R16
@@ -293,18 +293,18 @@ Abehavioral
 R4
 R5
 DEx4 work 9 banco_mem 0 22 2g>NXEd=ZnBkNX9L5PJK92
-!i122 1342
+!i122 1476
 l54
 L52 29
 V?EVJXzeiHnKH9]b>eSC[e3
 !s100 L3PLMMzSnSf5lMERo4k?l3
 R10
 32
-R43
+R49
 !i10b 1
 R44
-R49
 R50
+R51
 !i113 1
 R15
 R16
@@ -312,21 +312,21 @@ Ebanco_mem_fp
 R0
 R4
 R5
-!i122 1343
+!i122 1477
 R6
-Z51 8G:/Mi unidad/unizar/ingi_ii/aoc2/aoc21-22/proyecto_2_ext/source/Banco_MEM_FP.vhd
-Z52 FG:/Mi unidad/unizar/ingi_ii/aoc2/aoc21-22/proyecto_2_ext/source/Banco_MEM_FP.vhd
+Z52 8G:/Mi unidad/unizar/ingi_ii/aoc2/aoc21-22/proyecto_2_ext/source/Banco_MEM_FP.vhd
+Z53 FG:/Mi unidad/unizar/ingi_ii/aoc2/aoc21-22/proyecto_2_ext/source/Banco_MEM_FP.vhd
 l0
-R26
+R27
 VcSg>hIn52gD6lKW>GG3180
 !s100 :GldgPBz0mf9YgYiF:U@m0
 R10
 32
-R43
+R49
 !i10b 1
-R44
-Z53 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|G:/Mi unidad/unizar/ingi_ii/aoc2/aoc21-22/proyecto_2_ext/source/Banco_MEM_FP.vhd|
-Z54 !s107 G:/Mi unidad/unizar/ingi_ii/aoc2/aoc21-22/proyecto_2_ext/source/Banco_MEM_FP.vhd|
+Z54 !s108 1653586607.000000
+Z55 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|G:/Mi unidad/unizar/ingi_ii/aoc2/aoc21-22/proyecto_2_ext/source/Banco_MEM_FP.vhd|
+Z56 !s107 G:/Mi unidad/unizar/ingi_ii/aoc2/aoc21-22/proyecto_2_ext/source/Banco_MEM_FP.vhd|
 !i113 1
 R15
 R16
@@ -334,18 +334,18 @@ Abehavioral
 R4
 R5
 DEx4 work 12 banco_mem_fp 0 22 cSg>hIn52gD6lKW>GG3180
-!i122 1343
+!i122 1477
 l50
 L48 24
 VfOXCB2okGASR@bbdY]QaK3
 !s100 BfOLk[JQWfiFVHa@P_;YQ1
 R10
 32
-R43
+R49
 !i10b 1
-R44
-R53
 R54
+R55
+R56
 !i113 1
 R15
 R16
@@ -353,21 +353,21 @@ Ebanco_wb
 R0
 R4
 R5
-!i122 1344
+!i122 1478
 R6
-Z55 8G:/Mi unidad/unizar/ingi_ii/aoc2/aoc21-22/proyecto_2_ext/source/Banco_WB.vhd
-Z56 FG:/Mi unidad/unizar/ingi_ii/aoc2/aoc21-22/proyecto_2_ext/source/Banco_WB.vhd
+Z57 8G:/Mi unidad/unizar/ingi_ii/aoc2/aoc21-22/proyecto_2_ext/source/Banco_WB.vhd
+Z58 FG:/Mi unidad/unizar/ingi_ii/aoc2/aoc21-22/proyecto_2_ext/source/Banco_WB.vhd
 l0
-R26
+R27
 V6A=cFBZm83>MUH5Nk3bYN1
 !s100 Dj=ZgPh1G[ne]R]6kzWRW1
 R10
 32
-Z57 !s110 1653573563
+R49
 !i10b 1
-R44
-Z58 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|G:/Mi unidad/unizar/ingi_ii/aoc2/aoc21-22/proyecto_2_ext/source/Banco_WB.vhd|
-Z59 !s107 G:/Mi unidad/unizar/ingi_ii/aoc2/aoc21-22/proyecto_2_ext/source/Banco_WB.vhd|
+R54
+Z59 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|G:/Mi unidad/unizar/ingi_ii/aoc2/aoc21-22/proyecto_2_ext/source/Banco_WB.vhd|
+Z60 !s107 G:/Mi unidad/unizar/ingi_ii/aoc2/aoc21-22/proyecto_2_ext/source/Banco_WB.vhd|
 !i113 1
 R15
 R16
@@ -375,40 +375,40 @@ Abehavioral
 R4
 R5
 DEx4 work 8 banco_wb 0 22 6A=cFBZm83>MUH5Nk3bYN1
-!i122 1344
+!i122 1478
 l49
 L47 25
 VCFkN6_jhjhFYYW8W;h?T43
 !s100 ?^XIZeBV;I]WDim1HT2QW1
 R10
 32
-R57
+R49
 !i10b 1
-R44
-R58
+R54
 R59
+R60
 !i113 1
 R15
 R16
 Ebanco_wb_fp
-Z60 w1650358417
+Z61 w1650358417
 R4
 R5
-!i122 1345
+!i122 1479
 R6
-Z61 8G:/Mi unidad/unizar/ingi_ii/aoc2/aoc21-22/proyecto_2_ext/source/Banco_WB_FP.vhd
-Z62 FG:/Mi unidad/unizar/ingi_ii/aoc2/aoc21-22/proyecto_2_ext/source/Banco_WB_FP.vhd
+Z62 8G:/Mi unidad/unizar/ingi_ii/aoc2/aoc21-22/proyecto_2_ext/source/Banco_WB_FP.vhd
+Z63 FG:/Mi unidad/unizar/ingi_ii/aoc2/aoc21-22/proyecto_2_ext/source/Banco_WB_FP.vhd
 l0
-R26
+R27
 V;VziGH6l?=jL3hQDl8Nl52
 !s100 CcTl[2ke@VX1T_R`P>=o`0
 R10
 32
-R57
+Z64 !s110 1653586608
 !i10b 1
-Z63 !s108 1653573563.000000
-Z64 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|G:/Mi unidad/unizar/ingi_ii/aoc2/aoc21-22/proyecto_2_ext/source/Banco_WB_FP.vhd|
-Z65 !s107 G:/Mi unidad/unizar/ingi_ii/aoc2/aoc21-22/proyecto_2_ext/source/Banco_WB_FP.vhd|
+Z65 !s108 1653586608.000000
+Z66 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|G:/Mi unidad/unizar/ingi_ii/aoc2/aoc21-22/proyecto_2_ext/source/Banco_WB_FP.vhd|
+Z67 !s107 G:/Mi unidad/unizar/ingi_ii/aoc2/aoc21-22/proyecto_2_ext/source/Banco_WB_FP.vhd|
 !i113 1
 R15
 R16
@@ -416,18 +416,18 @@ Abehavioral
 R4
 R5
 DEx4 work 11 banco_wb_fp 0 22 ;VziGH6l?=jL3hQDl8Nl52
-!i122 1345
+!i122 1479
 l47
 L46 23
 VJ1TL:29>1jzA8IXaEkZhE0
 !s100 UL3Ob=PFVV7ES23;OEHjT3
 R10
 32
-R57
-!i10b 1
-R63
 R64
+!i10b 1
 R65
+R66
+R67
 !i113 1
 R15
 R16
@@ -437,19 +437,19 @@ R3
 R2
 R4
 R5
-!i122 1347
+!i122 1481
 R6
-Z66 8G:/Mi unidad/unizar/ingi_ii/aoc2/aoc21-22/proyecto_2_ext/source/BReg.vhd
-Z67 FG:/Mi unidad/unizar/ingi_ii/aoc2/aoc21-22/proyecto_2_ext/source/BReg.vhd
+Z68 8G:/Mi unidad/unizar/ingi_ii/aoc2/aoc21-22/proyecto_2_ext/source/BReg.vhd
+Z69 FG:/Mi unidad/unizar/ingi_ii/aoc2/aoc21-22/proyecto_2_ext/source/BReg.vhd
 l0
-Z68 L36 1
+Z70 L36 1
 VaN4JfV021[?kYSY23:L[X2
 !s100 _JHQejW;DO9M]5ihRHD:S1
 R10
 32
-Z69 !s110 1653573564
+R64
 !i10b 1
-Z70 !s108 1653573564.000000
+R65
 Z71 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|G:/Mi unidad/unizar/ingi_ii/aoc2/aoc21-22/proyecto_2_ext/source/BReg.vhd|
 Z72 !s107 G:/Mi unidad/unizar/ingi_ii/aoc2/aoc21-22/proyecto_2_ext/source/BReg.vhd|
 !i113 1
@@ -461,16 +461,16 @@ R2
 R4
 R5
 DEx4 work 4 breg 0 22 aN4JfV021[?kYSY23:L[X2
-!i122 1347
+!i122 1481
 l55
 L50 29
 VF:3djhWkLH_eDCd8n`7Cn1
 !s100 g5j38U]=Co;UeF7AK1FOz2
 R10
 32
-R69
+R64
 !i10b 1
-R70
+R65
 R71
 R72
 !i113 1
@@ -483,7 +483,7 @@ R2
 R3
 R4
 R5
-!i122 1348
+!i122 1482
 R6
 Z74 8G:/Mi unidad/unizar/ingi_ii/aoc2/aoc21-22/proyecto_2_ext/source/counter.vhd
 Z75 FG:/Mi unidad/unizar/ingi_ii/aoc2/aoc21-22/proyecto_2_ext/source/counter.vhd
@@ -493,11 +493,11 @@ VSI4Jhh]8YHONWn@YdhlYO3
 !s100 `oc8:4S[NBihaS_A5]C_Y1
 R10
 32
-Z76 !s110 1653573565
+Z76 !s110 1653586609
 !i10b 1
-R70
-Z77 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|G:/Mi unidad/unizar/ingi_ii/aoc2/aoc21-22/proyecto_2_ext/source/counter.vhd|
-Z78 !s107 G:/Mi unidad/unizar/ingi_ii/aoc2/aoc21-22/proyecto_2_ext/source/counter.vhd|
+Z77 !s108 1653586609.000000
+Z78 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|G:/Mi unidad/unizar/ingi_ii/aoc2/aoc21-22/proyecto_2_ext/source/counter.vhd|
+Z79 !s107 G:/Mi unidad/unizar/ingi_ii/aoc2/aoc21-22/proyecto_2_ext/source/counter.vhd|
 !i113 1
 R15
 R16
@@ -508,7 +508,7 @@ R3
 R4
 R5
 DEx4 work 7 counter 0 22 SI4Jhh]8YHONWn@YdhlYO3
-!i122 1348
+!i122 1482
 l41
 L39 19
 VcV6UE9RfENn4lfW>n[6OI3
@@ -517,23 +517,23 @@ R10
 32
 R76
 !i10b 1
-R70
 R77
 R78
+R79
 !i113 1
 R15
 R16
 Ecounter_2bits
-Z79 w1653237536
+Z80 w1653237536
 R1
 R2
 R3
 R4
 R5
-!i122 1349
+!i122 1483
 R6
-Z80 8G:/Mi unidad/unizar/ingi_ii/aoc2/aoc21-22/proyecto_2_ext/source/counter_2bits.vhd
-Z81 FG:/Mi unidad/unizar/ingi_ii/aoc2/aoc21-22/proyecto_2_ext/source/counter_2bits.vhd
+Z81 8G:/Mi unidad/unizar/ingi_ii/aoc2/aoc21-22/proyecto_2_ext/source/counter_2bits.vhd
+Z82 FG:/Mi unidad/unizar/ingi_ii/aoc2/aoc21-22/proyecto_2_ext/source/counter_2bits.vhd
 l0
 L29 1
 VeO6I9fIAmcYQo[a]:Nm2R1
@@ -542,7 +542,7 @@ R10
 32
 R76
 !i10b 1
-Z82 !s108 1653573565.000000
+R77
 Z83 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|G:/Mi unidad/unizar/ingi_ii/aoc2/aoc21-22/proyecto_2_ext/source/counter_2bits.vhd|
 Z84 !s107 G:/Mi unidad/unizar/ingi_ii/aoc2/aoc21-22/proyecto_2_ext/source/counter_2bits.vhd|
 !i113 1
@@ -555,7 +555,7 @@ R3
 R4
 R5
 DEx4 work 13 counter_2bits 0 22 eO6I9fIAmcYQo[a]:Nm2R1
-!i122 1349
+!i122 1483
 l40
 L38 16
 VZGWhZWnb8VcVRQXk^Z3=@2
@@ -564,7 +564,7 @@ R10
 32
 R76
 !i10b 1
-R82
+R77
 R83
 R84
 !i113 1
@@ -574,19 +574,19 @@ Eext_signo
 R0
 R4
 R5
-!i122 1350
+!i122 1484
 R6
 Z85 8G:/Mi unidad/unizar/ingi_ii/aoc2/aoc21-22/proyecto_2_ext/source/Ext_signo.vhd
 Z86 FG:/Mi unidad/unizar/ingi_ii/aoc2/aoc21-22/proyecto_2_ext/source/Ext_signo.vhd
 l0
-R26
+R27
 VnBe8S2WF]dQiBKhB1SGNQ3
 !s100 =jQT7hQEW^Q9VGDz6>Dnd0
 R10
 32
 R76
 !i10b 1
-R82
+R77
 Z87 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|G:/Mi unidad/unizar/ingi_ii/aoc2/aoc21-22/proyecto_2_ext/source/Ext_signo.vhd|
 Z88 !s107 G:/Mi unidad/unizar/ingi_ii/aoc2/aoc21-22/proyecto_2_ext/source/Ext_signo.vhd|
 !i113 1
@@ -596,7 +596,7 @@ Abehavioral
 R4
 R5
 DEx4 work 9 ext_signo 0 22 nBe8S2WF]dQiBKhB1SGNQ3
-!i122 1350
+!i122 1484
 l39
 L37 8
 V8:GL]GLPfA:Z_nG95UhkF2
@@ -605,7 +605,7 @@ R10
 32
 R76
 !i10b 1
-R82
+R77
 R87
 R88
 !i113 1
@@ -618,19 +618,19 @@ R2
 R1
 R4
 R5
-!i122 1351
+!i122 1485
 R6
 Z90 8G:/Mi unidad/unizar/ingi_ii/aoc2/aoc21-22/proyecto_2_ext/source/FIFO_reg.vhd
 Z91 FG:/Mi unidad/unizar/ingi_ii/aoc2/aoc21-22/proyecto_2_ext/source/FIFO_reg.vhd
 l0
-R68
+R70
 V0;HAOaQnHKjb;FU6f67;Z0
 !s100 <L4KcJ6fkWODj3N;dJSAL0
 R10
 32
-Z92 !s110 1653573566
+Z92 !s110 1653586610
 !i10b 1
-Z93 !s108 1653573566.000000
+Z93 !s108 1653586610.000000
 Z94 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|G:/Mi unidad/unizar/ingi_ii/aoc2/aoc21-22/proyecto_2_ext/source/FIFO_reg.vhd|
 Z95 !s107 G:/Mi unidad/unizar/ingi_ii/aoc2/aoc21-22/proyecto_2_ext/source/FIFO_reg.vhd|
 !i113 1
@@ -643,7 +643,7 @@ R1
 R4
 R5
 DEx4 work 8 fifo_reg 0 22 0;HAOaQnHKjb;FU6f67;Z0
-!i122 1351
+!i122 1485
 l50
 L46 31
 V<c5:j0m7[P=:=<lIOoGzd2
@@ -663,7 +663,7 @@ Z96 w1650555566
 R1
 R4
 R5
-!i122 1352
+!i122 1486
 R6
 Z97 8G:/Mi unidad/unizar/ingi_ii/aoc2/aoc21-22/proyecto_2_ext/source/fpadd.vhd
 Z98 FG:/Mi unidad/unizar/ingi_ii/aoc2/aoc21-22/proyecto_2_ext/source/fpadd.vhd
@@ -686,7 +686,7 @@ R1
 R4
 R5
 DEx4 work 10 fp_add_sub 0 22 7>5g:2;UkLd:efL0MJl572
-!i122 1352
+!i122 1486
 l50
 L34 156
 V<7mQh=_G>alZZT4S=`YVj1
@@ -702,10 +702,10 @@ R101
 R15
 R16
 Eio_master
-Z102 w1653407777
+Z102 w1653580826
 R4
 R5
-!i122 1353
+!i122 1487
 R6
 Z103 8G:/Mi unidad/unizar/ingi_ii/aoc2/aoc21-22/proyecto_2_ext/source/IO_master.vhd
 Z104 FG:/Mi unidad/unizar/ingi_ii/aoc2/aoc21-22/proyecto_2_ext/source/IO_master.vhd
@@ -715,11 +715,11 @@ V@F?2]^[Og[Mg@6ObPce1S1
 !s100 ^V;ebUf?REG8=7k?aRQ6b2
 R10
 32
-Z105 !s110 1653573567
+R92
 !i10b 1
 R93
-Z106 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|G:/Mi unidad/unizar/ingi_ii/aoc2/aoc21-22/proyecto_2_ext/source/IO_master.vhd|
-Z107 !s107 G:/Mi unidad/unizar/ingi_ii/aoc2/aoc21-22/proyecto_2_ext/source/IO_master.vhd|
+Z105 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|G:/Mi unidad/unizar/ingi_ii/aoc2/aoc21-22/proyecto_2_ext/source/IO_master.vhd|
+Z106 !s107 G:/Mi unidad/unizar/ingi_ii/aoc2/aoc21-22/proyecto_2_ext/source/IO_master.vhd|
 !i113 1
 R15
 R16
@@ -727,43 +727,43 @@ Abehavioral
 R4
 R5
 DEx4 work 9 io_master 0 22 @F?2]^[Og[Mg@6ObPce1S1
-!i122 1353
+!i122 1487
 l40
-L35 84
-VT:GFobCZ9<en:J_bQYdB>0
-!s100 2CfWJUBD_jFjEA6hKAM2?2
+L35 83
+VcjBP5RjHbZW0ITe5N<cHX1
+!s100 ASN4l3dfV]ZQ63l=dEP6O3
 R10
 32
-R105
+R92
 !i10b 1
 R93
+R105
 R106
-R107
 !i113 1
 R15
 R16
 Emc_datos
-Z108 w1653575957
+Z107 w1653575957
 R1
 R3
 R2
 R4
 R5
-!i122 1379
+!i122 1488
 R6
-Z109 8G:/Mi unidad/unizar/ingi_ii/aoc2/aoc21-22/proyecto_2_ext/source/MC_datos.vhd
-Z110 FG:/Mi unidad/unizar/ingi_ii/aoc2/aoc21-22/proyecto_2_ext/source/MC_datos.vhd
+Z108 8G:/Mi unidad/unizar/ingi_ii/aoc2/aoc21-22/proyecto_2_ext/source/MC_datos.vhd
+Z109 FG:/Mi unidad/unizar/ingi_ii/aoc2/aoc21-22/proyecto_2_ext/source/MC_datos.vhd
 l0
 L27 1
 V5B3Z;ji6;L93ge<jCFm>d0
 !s100 FHB;9O@WS8Ii4]IF37G8W0
 R10
 32
-Z111 !s110 1653575973
+Z110 !s110 1653586611
 !i10b 1
-Z112 !s108 1653575973.000000
-Z113 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|G:/Mi unidad/unizar/ingi_ii/aoc2/aoc21-22/proyecto_2_ext/source/MC_datos.vhd|
-Z114 !s107 G:/Mi unidad/unizar/ingi_ii/aoc2/aoc21-22/proyecto_2_ext/source/MC_datos.vhd|
+Z111 !s108 1653586611.000000
+Z112 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|G:/Mi unidad/unizar/ingi_ii/aoc2/aoc21-22/proyecto_2_ext/source/MC_datos.vhd|
+Z113 !s107 G:/Mi unidad/unizar/ingi_ii/aoc2/aoc21-22/proyecto_2_ext/source/MC_datos.vhd|
 !i113 1
 R15
 R16
@@ -774,42 +774,42 @@ R2
 R4
 R5
 DEx4 work 8 mc_datos 0 22 5B3Z;ji6;L93ge<jCFm>d0
-!i122 1379
+!i122 1488
 l174
 L59 277
 VLV3mI99]ndg2`SSde_5ii2
 !s100 =m[zP@1hE_g_>IVOPWaJ;2
 R10
 32
-R111
+R110
 !i10b 1
+R111
 R112
 R113
-R114
 !i113 1
 R15
 R16
 Emd_cont
-Z115 w1653468566
+Z114 w1653468566
 R2
 R3
 R4
 R5
-!i122 1355
+!i122 1489
 R6
-Z116 8G:/Mi unidad/unizar/ingi_ii/aoc2/aoc21-22/proyecto_2_ext/source/MD_cont.vhd
-Z117 FG:/Mi unidad/unizar/ingi_ii/aoc2/aoc21-22/proyecto_2_ext/source/MD_cont.vhd
+Z115 8G:/Mi unidad/unizar/ingi_ii/aoc2/aoc21-22/proyecto_2_ext/source/MD_cont.vhd
+Z116 FG:/Mi unidad/unizar/ingi_ii/aoc2/aoc21-22/proyecto_2_ext/source/MD_cont.vhd
 l0
-Z118 L25 1
+Z117 L25 1
 VFe=8Fe>dENVUPH4m3^Ab:2
 !s100 ]9ZF2i<J4FgF^O5T0flkC3
 R10
 32
-R105
+R110
 !i10b 1
-Z119 !s108 1653573567.000000
-Z120 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|G:/Mi unidad/unizar/ingi_ii/aoc2/aoc21-22/proyecto_2_ext/source/MD_cont.vhd|
-Z121 !s107 G:/Mi unidad/unizar/ingi_ii/aoc2/aoc21-22/proyecto_2_ext/source/MD_cont.vhd|
+R111
+Z118 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|G:/Mi unidad/unizar/ingi_ii/aoc2/aoc21-22/proyecto_2_ext/source/MD_cont.vhd|
+Z119 !s107 G:/Mi unidad/unizar/ingi_ii/aoc2/aoc21-22/proyecto_2_ext/source/MD_cont.vhd|
 !i113 1
 R15
 R16
@@ -819,43 +819,43 @@ R3
 R4
 R5
 DEx4 work 7 md_cont 0 22 Fe=8Fe>dENVUPH4m3^Ab:2
-!i122 1355
+!i122 1489
 l96
 L42 257
 V9RPloDFgZOKaFlnR^l1oF0
 !s100 BVQ?cQZ]nR30Toz_jPDzK2
 R10
 32
-R105
+R110
 !i10b 1
+R111
+R118
 R119
-R120
-R121
 !i113 1
 R15
 R16
 Emd_mas_mc
-Z122 w1653468997
+Z120 w1653468997
 R2
 R3
 R1
 R4
 R5
-!i122 1356
+!i122 1490
 R6
-Z123 8G:/Mi unidad/unizar/ingi_ii/aoc2/aoc21-22/proyecto_2_ext/source/MD_mas_MC_mas_scratch.vhd
-Z124 FG:/Mi unidad/unizar/ingi_ii/aoc2/aoc21-22/proyecto_2_ext/source/MD_mas_MC_mas_scratch.vhd
+Z121 8G:/Mi unidad/unizar/ingi_ii/aoc2/aoc21-22/proyecto_2_ext/source/MD_mas_MC_mas_scratch.vhd
+Z122 FG:/Mi unidad/unizar/ingi_ii/aoc2/aoc21-22/proyecto_2_ext/source/MD_mas_MC_mas_scratch.vhd
 l0
 R99
 VE`Y?V12kI`4:3EJ_<e8ID2
 !s100 PkLkYQ`4j>Nz8iNg@HVN81
 R10
 32
-Z125 !s110 1653573568
+Z123 !s110 1653586612
 !i10b 1
-Z126 !s108 1653573568.000000
-Z127 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|G:/Mi unidad/unizar/ingi_ii/aoc2/aoc21-22/proyecto_2_ext/source/MD_mas_MC_mas_scratch.vhd|
-Z128 !s107 G:/Mi unidad/unizar/ingi_ii/aoc2/aoc21-22/proyecto_2_ext/source/MD_mas_MC_mas_scratch.vhd|
+Z124 !s108 1653586612.000000
+Z125 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|G:/Mi unidad/unizar/ingi_ii/aoc2/aoc21-22/proyecto_2_ext/source/MD_mas_MC_mas_scratch.vhd|
+Z126 !s107 G:/Mi unidad/unizar/ingi_ii/aoc2/aoc21-22/proyecto_2_ext/source/MD_mas_MC_mas_scratch.vhd|
 !i113 1
 R15
 R16
@@ -866,42 +866,42 @@ R1
 R4
 R5
 DEx4 work 9 md_mas_mc 0 22 E`Y?V12kI`4:3EJ_<e8ID2
-!i122 1356
+!i122 1490
 l172
 L37 301
 V8?5ObTKb3k>[LmX1?QA<c1
 !s100 GnAjoJHJW8[<`IZ3A4Gbf3
 R10
 32
-R125
+R123
 !i10b 1
+R124
+R125
 R126
-R127
-R128
 !i113 1
 R15
 R16
 Emd_scratch
-Z129 w1637931346
+Z127 w1637931346
 R2
 R3
 R4
 R5
-!i122 1357
+!i122 1491
 R6
-Z130 8G:/Mi unidad/unizar/ingi_ii/aoc2/aoc21-22/proyecto_2_ext/source/MD_scratch.vhd
-Z131 FG:/Mi unidad/unizar/ingi_ii/aoc2/aoc21-22/proyecto_2_ext/source/MD_scratch.vhd
+Z128 8G:/Mi unidad/unizar/ingi_ii/aoc2/aoc21-22/proyecto_2_ext/source/MD_scratch.vhd
+Z129 FG:/Mi unidad/unizar/ingi_ii/aoc2/aoc21-22/proyecto_2_ext/source/MD_scratch.vhd
 l0
-R118
+R117
 V>^5L`Hn7Bi6ga6:]1WiDM3
 !s100 :0gLjA8g599CodlhAk@KI1
 R10
 32
-R125
+R123
 !i10b 1
-R126
-Z132 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|G:/Mi unidad/unizar/ingi_ii/aoc2/aoc21-22/proyecto_2_ext/source/MD_scratch.vhd|
-Z133 !s107 G:/Mi unidad/unizar/ingi_ii/aoc2/aoc21-22/proyecto_2_ext/source/MD_scratch.vhd|
+R124
+Z130 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|G:/Mi unidad/unizar/ingi_ii/aoc2/aoc21-22/proyecto_2_ext/source/MD_scratch.vhd|
+Z131 !s107 G:/Mi unidad/unizar/ingi_ii/aoc2/aoc21-22/proyecto_2_ext/source/MD_scratch.vhd|
 !i113 1
 R15
 R16
@@ -911,43 +911,43 @@ R3
 R4
 R5
 DEx4 work 10 md_scratch 0 22 >^5L`Hn7Bi6ga6:]1WiDM3
-!i122 1357
+!i122 1491
 l76
 L40 148
 VBeX31fj^?fQF;K9NbzF;01
 !s100 gRQBJ8z9o6az@QC3k3H_`3
 R10
 32
-R125
+R123
 !i10b 1
-R126
-R132
-R133
+R124
+R130
+R131
 !i113 1
 R15
 R16
 Ememoriaram_d
-Z134 w1648740024
+Z132 w1648740024
 R1
 R3
 R2
 R4
 R5
-!i122 1361
+!i122 1495
 R6
-Z135 8G:/Mi unidad/unizar/ingi_ii/aoc2/aoc21-22/proyecto_2_ext/source/memoriaRAM_FP.vhd
-Z136 FG:/Mi unidad/unizar/ingi_ii/aoc2/aoc21-22/proyecto_2_ext/source/memoriaRAM_FP.vhd
+Z133 8G:/Mi unidad/unizar/ingi_ii/aoc2/aoc21-22/proyecto_2_ext/source/memoriaRAM_FP.vhd
+Z134 FG:/Mi unidad/unizar/ingi_ii/aoc2/aoc21-22/proyecto_2_ext/source/memoriaRAM_FP.vhd
 l0
 R9
 Vha`7Gi?[JjH7o8cJdXPUS0
 !s100 gNi6_YHV6<7P3?g05zfaE3
 R10
 32
-Z137 !s110 1653573570
+Z135 !s110 1653586614
 !i10b 1
-Z138 !s108 1653573570.000000
-Z139 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|G:/Mi unidad/unizar/ingi_ii/aoc2/aoc21-22/proyecto_2_ext/source/memoriaRAM_FP.vhd|
-Z140 !s107 G:/Mi unidad/unizar/ingi_ii/aoc2/aoc21-22/proyecto_2_ext/source/memoriaRAM_FP.vhd|
+Z136 !s108 1653586613.000000
+Z137 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|G:/Mi unidad/unizar/ingi_ii/aoc2/aoc21-22/proyecto_2_ext/source/memoriaRAM_FP.vhd|
+Z138 !s107 G:/Mi unidad/unizar/ingi_ii/aoc2/aoc21-22/proyecto_2_ext/source/memoriaRAM_FP.vhd|
 !i113 1
 R15
 R16
@@ -958,42 +958,42 @@ R2
 R4
 R5
 DEx4 work 12 memoriaram_d 0 22 ha`7Gi?[JjH7o8cJdXPUS0
-!i122 1361
+!i122 1495
 l61
 L42 35
 VR_0j>hE<:YiffMK_@L;=P0
 !s100 ?GF;RKGGM1BOofYY@nE?I1
 R10
 32
-R137
+R135
 !i10b 1
+R136
+R137
 R138
-R139
-R140
 !i113 1
 R15
 R16
 Ememoriaram_i
-Z141 w1650972116
+Z139 w1650972116
 R3
 R2
 R4
 R5
-!i122 1363
+!i122 1497
 R6
-Z142 8G:/Mi unidad/unizar/ingi_ii/aoc2/aoc21-22/proyecto_2_ext/source/memoriaRAM_I_FP.vhd
-Z143 FG:/Mi unidad/unizar/ingi_ii/aoc2/aoc21-22/proyecto_2_ext/source/memoriaRAM_I_FP.vhd
+Z140 8G:/Mi unidad/unizar/ingi_ii/aoc2/aoc21-22/proyecto_2_ext/source/memoriaRAM_I_FP.vhd
+Z141 FG:/Mi unidad/unizar/ingi_ii/aoc2/aoc21-22/proyecto_2_ext/source/memoriaRAM_I_FP.vhd
 l0
-R26
+R27
 VOKV:>C5mVh2IF]ND=X:M`2
 !s100 EI8BS0gji3U?nF]f@4OPo3
 R10
 32
-Z144 !s110 1653573571
+R135
 !i10b 1
-Z145 !s108 1653573571.000000
-Z146 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|G:/Mi unidad/unizar/ingi_ii/aoc2/aoc21-22/proyecto_2_ext/source/memoriaRAM_I_FP.vhd|
-Z147 !s107 G:/Mi unidad/unizar/ingi_ii/aoc2/aoc21-22/proyecto_2_ext/source/memoriaRAM_I_FP.vhd|
+Z142 !s108 1653586614.000000
+Z143 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|G:/Mi unidad/unizar/ingi_ii/aoc2/aoc21-22/proyecto_2_ext/source/memoriaRAM_I_FP.vhd|
+Z144 !s107 G:/Mi unidad/unizar/ingi_ii/aoc2/aoc21-22/proyecto_2_ext/source/memoriaRAM_I_FP.vhd|
 !i113 1
 R15
 R16
@@ -1003,40 +1003,40 @@ R2
 R4
 R5
 DEx4 work 12 memoriaram_i 0 22 OKV:>C5mVh2IF]ND=X:M`2
-!i122 1363
+!i122 1497
 l60
 L41 34
 Vl:>G3P`PWHc8>dVf^Fl`@2
 !s100 A<KC[8>Ro4<ZfSl>;?BC03
 R10
 32
-R144
+R135
 !i10b 1
-R145
-R146
-R147
+R142
+R143
+R144
 !i113 1
 R15
 R16
 Emips_segmentado
-Z148 w1653405174
+Z145 w1653405174
 R4
 R5
-!i122 1364
+!i122 1498
 R6
-Z149 8G:/Mi unidad/unizar/ingi_ii/aoc2/aoc21-22/proyecto_2_ext/source/Mips_segmentado.vhd
-Z150 FG:/Mi unidad/unizar/ingi_ii/aoc2/aoc21-22/proyecto_2_ext/source/Mips_segmentado.vhd
+Z146 8G:/Mi unidad/unizar/ingi_ii/aoc2/aoc21-22/proyecto_2_ext/source/Mips_segmentado.vhd
+Z147 FG:/Mi unidad/unizar/ingi_ii/aoc2/aoc21-22/proyecto_2_ext/source/Mips_segmentado.vhd
 l0
 L13 1
 VWGM_AOZ8:R0;]Sl58;FiF0
 !s100 `VEmA1^A;MnGHA^@OG31_2
 R10
 32
-R144
+Z148 !s110 1653586615
 !i10b 1
-R145
-Z151 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|G:/Mi unidad/unizar/ingi_ii/aoc2/aoc21-22/proyecto_2_ext/source/Mips_segmentado.vhd|
-Z152 !s107 G:/Mi unidad/unizar/ingi_ii/aoc2/aoc21-22/proyecto_2_ext/source/Mips_segmentado.vhd|
+Z149 !s108 1653586615.000000
+Z150 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|G:/Mi unidad/unizar/ingi_ii/aoc2/aoc21-22/proyecto_2_ext/source/Mips_segmentado.vhd|
+Z151 !s107 G:/Mi unidad/unizar/ingi_ii/aoc2/aoc21-22/proyecto_2_ext/source/Mips_segmentado.vhd|
 !i113 1
 R15
 R16
@@ -1044,18 +1044,18 @@ Abehavioral
 R4
 R5
 DEx4 work 15 mips_segmentado 0 22 WGM_AOZ8:R0;]Sl58;FiF0
-!i122 1364
+!i122 1498
 l395
 L23 907
 V3:J1dkT8:7JAQM>SkOlA`1
 !s100 Pf2FXzn<mDG]BWijKRnSJ1
 R10
 32
-R144
+R148
 !i10b 1
-R145
+R149
+R150
 R151
-R152
 !i113 1
 R15
 R16
@@ -1063,21 +1063,21 @@ Emux2_1
 R0
 R4
 R5
-!i122 1365
+!i122 1499
 R6
-Z153 8G:/Mi unidad/unizar/ingi_ii/aoc2/aoc21-22/proyecto_2_ext/source/mux2_1.vhd
-Z154 FG:/Mi unidad/unizar/ingi_ii/aoc2/aoc21-22/proyecto_2_ext/source/mux2_1.vhd
+Z152 8G:/Mi unidad/unizar/ingi_ii/aoc2/aoc21-22/proyecto_2_ext/source/mux2_1.vhd
+Z153 FG:/Mi unidad/unizar/ingi_ii/aoc2/aoc21-22/proyecto_2_ext/source/mux2_1.vhd
 l0
-R26
+R27
 VQWZ69U2K[mP]8A[l`:L^b3
 !s100 [VRg3F0=o?Z:]Y[CCZJje0
 R10
 32
-Z155 !s110 1653573572
+R148
 !i10b 1
-Z156 !s108 1653573572.000000
-Z157 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|G:/Mi unidad/unizar/ingi_ii/aoc2/aoc21-22/proyecto_2_ext/source/mux2_1.vhd|
-Z158 !s107 G:/Mi unidad/unizar/ingi_ii/aoc2/aoc21-22/proyecto_2_ext/source/mux2_1.vhd|
+R149
+Z154 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|G:/Mi unidad/unizar/ingi_ii/aoc2/aoc21-22/proyecto_2_ext/source/mux2_1.vhd|
+Z155 !s107 G:/Mi unidad/unizar/ingi_ii/aoc2/aoc21-22/proyecto_2_ext/source/mux2_1.vhd|
 !i113 1
 R15
 R16
@@ -1085,18 +1085,18 @@ Abehavioral
 R4
 R5
 DEx4 work 6 mux2_1 0 22 QWZ69U2K[mP]8A[l`:L^b3
-!i122 1365
+!i122 1499
 l41
 R17
 Vfg5Y^R@gAd1cY0cMN;Sh]3
 !s100 zIQT7B^e_I4Qli6JQET>o2
 R10
 32
-R155
+R148
 !i10b 1
-R156
-R157
-R158
+R149
+R154
+R155
 !i113 1
 R15
 R16
@@ -1104,21 +1104,21 @@ Emux2_5bits
 R0
 R4
 R5
-!i122 1366
+!i122 1500
 R6
-Z159 8G:/Mi unidad/unizar/ingi_ii/aoc2/aoc21-22/proyecto_2_ext/source/mux2_5bits.vhd
-Z160 FG:/Mi unidad/unizar/ingi_ii/aoc2/aoc21-22/proyecto_2_ext/source/mux2_5bits.vhd
+Z156 8G:/Mi unidad/unizar/ingi_ii/aoc2/aoc21-22/proyecto_2_ext/source/mux2_5bits.vhd
+Z157 FG:/Mi unidad/unizar/ingi_ii/aoc2/aoc21-22/proyecto_2_ext/source/mux2_5bits.vhd
 l0
-R26
+R27
 VD:jCRMG79g1=lXOD8^K:e1
 !s100 GnzQIA<O?`7V;D;ZbXOiA0
 R10
 32
-R155
+Z158 !s110 1653586616
 !i10b 1
-R156
-Z161 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|G:/Mi unidad/unizar/ingi_ii/aoc2/aoc21-22/proyecto_2_ext/source/mux2_5bits.vhd|
-Z162 !s107 G:/Mi unidad/unizar/ingi_ii/aoc2/aoc21-22/proyecto_2_ext/source/mux2_5bits.vhd|
+Z159 !s108 1653586616.000000
+Z160 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|G:/Mi unidad/unizar/ingi_ii/aoc2/aoc21-22/proyecto_2_ext/source/mux2_5bits.vhd|
+Z161 !s107 G:/Mi unidad/unizar/ingi_ii/aoc2/aoc21-22/proyecto_2_ext/source/mux2_5bits.vhd|
 !i113 1
 R15
 R16
@@ -1126,40 +1126,40 @@ Abehavioral
 R4
 R5
 DEx4 work 10 mux2_5bits 0 22 D:jCRMG79g1=lXOD8^K:e1
-!i122 1366
+!i122 1500
 l41
 R17
 V5=3hggdHhInGNWikXihRS1
 !s100 =@Dj[OG[:JJ:5PSjamb5A3
 R10
 32
-R155
+R158
 !i10b 1
-R156
+R159
+R160
 R161
-R162
 !i113 1
 R15
 R16
 Emux4_1_32bits
-Z163 w1648750982
+Z162 w1648750982
 R4
 R5
-!i122 1367
+!i122 1501
 R6
-Z164 8G:/Mi unidad/unizar/ingi_ii/aoc2/aoc21-22/proyecto_2_ext/source/mux4_1_32bits.vhd
-Z165 FG:/Mi unidad/unizar/ingi_ii/aoc2/aoc21-22/proyecto_2_ext/source/mux4_1_32bits.vhd
+Z163 8G:/Mi unidad/unizar/ingi_ii/aoc2/aoc21-22/proyecto_2_ext/source/mux4_1_32bits.vhd
+Z164 FG:/Mi unidad/unizar/ingi_ii/aoc2/aoc21-22/proyecto_2_ext/source/mux4_1_32bits.vhd
 l0
 L4 1
 V06^JNHmHCoSlHfQjH6:HN1
 !s100 eC]>Q3Z[89zBLkPeQ2Xj<1
 R10
 32
-R155
+R158
 !i10b 1
-R156
-Z166 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|G:/Mi unidad/unizar/ingi_ii/aoc2/aoc21-22/proyecto_2_ext/source/mux4_1_32bits.vhd|
-Z167 !s107 G:/Mi unidad/unizar/ingi_ii/aoc2/aoc21-22/proyecto_2_ext/source/mux4_1_32bits.vhd|
+R159
+Z165 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|G:/Mi unidad/unizar/ingi_ii/aoc2/aoc21-22/proyecto_2_ext/source/mux4_1_32bits.vhd|
+Z166 !s107 G:/Mi unidad/unizar/ingi_ii/aoc2/aoc21-22/proyecto_2_ext/source/mux4_1_32bits.vhd|
 !i113 1
 R15
 R16
@@ -1167,41 +1167,41 @@ Abehavioral
 R4
 R5
 DEx4 work 13 mux4_1_32bits 0 22 06^JNHmHCoSlHfQjH6:HN1
-!i122 1367
+!i122 1501
 l13
 L12 7
 Vi8Fn0[4@e6`c?ia<O0`OL3
 !s100 8bbIj9`VbVePPKl6mXQcJ1
 R10
 32
-R155
+R158
 !i10b 1
-R156
+R159
+R165
 R166
-R167
 !i113 1
 R15
 R16
 Eram_128_32
-Z168 w1653428489
+Z167 w1653428489
 R1
 R3
 R2
 R4
 R5
-!i122 1360
+!i122 1494
 R6
-Z169 8G:/Mi unidad/unizar/ingi_ii/aoc2/aoc21-22/proyecto_2_ext/source/memoriaRAM_datos_128_32_enable.vhd
-Z170 FG:/Mi unidad/unizar/ingi_ii/aoc2/aoc21-22/proyecto_2_ext/source/memoriaRAM_datos_128_32_enable.vhd
+Z168 8G:/Mi unidad/unizar/ingi_ii/aoc2/aoc21-22/proyecto_2_ext/source/memoriaRAM_datos_128_32_enable.vhd
+Z169 FG:/Mi unidad/unizar/ingi_ii/aoc2/aoc21-22/proyecto_2_ext/source/memoriaRAM_datos_128_32_enable.vhd
 l0
-Z171 L34 1
+Z170 L34 1
 V=Y5MV0ZN<@]WTTh6c]EB;0
 !s100 QCP]:Gok:;N17FRjCNm;j2
 R10
 32
-R137
+Z171 !s110 1653586613
 !i10b 1
-R138
+R136
 Z172 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|G:/Mi unidad/unizar/ingi_ii/aoc2/aoc21-22/proyecto_2_ext/source/memoriaRAM_datos_128_32_enable.vhd|
 Z173 !s107 G:/Mi unidad/unizar/ingi_ii/aoc2/aoc21-22/proyecto_2_ext/source/memoriaRAM_datos_128_32_enable.vhd|
 !i113 1
@@ -1214,43 +1214,43 @@ R2
 R4
 R5
 DEx4 work 10 ram_128_32 0 22 =Y5MV0ZN<@]WTTh6c]EB;0
-!i122 1360
+!i122 1494
 l64
 L44 36
 VIczMR6Um=SN17U7?hU95U1
 !s100 `iE[eGXaNVJaX;Ni_P=8J0
 R10
 32
-R137
+R171
 !i10b 1
-R138
+R136
 R172
 R173
 !i113 1
 R15
 R16
 Eram_64_32
-R129
+R127
 R1
 R3
 R2
 R4
 R5
-!i122 1359
+!i122 1493
 R6
 Z174 8G:/Mi unidad/unizar/ingi_ii/aoc2/aoc21-22/proyecto_2_ext/source/memoriaRAM_64_32_enable.vhd
 Z175 FG:/Mi unidad/unizar/ingi_ii/aoc2/aoc21-22/proyecto_2_ext/source/memoriaRAM_64_32_enable.vhd
 l0
-R171
+R170
 VZi`L7S]8Dl^zl3o3VBKEl1
 !s100 A79elXojEP2HgAb4fAIoF2
 R10
 32
-Z176 !s110 1653573569
+R171
 !i10b 1
-Z177 !s108 1653573569.000000
-Z178 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|G:/Mi unidad/unizar/ingi_ii/aoc2/aoc21-22/proyecto_2_ext/source/memoriaRAM_64_32_enable.vhd|
-Z179 !s107 G:/Mi unidad/unizar/ingi_ii/aoc2/aoc21-22/proyecto_2_ext/source/memoriaRAM_64_32_enable.vhd|
+R136
+Z176 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|G:/Mi unidad/unizar/ingi_ii/aoc2/aoc21-22/proyecto_2_ext/source/memoriaRAM_64_32_enable.vhd|
+Z177 !s107 G:/Mi unidad/unizar/ingi_ii/aoc2/aoc21-22/proyecto_2_ext/source/memoriaRAM_64_32_enable.vhd|
 !i113 1
 R15
 R16
@@ -1261,40 +1261,40 @@ R2
 R4
 R5
 DEx4 work 9 ram_64_32 0 22 Zi`L7S]8Dl^zl3o3VBKEl1
-!i122 1359
+!i122 1493
 l55
 L44 27
 Vj53zgo59SoLBSMiM?<Z3M2
 !s100 LHQE?4bLbz8Fb8UR>XB^93
 R10
 32
-R176
+R171
 !i10b 1
+R136
+R176
 R177
-R178
-R179
 !i113 1
 R15
 R16
 Ereg1
-Z180 w1653484880
+Z178 w1653484880
 R4
 R5
-!i122 1368
+!i122 1502
 R6
-Z181 8G:/Mi unidad/unizar/ingi_ii/aoc2/aoc21-22/proyecto_2_ext/source/reg1.vhd
-Z182 FG:/Mi unidad/unizar/ingi_ii/aoc2/aoc21-22/proyecto_2_ext/source/reg1.vhd
+Z179 8G:/Mi unidad/unizar/ingi_ii/aoc2/aoc21-22/proyecto_2_ext/source/reg1.vhd
+Z180 FG:/Mi unidad/unizar/ingi_ii/aoc2/aoc21-22/proyecto_2_ext/source/reg1.vhd
 l0
-R26
+R27
 VlFX?LVbdLb7c^RBPBg_693
 !s100 >ZcVla2eRX]FeJJFfh:J:0
 R10
 32
-Z183 !s110 1653573573
+R158
 !i10b 1
-Z184 !s108 1653573573.000000
-Z185 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|G:/Mi unidad/unizar/ingi_ii/aoc2/aoc21-22/proyecto_2_ext/source/reg1.vhd|
-Z186 !s107 G:/Mi unidad/unizar/ingi_ii/aoc2/aoc21-22/proyecto_2_ext/source/reg1.vhd|
+R159
+Z181 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|G:/Mi unidad/unizar/ingi_ii/aoc2/aoc21-22/proyecto_2_ext/source/reg1.vhd|
+Z182 !s107 G:/Mi unidad/unizar/ingi_ii/aoc2/aoc21-22/proyecto_2_ext/source/reg1.vhd|
 !i113 1
 R15
 R16
@@ -1302,40 +1302,40 @@ Abehavioral
 R4
 R5
 DEx4 work 4 reg1 0 22 lFX?LVbdLb7c^RBPBg_693
-!i122 1368
+!i122 1502
 l44
 L42 17
 V0@Nb0n@bAZ4nf@Ob=BB<E3
 !s100 BO:ADHJ2@z4k95S4HV^063
 R10
 32
-R183
+R158
 !i10b 1
-R184
-R185
-R186
+R159
+R181
+R182
 !i113 1
 R15
 R16
 Ereg32
-Z187 w1653238320
+Z183 w1653238320
 R4
 R5
-!i122 1371
+!i122 1505
 R6
-Z188 8G:/Mi unidad/unizar/ingi_ii/aoc2/aoc21-22/proyecto_2_ext/source/reg32.vhd
-Z189 FG:/Mi unidad/unizar/ingi_ii/aoc2/aoc21-22/proyecto_2_ext/source/reg32.vhd
+Z184 8G:/Mi unidad/unizar/ingi_ii/aoc2/aoc21-22/proyecto_2_ext/source/reg32.vhd
+Z185 FG:/Mi unidad/unizar/ingi_ii/aoc2/aoc21-22/proyecto_2_ext/source/reg32.vhd
 l0
-R26
+R27
 VEi>E`VaXQX_II_lY3SG]>2
 !s100 Zn5O@J?T<^`h2oC[X4I>X3
 R10
 32
-Z190 !s110 1653573574
+Z186 !s110 1653586617
 !i10b 1
-Z191 !s108 1653573574.000000
-Z192 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|G:/Mi unidad/unizar/ingi_ii/aoc2/aoc21-22/proyecto_2_ext/source/reg32.vhd|
-Z193 !s107 G:/Mi unidad/unizar/ingi_ii/aoc2/aoc21-22/proyecto_2_ext/source/reg32.vhd|
+Z187 !s108 1653586617.000000
+Z188 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|G:/Mi unidad/unizar/ingi_ii/aoc2/aoc21-22/proyecto_2_ext/source/reg32.vhd|
+Z189 !s107 G:/Mi unidad/unizar/ingi_ii/aoc2/aoc21-22/proyecto_2_ext/source/reg32.vhd|
 !i113 1
 R15
 R16
@@ -1343,40 +1343,40 @@ Abehavioral
 R4
 R5
 DEx4 work 5 reg32 0 22 Ei>E`VaXQX_II_lY3SG]>2
-!i122 1371
+!i122 1505
 l43
 L42 13
 VO5Jn@kG9;JmY6U:im:kH;3
 !s100 abc7P0]mDO_KH:8E`k85O3
 R10
 32
-R190
+R186
 !i10b 1
-R191
-R192
-R193
+R187
+R188
+R189
 !i113 1
 R15
 R16
 Ereg4
-R129
+R127
 R4
 R5
-!i122 1369
+!i122 1503
 R6
-Z194 8G:/Mi unidad/unizar/ingi_ii/aoc2/aoc21-22/proyecto_2_ext/source/reg4.vhd
-Z195 FG:/Mi unidad/unizar/ingi_ii/aoc2/aoc21-22/proyecto_2_ext/source/reg4.vhd
+Z190 8G:/Mi unidad/unizar/ingi_ii/aoc2/aoc21-22/proyecto_2_ext/source/reg4.vhd
+Z191 FG:/Mi unidad/unizar/ingi_ii/aoc2/aoc21-22/proyecto_2_ext/source/reg4.vhd
 l0
-R26
+R27
 Va]Yo5P6h4OgfIlZRjRPHz2
 !s100 l=iL6`mz=n<A[X<zhb>IZ2
 R10
 32
-R183
+R186
 !i10b 1
-R184
-Z196 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|G:/Mi unidad/unizar/ingi_ii/aoc2/aoc21-22/proyecto_2_ext/source/reg4.vhd|
-Z197 !s107 G:/Mi unidad/unizar/ingi_ii/aoc2/aoc21-22/proyecto_2_ext/source/reg4.vhd|
+R187
+Z192 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|G:/Mi unidad/unizar/ingi_ii/aoc2/aoc21-22/proyecto_2_ext/source/reg4.vhd|
+Z193 !s107 G:/Mi unidad/unizar/ingi_ii/aoc2/aoc21-22/proyecto_2_ext/source/reg4.vhd|
 !i113 1
 R15
 R16
@@ -1384,40 +1384,40 @@ Abehavioral
 R4
 R5
 DEx4 work 4 reg4 0 22 a]Yo5P6h4OgfIlZRjRPHz2
-!i122 1369
+!i122 1503
 l42
-Z198 L40 17
+Z194 L40 17
 V`k42M5:<<c`0kmY[U1NhE3
 !s100 28Sd8NZiVGG^I>k:J0?W82
 R10
 32
-R183
+R186
 !i10b 1
-R184
-R196
-R197
+R187
+R192
+R193
 !i113 1
 R15
 R16
 Ereg7
-R129
+R127
 R4
 R5
-!i122 1370
+!i122 1504
 R6
-Z199 8G:/Mi unidad/unizar/ingi_ii/aoc2/aoc21-22/proyecto_2_ext/source/reg7.vhd
-Z200 FG:/Mi unidad/unizar/ingi_ii/aoc2/aoc21-22/proyecto_2_ext/source/reg7.vhd
+Z195 8G:/Mi unidad/unizar/ingi_ii/aoc2/aoc21-22/proyecto_2_ext/source/reg7.vhd
+Z196 FG:/Mi unidad/unizar/ingi_ii/aoc2/aoc21-22/proyecto_2_ext/source/reg7.vhd
 l0
-R26
+R27
 VnDW6WYahbX1Q8YXLd_1kC1
 !s100 ]7?6gJiYK3k@a36j=V3LF0
 R10
 32
-R190
+R186
 !i10b 1
-R191
-Z201 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|G:/Mi unidad/unizar/ingi_ii/aoc2/aoc21-22/proyecto_2_ext/source/reg7.vhd|
-Z202 !s107 G:/Mi unidad/unizar/ingi_ii/aoc2/aoc21-22/proyecto_2_ext/source/reg7.vhd|
+R187
+Z197 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|G:/Mi unidad/unizar/ingi_ii/aoc2/aoc21-22/proyecto_2_ext/source/reg7.vhd|
+Z198 !s107 G:/Mi unidad/unizar/ingi_ii/aoc2/aoc21-22/proyecto_2_ext/source/reg7.vhd|
 !i113 1
 R15
 R16
@@ -1425,41 +1425,41 @@ Abehavioral
 R4
 R5
 DEx4 work 4 reg7 0 22 nDW6WYahbX1Q8YXLd_1kC1
-!i122 1370
+!i122 1504
 l42
-R198
+R194
 V[`V`B[_3YMmVXd8ba=VeS0
 !s100 @4J]JNGPUO6oM?:^`ETEV1
 R10
 32
-R190
+R186
 !i10b 1
-R191
-R201
-R202
+R187
+R197
+R198
 !i113 1
 R15
 R16
 Etestbench
-Z203 w1653291265
+Z199 w1653291265
 R1
 R4
 R5
-!i122 1373
+!i122 1507
 R6
-Z204 8G:/Mi unidad/unizar/ingi_ii/aoc2/aoc21-22/proyecto_2_ext/source/testbench_Mips.vhd
-Z205 FG:/Mi unidad/unizar/ingi_ii/aoc2/aoc21-22/proyecto_2_ext/source/testbench_Mips.vhd
+Z200 8G:/Mi unidad/unizar/ingi_ii/aoc2/aoc21-22/proyecto_2_ext/source/testbench_Mips.vhd
+Z201 FG:/Mi unidad/unizar/ingi_ii/aoc2/aoc21-22/proyecto_2_ext/source/testbench_Mips.vhd
 l0
 L6 1
 VD>HK54047^c1X<F]?:GcW3
 !s100 ZA1ag:Q?:GzJ^je=8mTWd3
 R10
 32
-Z206 !s110 1653573575
+Z202 !s110 1653586618
 !i10b 1
-Z207 !s108 1653573575.000000
-Z208 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|G:/Mi unidad/unizar/ingi_ii/aoc2/aoc21-22/proyecto_2_ext/source/testbench_Mips.vhd|
-Z209 !s107 G:/Mi unidad/unizar/ingi_ii/aoc2/aoc21-22/proyecto_2_ext/source/testbench_Mips.vhd|
+Z203 !s108 1653586618.000000
+Z204 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|G:/Mi unidad/unizar/ingi_ii/aoc2/aoc21-22/proyecto_2_ext/source/testbench_Mips.vhd|
+Z205 !s107 G:/Mi unidad/unizar/ingi_ii/aoc2/aoc21-22/proyecto_2_ext/source/testbench_Mips.vhd|
 !i113 1
 R15
 R16
@@ -1468,43 +1468,43 @@ R1
 R4
 R5
 DEx4 work 9 testbench 0 22 D>HK54047^c1X<F]?:GcW3
-!i122 1373
+!i122 1507
 l26
 L9 46
 VV[H@iAZl3lYOJE0T7_J9H2
 !s100 XhdeWcaYGV[Pj:FEbl4o^2
 R10
 32
-R206
+R202
 !i10b 1
-R207
-R208
-R209
+R203
+R204
+R205
 !i113 1
 R15
 R16
 Etestbench_md_mas_mc
-Z210 w1653573520
+Z206 w1653578802
 R2
 R3
 R1
 R4
 R5
-!i122 1372
+!i122 1506
 R6
-Z211 8G:/Mi unidad/unizar/ingi_ii/aoc2/aoc21-22/proyecto_2_ext/source/testbench_MD_mas_MC.vhd
-Z212 FG:/Mi unidad/unizar/ingi_ii/aoc2/aoc21-22/proyecto_2_ext/source/testbench_MD_mas_MC.vhd
+Z207 8G:/Mi unidad/unizar/ingi_ii/aoc2/aoc21-22/proyecto_2_ext/source/testbench_MD_mas_MC.vhd
+Z208 FG:/Mi unidad/unizar/ingi_ii/aoc2/aoc21-22/proyecto_2_ext/source/testbench_MD_mas_MC.vhd
 l0
 L9 1
 VE>DF5XiQ8gU2Rla5_F2n01
 !s100 O6;6X^2OF@=:h75eXhLMa0
 R10
 32
-R206
+R202
 !i10b 1
-R207
-Z213 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|G:/Mi unidad/unizar/ingi_ii/aoc2/aoc21-22/proyecto_2_ext/source/testbench_MD_mas_MC.vhd|
-Z214 !s107 G:/Mi unidad/unizar/ingi_ii/aoc2/aoc21-22/proyecto_2_ext/source/testbench_MD_mas_MC.vhd|
+R203
+Z209 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|G:/Mi unidad/unizar/ingi_ii/aoc2/aoc21-22/proyecto_2_ext/source/testbench_MD_mas_MC.vhd|
+Z210 !s107 G:/Mi unidad/unizar/ingi_ii/aoc2/aoc21-22/proyecto_2_ext/source/testbench_MD_mas_MC.vhd|
 !i113 1
 R15
 R16
@@ -1515,30 +1515,30 @@ R1
 R4
 R5
 DEx4 work 19 testbench_md_mas_mc 0 22 E>DF5XiQ8gU2Rla5_F2n01
-!i122 1372
+!i122 1506
 l30
 L12 289
 V[bmnRdKGe[9LmoR2HBQEX1
 !s100 dE?eSE@4GT6gE_YPWRMh32
 R10
 32
-R206
+R202
 !i10b 1
-R207
-R213
-R214
+R203
+R209
+R210
 !i113 1
 R15
 R16
 Etestfp
-Z215 w1650555604
+Z211 w1650555604
 R1
 R4
 R5
-!i122 1335
+!i122 1469
 R6
-Z216 8G:/Mi unidad/unizar/ingi_ii/aoc2/aoc21-22/proyecto_2_ext/source/add_Fp_trst.vhd
-Z217 FG:/Mi unidad/unizar/ingi_ii/aoc2/aoc21-22/proyecto_2_ext/source/add_Fp_trst.vhd
+Z212 8G:/Mi unidad/unizar/ingi_ii/aoc2/aoc21-22/proyecto_2_ext/source/add_Fp_trst.vhd
+Z213 FG:/Mi unidad/unizar/ingi_ii/aoc2/aoc21-22/proyecto_2_ext/source/add_Fp_trst.vhd
 l0
 L6 1
 V3gjO?Ib<YU[6l>eoRzOH>2
@@ -1547,9 +1547,9 @@ R10
 32
 R11
 !i10b 1
-Z218 !s108 1653573559.000000
-Z219 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|G:/Mi unidad/unizar/ingi_ii/aoc2/aoc21-22/proyecto_2_ext/source/add_Fp_trst.vhd|
-Z220 !s107 G:/Mi unidad/unizar/ingi_ii/aoc2/aoc21-22/proyecto_2_ext/source/add_Fp_trst.vhd|
+R12
+Z214 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|G:/Mi unidad/unizar/ingi_ii/aoc2/aoc21-22/proyecto_2_ext/source/add_Fp_trst.vhd|
+Z215 !s107 G:/Mi unidad/unizar/ingi_ii/aoc2/aoc21-22/proyecto_2_ext/source/add_Fp_trst.vhd|
 !i113 1
 R15
 R16
@@ -1558,7 +1558,7 @@ R1
 R4
 R5
 DEx4 work 6 testfp 0 22 3gjO?Ib<YU[6l>eoRzOH>2
-!i122 1335
+!i122 1469
 l24
 L9 47
 V^b=[b<hKnW5NW7gz6f^Ua0
@@ -1567,9 +1567,9 @@ R10
 32
 R11
 !i10b 1
-R218
-R219
-R220
+R12
+R214
+R215
 !i113 1
 R15
 R16
@@ -1577,21 +1577,21 @@ Etwo_bits_shifter
 R0
 R4
 R5
-!i122 1346
+!i122 1480
 R6
-Z221 8G:/Mi unidad/unizar/ingi_ii/aoc2/aoc21-22/proyecto_2_ext/source/bits_shifter.vhd
-Z222 FG:/Mi unidad/unizar/ingi_ii/aoc2/aoc21-22/proyecto_2_ext/source/bits_shifter.vhd
+Z216 8G:/Mi unidad/unizar/ingi_ii/aoc2/aoc21-22/proyecto_2_ext/source/bits_shifter.vhd
+Z217 FG:/Mi unidad/unizar/ingi_ii/aoc2/aoc21-22/proyecto_2_ext/source/bits_shifter.vhd
 l0
-R26
+R27
 V@HO1AnzAD0AKJnY[;bmd:2
 !s100 deJGV>HE6>8?]PdW4eZi]0
 R10
 32
-R69
+R64
 !i10b 1
-R63
-Z223 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|G:/Mi unidad/unizar/ingi_ii/aoc2/aoc21-22/proyecto_2_ext/source/bits_shifter.vhd|
-Z224 !s107 G:/Mi unidad/unizar/ingi_ii/aoc2/aoc21-22/proyecto_2_ext/source/bits_shifter.vhd|
+R65
+Z218 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|G:/Mi unidad/unizar/ingi_ii/aoc2/aoc21-22/proyecto_2_ext/source/bits_shifter.vhd|
+Z219 !s107 G:/Mi unidad/unizar/ingi_ii/aoc2/aoc21-22/proyecto_2_ext/source/bits_shifter.vhd|
 !i113 1
 R15
 R16
@@ -1599,40 +1599,40 @@ Abehavioral
 R4
 R5
 DEx4 work 16 two_bits_shifter 0 22 @HO1AnzAD0AKJnY[;bmd:2
-!i122 1346
+!i122 1480
 l39
 L37 7
 VRnhYzWD8:bT^0bQe=o4Me0
 !s100 i;0b?lmD0hmf`Rg0aMFK72
 R10
 32
-R69
+R64
 !i10b 1
-R63
-R223
-R224
+R65
+R218
+R219
 !i113 1
 R15
 R16
 Eua
-Z225 w1651226955
+Z220 w1651226955
 R4
 R5
-!i122 1374
+!i122 1508
 R6
-Z226 8G:/Mi unidad/unizar/ingi_ii/aoc2/aoc21-22/proyecto_2_ext/source/UA.vhd
-Z227 FG:/Mi unidad/unizar/ingi_ii/aoc2/aoc21-22/proyecto_2_ext/source/UA.vhd
+Z221 8G:/Mi unidad/unizar/ingi_ii/aoc2/aoc21-22/proyecto_2_ext/source/UA.vhd
+Z222 FG:/Mi unidad/unizar/ingi_ii/aoc2/aoc21-22/proyecto_2_ext/source/UA.vhd
 l0
 L4 1
 VZ>d2zFGmF1o`?[`Qe[2gL2
 !s100 ]n^hLnL;Ci^2KNh3c[UNP2
 R10
 32
-Z228 !s110 1653573576
+Z223 !s110 1653586619
 !i10b 1
-Z229 !s108 1653573576.000000
-Z230 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|G:/Mi unidad/unizar/ingi_ii/aoc2/aoc21-22/proyecto_2_ext/source/UA.vhd|
-Z231 !s107 G:/Mi unidad/unizar/ingi_ii/aoc2/aoc21-22/proyecto_2_ext/source/UA.vhd|
+Z224 !s108 1653586619.000000
+Z225 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|G:/Mi unidad/unizar/ingi_ii/aoc2/aoc21-22/proyecto_2_ext/source/UA.vhd|
+Z226 !s107 G:/Mi unidad/unizar/ingi_ii/aoc2/aoc21-22/proyecto_2_ext/source/UA.vhd|
 !i113 1
 R15
 R16
@@ -1640,40 +1640,40 @@ Abehavioral
 R4
 R5
 DEx4 work 2 ua 0 22 Z>d2zFGmF1o`?[`Qe[2gL2
-!i122 1374
+!i122 1508
 l19
 L17 23
 V@gT3l7k<^JdN]6W=ME2>g2
 !s100 D@BJB6^z6:fS@jO]?1MaV0
 R10
 32
-R228
+R223
 !i10b 1
-R229
-R230
-R231
+R224
+R225
+R226
 !i113 1
 R15
 R16
 Euc
-Z232 w1650561776
+Z227 w1650561776
 R4
 R5
-!i122 1376
+!i122 1510
 R6
-Z233 8G:/Mi unidad/unizar/ingi_ii/aoc2/aoc21-22/proyecto_2_ext/source/UC_Mips.vhd
-Z234 FG:/Mi unidad/unizar/ingi_ii/aoc2/aoc21-22/proyecto_2_ext/source/UC_Mips.vhd
+Z228 8G:/Mi unidad/unizar/ingi_ii/aoc2/aoc21-22/proyecto_2_ext/source/UC_Mips.vhd
+Z229 FG:/Mi unidad/unizar/ingi_ii/aoc2/aoc21-22/proyecto_2_ext/source/UC_Mips.vhd
 l0
 L31 1
 Vc51XnaLCa[?DmEBl`8@O`1
 !s100 bc>[8gej3BTIBF_d=@>jM2
 R10
 32
-R228
+R223
 !i10b 1
-R229
-Z235 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|G:/Mi unidad/unizar/ingi_ii/aoc2/aoc21-22/proyecto_2_ext/source/UC_Mips.vhd|
-Z236 !s107 G:/Mi unidad/unizar/ingi_ii/aoc2/aoc21-22/proyecto_2_ext/source/UC_Mips.vhd|
+R224
+Z230 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|G:/Mi unidad/unizar/ingi_ii/aoc2/aoc21-22/proyecto_2_ext/source/UC_Mips.vhd|
+Z231 !s107 G:/Mi unidad/unizar/ingi_ii/aoc2/aoc21-22/proyecto_2_ext/source/UC_Mips.vhd|
 !i113 1
 R15
 R16
@@ -1681,81 +1681,81 @@ Abehavioral
 R4
 R5
 DEx4 work 2 uc 0 22 c51XnaLCa[?DmEBl`8@O`1
-!i122 1376
+!i122 1510
 l53
 L52 26
 Vazaid849X?ISQWW^W>TEm2
 !s100 o[C>UQ::F3?fS>H;[_QWS0
 R10
 32
-R228
+R223
 !i10b 1
-R229
-R235
-R236
+R224
+R230
+R231
 !i113 1
 R15
 R16
 Euc_mc
-Z237 w1653575865
+Z232 w1653586644
 R4
 R5
-!i122 1380
+!i122 1513
 R6
-Z238 8G:/Mi unidad/unizar/ingi_ii/aoc2/aoc21-22/proyecto_2_ext/source/UC_MC.vhd
-Z239 FG:/Mi unidad/unizar/ingi_ii/aoc2/aoc21-22/proyecto_2_ext/source/UC_MC.vhd
+Z233 8G:/Mi unidad/unizar/ingi_ii/aoc2/aoc21-22/proyecto_2_ext/source/UC_MC.vhd
+Z234 FG:/Mi unidad/unizar/ingi_ii/aoc2/aoc21-22/proyecto_2_ext/source/UC_MC.vhd
 l0
-R26
+R27
 V_DL17ERlU`_XIB;jFLgX90
 !s100 O@>Yi?aniF<;DN6SVej:A1
 R10
 32
-Z240 !s110 1653575981
+Z235 !s110 1653586651
 !i10b 1
-Z241 !s108 1653575981.000000
-Z242 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|G:/Mi unidad/unizar/ingi_ii/aoc2/aoc21-22/proyecto_2_ext/source/UC_MC.vhd|
-Z243 !s107 G:/Mi unidad/unizar/ingi_ii/aoc2/aoc21-22/proyecto_2_ext/source/UC_MC.vhd|
+Z236 !s108 1653586650.000000
+Z237 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|G:/Mi unidad/unizar/ingi_ii/aoc2/aoc21-22/proyecto_2_ext/source/UC_MC.vhd|
+Z238 !s107 G:/Mi unidad/unizar/ingi_ii/aoc2/aoc21-22/proyecto_2_ext/source/UC_MC.vhd|
 !i113 1
 R15
 R16
 Abehavioral
 R4
 R5
-DEx4 work 5 uc_mc 0 22 _DL17ERlU`_XIB;jFLgX90
-!i122 1380
+Z239 DEx4 work 5 uc_mc 0 22 _DL17ERlU`_XIB;jFLgX90
+!i122 1513
 l135
-L67 233
-V<6FdNTlTzK@=OMGXFXz613
-!s100 P<Cd58?6DTUTEGA7a7Mk63
+L67 237
+Vd5P<n8jHnZHEVAdlHoHQU0
+!s100 m;?fN1[VMQaDgQHAX]^fX1
 R10
 32
-R240
+R235
 !i10b 1
-R241
-R242
-R243
+R236
+R237
+R238
 !i113 1
 R15
 R16
 Eud
-Z244 w1653291582
+Z240 w1653291582
 R4
 R5
-!i122 1377
+!i122 1511
 R6
-Z245 8G:/Mi unidad/unizar/ingi_ii/aoc2/aoc21-22/proyecto_2_ext/source/UD.vhd
-Z246 FG:/Mi unidad/unizar/ingi_ii/aoc2/aoc21-22/proyecto_2_ext/source/UD.vhd
+Z241 8G:/Mi unidad/unizar/ingi_ii/aoc2/aoc21-22/proyecto_2_ext/source/UD.vhd
+Z242 FG:/Mi unidad/unizar/ingi_ii/aoc2/aoc21-22/proyecto_2_ext/source/UD.vhd
 l0
 L4 1
 V>ab79HBSA@7dInP2H;Y:J2
 !s100 `4mDJk2j6g]lWUionObGY0
 R10
 32
-Z247 !s110 1653573577
+Z243 !s110 1653586620
 !i10b 1
-Z248 !s108 1653573577.000000
-Z249 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|G:/Mi unidad/unizar/ingi_ii/aoc2/aoc21-22/proyecto_2_ext/source/UD.vhd|
-Z250 !s107 G:/Mi unidad/unizar/ingi_ii/aoc2/aoc21-22/proyecto_2_ext/source/UD.vhd|
+Z244 !s108 1653586620.000000
+Z245 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|G:/Mi unidad/unizar/ingi_ii/aoc2/aoc21-22/proyecto_2_ext/source/UD.vhd|
+Z246 !s107 G:/Mi unidad/unizar/ingi_ii/aoc2/aoc21-22/proyecto_2_ext/source/UD.vhd|
 !i113 1
 R15
 R16
@@ -1763,43 +1763,43 @@ Abehavioral
 R4
 R5
 DEx4 work 2 ud 0 22 >ab79HBSA@7dInP2H;Y:J2
-!i122 1377
+!i122 1511
 l44
 L35 48
 VDC<WXcNP1[H85Y=Y0[66d3
 !s100 ITmaX8_2G]H^MDW9Tbk?T3
 R10
 32
-R247
+R243
 !i10b 1
-R248
-R249
-R250
+R244
+R245
+R246
 !i113 1
 R15
 R16
 Evia
-Z251 w1653423119
+Z247 w1653423119
 R1
 R3
 R2
 R4
 R5
-!i122 1378
+!i122 1512
 R6
-Z252 8G:/Mi unidad/unizar/ingi_ii/aoc2/aoc21-22/proyecto_2_ext/source/Via.vhd
-Z253 FG:/Mi unidad/unizar/ingi_ii/aoc2/aoc21-22/proyecto_2_ext/source/Via.vhd
+Z248 8G:/Mi unidad/unizar/ingi_ii/aoc2/aoc21-22/proyecto_2_ext/source/Via.vhd
+Z249 FG:/Mi unidad/unizar/ingi_ii/aoc2/aoc21-22/proyecto_2_ext/source/Via.vhd
 l0
 L5 1
 V<[SWzf?C>=k0:gV>5R`Eg2
 !s100 0]cSQ1V_^6Mn=65^7ML0k2
 R10
 32
-R247
+R243
 !i10b 1
-R248
-Z254 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|G:/Mi unidad/unizar/ingi_ii/aoc2/aoc21-22/proyecto_2_ext/source/Via.vhd|
-Z255 !s107 G:/Mi unidad/unizar/ingi_ii/aoc2/aoc21-22/proyecto_2_ext/source/Via.vhd|
+R244
+Z250 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|G:/Mi unidad/unizar/ingi_ii/aoc2/aoc21-22/proyecto_2_ext/source/Via.vhd|
+Z251 !s107 G:/Mi unidad/unizar/ingi_ii/aoc2/aoc21-22/proyecto_2_ext/source/Via.vhd|
 !i113 1
 R15
 R16
@@ -1810,18 +1810,18 @@ R2
 R4
 R5
 DEx4 work 3 via 0 22 <[SWzf?C>=k0:gV>5R`Eg2
-!i122 1378
+!i122 1512
 l52
 L22 96
 V?Q`AWK?iHZ1SGFUaF1cXR3
 !s100 <lo0mZR`XK9b^>`zR[g=[3
 R10
 32
-R247
+R243
 !i10b 1
-R248
-R254
-R255
+R244
+R250
+R251
 !i113 1
 R15
 R16

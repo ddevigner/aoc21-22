@@ -104,7 +104,7 @@ begin
 	-- IO_input. Segundo valor
 	IO_input <= conv_std_logic_vector(2048, 32); -- x"00000800"
 
-	-- Debe ser un acierto de escritura. Escribimos FF en @24 y en la tercera 
+	-- Debe ser un acierto de escritura. Escribimos FF en @18 y en la tercera 
 	-- palabra del bloque de MC del cjto 0 via 0.
 	Addr <= conv_std_logic_vector(72, 32); -- x"00000048"
 	RE <= '0';

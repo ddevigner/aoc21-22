@@ -66,7 +66,7 @@ begin
 		--elsif (overlap = '1') then
 		elsif (bus_frame= '1') and (last_word = '1') and (Bus_TRDY = '1') then
 			priority <= not priority;
-		end if;        
+		end if;
 	end if;
 end process;
 

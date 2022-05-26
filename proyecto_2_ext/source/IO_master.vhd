@@ -109,8 +109,7 @@ begin
 			IO_M_last_word <= '1'; -- Indicamos que es la ultima palabra.
 		else
 			next_state <= send_data;
-		end if;   			
-		IO_M_send_Data <= '1'; 
+		end if;  
 		IO_M_last_word <= '1'; -- Indicamos que es la ultima palabra			
 	end if;
 end process;
