@@ -130,7 +130,7 @@ begin
 	---------------------------------------------------------------------------
 	-- Debe ser un fallo de escritura. NO se trae el bloque. Escribimos FF en 
 	-- memoria.
-	Addr <= conv_std_logic_vector(96, 32); -- x"00000060"
+	Addr <= conv_std_logic_vector(76, 32); -- x"0000004C"
 	RE <= '0';
 	WE <= '1';
 	wait for 1 ns;

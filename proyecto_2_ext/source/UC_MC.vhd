@@ -31,20 +31,21 @@ use IEEE.STD_LOGIC_1164.ALL;
 
 entity UC_MC is
     Port (
-		clk                : in  STD_LOGIC;
-		reset              : in  STD_LOGIC;
-		RE                 : in  STD_LOGIC; -- RE y WE son las ordenes del MIPs.
-		WE                 : in  STD_LOGIC;
-		hit0               : in  STD_LOGIC; -- Se activa si hay acierto en la via 0.
-		hit1               : in  STD_LOGIC; -- Se activa si hay acierto en la via 1.
-		addr_non_cacheable : in  STD_LOGIC; -- Indica que la direccion no debe almacenarse en MC. En este caso porque pertenece a la scratch.
-		bus_TRDY           : in  STD_LOGIC; -- Indica que el esclavo no puede realizar la operacion solicitada en este ciclo
-		Bus_DevSel         : in  STD_LOGIC; -- Indica que el esclavo ha reconocido que la direccion esta dentro de su rango
-		via_2_rpl          : in  STD_LOGIC; -- Indica que via se va a reemplazar
-		Bus_grant          : in  STD_LOGIC; -- Indica la concesion del uso del bus
+		clk                : in STD_LOGIC;
+		reset              : in STD_LOGIC;
+		RE                 : in STD_LOGIC; -- RE y WE son las ordenes del MIPs.
+		WE                 : in STD_LOGIC;
+		hit0               : in STD_LOGIC; -- Se activa si hay acierto en la via 0.
+		hit1               : in STD_LOGIC; -- Se activa si hay acierto en la via 1.
+		addr_non_cacheable : in STD_LOGIC; -- Indica que la direccion no debe almacenarse en MC. En este caso porque pertenece a la scratch.
+		bus_TRDY           : in STD_LOGIC; -- Indica que el esclavo no puede realizar la operacion solicitada en este ciclo
+		Bus_DevSel         : in STD_LOGIC; -- Indica que el esclavo ha reconocido que la direccion esta dentro de su rango
+		via_2_rpl          : in STD_LOGIC; -- Indica que via se va a reemplazar
+		Bus_grant          : in STD_LOGIC; -- Indica la concesion del uso del bus
+		req_word		   : in STD_LOGIC_VECTOR (1 downto 0); -- Indica la palabra pedida por el procesador.
 		Bus_req      	   : out STD_LOGIC; -- Indica la peticion al arbitro del uso del bus
         buffer_enable	   : out STD_LOGIC; -- Habilita los buffers de direccion y datos.
-		buffer_addr		   : out STD_LOGIC;	-- Elige entre direccion de lectura o escritura.
+		buffer_addr		   : out STD_LOGIC;	-- Selecciona entre la direccion que llega por el bus o la direccion guardada en buffer.
 		MC_WE0       	   : out STD_LOGIC; -- Write enable de la via 0.
         MC_WE1       	   : out STD_LOGIC; -- Write enable de la via 1.
         MC_bus_Rd_Wr 	   : out STD_LOGIC; -- 0 si lectura, 1 si escritura en Memoria.
@@ -64,39 +65,41 @@ entity UC_MC is
 end UC_MC;
 
 architecture Behavioral of UC_MC is
-
+-------------------------------------------------------------------------------
+-- Componentes
+-------------------------------------------------------------------------------
 component reg1 is
 	Port (
-	   	Din   : in  STD_LOGIC;
-	   	clk   : in  STD_LOGIC;
-		reset : in  STD_LOGIC;
-	   	load  : in  STD_LOGIC;
-	   	Dout  : out  STD_LOGIC
+	   	Din   : in STD_LOGIC;
+	   	clk   : in STD_LOGIC;
+		reset : in STD_LOGIC;
+	   	load  : in STD_LOGIC;
+	   	Dout  : out STD_LOGIC
 	);
 end component;
 
 component counter_2bits is
 	Port (
-		clk  		 : in  STD_LOGIC;
-		reset		 : in  STD_LOGIC;
-		count_enable : in  STD_LOGIC;
+		clk  		 : in STD_LOGIC;
+		reset		 : in STD_LOGIC;
+		count_enable : in STD_LOGIC;
 		count        : out STD_LOGIC_VECTOR (1 downto 0)
 	);
-end component;	
+end component;
+
 -------------------------------------------------------------------------------
--- Estados del automata de la Unidad de Control de la Memoria Cache:
+-- Estados del automata de la Unidad de Control de la Memoria Cache
+-------------------------------------------------------------------------------
 --	1. Fetch: se busca el dato en Memoria Cache, si es Read-hit, continua 
 --	   la ejecucion, si no, realiza peticion de bus y una vez concedido
 -- 	   comienza las politicas de Lectura/Escritura.
 --
---  2. Sav_state:
---
---  3. Send_addr: la UC manda la dirección del dato necesitado, si ha habido 
+--  2. Send_addr: la UC manda la dirección del dato necesitado, si ha habido 
 --	   Read-miss sobre direccion cacheable, se mandará la direccion de bloque,
 --     si no, será solo del dato, una vez el Worker identifique la dirección, 
 -- 	   comenzará la transferencia de datos.
 --
--- 	4. Data_trnf: la UC leerá el bloque o la palabra correspondiente si es 
+-- 	3. Data_trnf: la UC leerá el bloque o la palabra correspondiente si es 
 --	   lectura (dependiendo de si la direccion es o no cacheable) o mandará
 --	   la palabra (politicas write-through + write-around) una vez el Worker
 --	   indique que puede completar la transferencia.
@@ -112,6 +115,9 @@ type state_type is (
 signal state, next_state : state_type;
 -------------------------------------------------------------------------------
 
+-------------------------------------------------------------------------------
+-- Señales
+-------------------------------------------------------------------------------
 -- Se activa cuando se esta pidiendo la ultima palabra de un bloque.
 signal last_word_block : std_logic; 
 -- Se activa cuando solo se quiere transferir una palabra.
@@ -123,11 +129,13 @@ signal hit : std_logic;
 -- Registro del numero de palabras transferidas actual.
 signal palabra_UC : STD_LOGIC_VECTOR (1 downto 0);
 -- Nueva señal: indica que la memoria cache todavia esta procesando una peticion
--- de escritura.
-signal set_busy_wr, busy_wr, wr_enable : STD_LOGIC;
-
+-- de lectura (0) o escritura (1).
+signal set_served_re, re_enable, served_re, set_busy_wr, wr_enable, busy_wr : STD_LOGIC;
+signal server_re_reset, busy_wr_reset : STD_LOGIC;
+-------------------------------------------------------------------------------
 begin
 
+-- Hit en cualquiera de las dos vias.
 hit <= hit0 or hit1;	
 
 -- El contador nos dice cuantas palabras hemos recibido. Se usa para saber
@@ -135,6 +143,14 @@ hit <= hit0 or hit1;
 -- en la que se escribe el dato leido del bus en la MC. Indica la palabra actual 
 -- dentro de una transferencia de bloque (1, 2...).
 word_counter: counter_2bits port map (clk, reset, count_enable, palabra_UC);
+
+served_re_Reg : reg1 port map (
+	Din   => set_served_re,
+	clk   => clk,
+	reset => reset,
+	load  => re_enable,
+	Dout  => served_re
+);
 
 busy_wr_Reg : reg1 port map (
 	Din   => set_busy_wr,
@@ -164,11 +180,15 @@ begin
 	end if;
 end process;
 
--- Automata de Mealy de la Unidad de Control.
-OUTPUT_DECODE: process (state, RE, WE, hit0, hit1, hit, addr_non_cacheable, 
-	bus_TRDY, Bus_DevSel, via_2_rpl, Bus_grant, last_word_block)
+-- Automata Mealy.
+OUTPUT_DECODE: process (state, served_re, busy_wr, RE, WE, hit0, hit1, hit, 
+	addr_non_cacheable, bus_TRDY, Bus_DevSel, via_2_rpl, Bus_grant, 
+	last_word_block, req_word, palabra_UC)
 begin
+	-- Valores por defecto.
 	next_state <= state;
+	set_served_re <= '0';
+	re_enable <= '0';
 	set_busy_wr <= '0';
 	wr_enable <= '0';
 	Bus_req <= '0';
@@ -192,79 +212,78 @@ begin
 
 	-- Estado Fetch:
 	if (state = Fetch) then
-		if (RE = '0' and WE = '0') or (hit = '1' and RE = '1') then 
+		if (RE = '0' and WE = '0') or (RE = '1' and hit = '1') then 
 			ready <= '1';
 		else
 			Bus_req <= '1';
-			if (RE = '1' and Bus_grant = '1') then 
-				next_state <= Send_addr; 
-			end if;
-			if (WE = '1' and Bus_grant = '1') then
+			if (RE = '1') then
+				if (Bus_grant = '1') then 
+					next_state <= Send_addr;
+					set_served_re <= '0';
+					re_enable <= '1';
+					buffer_enable <= '1';
+					inc_m <= '1';
+				end if;
+			else
+				buffer_enable <= '1';
 				next_state <= Send_addr;
 				set_busy_wr <= '1';
 				wr_enable <= '1';
-				buffer_enable <= '1';
 				MC_WE0 <= hit0;
 				MC_WE1 <= hit1;
 				ready <= '1';
+				inc_m <= not(hit);
+				inc_w <= hit;
 			end if;
-			--if (RE = '1') then 
-			--	if (Bus_grant = '1') then 
-			--		next_state <= Send_addr;
-			--	end if;
-			--else
-			--	next_state <= Sav_state;
-			--	set_busy_wr <= '1';
-			--	wr_enable <= '1';
-			--	buffer_enable <= '1';
-			--	MC_WE0 <= hit0;
-			--	MC_WE1 <= hit1;
-			--	ready <= '1';
-			--end if;
 		end if;
 
 	-- Estado Sav_state
 	elsif (state = Sav_state) then
 		Bus_req <= '1';
-		if (RE = '0' and WE = '0') or (hit = '1' and RE = '1') then 
-			ready <= '1';
-		end if;
+		ready <= (not(RE) and not(WE)) or (RE and hit);
 		if (Bus_grant = '1') then 
 			next_state <= Send_addr;
 		end if;
 
 	-- Estado Send_addr:
 	elsif (state = Send_addr) then 
+		buffer_addr <= '1';
 		MC_send_addr_ctrl <= '1';
 		Frame <= '1';
+
 		if (busy_wr = '0') then
-			if (addr_non_cacheable = '0') then 
-				block_addr <= '1';
-			end if;
-		else 
-			buffer_addr  <= '1';
+			block_addr <= not(addr_non_cacheable);
+		else
 			MC_bus_Rd_Wr <= '1';
-			if (RE = '0' and WE = '0') or (hit = '1' and RE = '1') then
-				ready <= '1';
-			end if;		
+			ready <= (not(RE) and not(WE)) or (RE and hit);
 		end if;
+
 		if (Bus_DevSel = '1') then
 			next_state <= Data_trnf;
 		end if;
 	
 	-- Estado Data_trnf:
 	elsif (state = Data_trnf) then
+		buffer_addr <= '1';
 		Frame <= '1';
 		if (Bus_TRDY = '1') then
 			if (busy_wr = '0') then
 				if (addr_non_cacheable = '0') then
 					count_enable <= '1';
-					mux_origen   <= '1';
-
-					if (via_2_rpl = '0') then
-						MC_WE0 <= '1';
+					mux_origen <= '1';
+					MC_WE0 <= not(via_2_rpl);
+					MC_WE1 <= via_2_rpl;
+					inc_w <= '1';
+					
+					if (served_re = '0') then
+						if (req_word = palabra_UC) then
+							set_served_re <= '1';
+							re_enable <= '1';
+							ready <= '1';
+							mux_output <= '1';
+						end if;
 					else
-						MC_WE1 <= '1';
+						ready <= not(RE) and not(WE);
 					end if;
 
 					if (last_word_block = '1') then
@@ -274,19 +293,17 @@ begin
 					end if;
 				else
 					next_state <= Fetch;
-					ready 	   <= '1';
+					ready <= '1';
 					mux_output <= '1';
 					last_word  <= '1';
 				end if;
 			else
-				next_state   <= Fetch;
-				set_busy_wr  <= '0';
-				wr_enable  <= '1';
+				next_state <= Fetch;
+				set_busy_wr <= '0';
+				wr_enable <= '1';
 				MC_send_data <= '1';
-				last_word	 <= '1';
-				if (RE = '0' and WE = '0') or (hit = '1' and RE = '1') then
-					ready <= '1';
-				end if;
+				last_word <= '1';
+				ready <= (not(RE) and not(WE)) or (RE and hit);
 			end if;
 		end if;
 	end if;
