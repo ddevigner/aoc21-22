@@ -36,7 +36,10 @@ add wave -noupdate -expand -group MC -expand -group MC_UC -expand -group MC_UC_i
 add wave -noupdate -expand -group MC -expand -group MC_UC -expand -group MC_UC_in -label served_re /testbench_md_mas_mc/uut/MC/Unidad_Control/served_re
 add wave -noupdate -expand -group MC -expand -group MC_UC -expand -group MC_UC_in -label busy_wr /testbench_md_mas_mc/uut/MC/Unidad_Control/busy_wr
 add wave -noupdate -expand -group MC -expand -group MC_UC -expand -group MC_UC_in -label req_word /testbench_md_mas_mc/uut/MC/Unidad_Control/req_word
+add wave -noupdate -expand -group MC -expand -group MC_UC -expand -group MC_UC_out -label inc_m /testbench_md_mas_mc/uut/MC/Unidad_Control/inc_m
+add wave -noupdate -expand -group MC -expand -group MC_UC -expand -group MC_UC_out -label inc_w /testbench_md_mas_mc/uut/MC/Unidad_Control/inc_w
 add wave -noupdate -expand -group MC -expand -group MC_UC -expand -group MC_UC_out -label next_state /testbench_md_mas_mc/uut/MC/Unidad_Control/next_state
+add wave -noupdate -expand -group MC -expand -group MC_UC -expand -group MC_UC_out -label buffer_addr /testbench_md_mas_mc/uut/MC/Unidad_Control/buffer_addr
 add wave -noupdate -expand -group MC -expand -group MC_UC -expand -group MC_UC_out -label buffer_enable /testbench_md_mas_mc/uut/MC/Unidad_Control/buffer_enable
 add wave -noupdate -expand -group MC -expand -group MC_UC -expand -group MC_UC_out -label Bus_req /testbench_md_mas_mc/uut/MC/Unidad_Control/Bus_req
 add wave -noupdate -expand -group MC -expand -group MC_UC -expand -group MC_UC_out -label MC_WE0 /testbench_md_mas_mc/uut/MC/Unidad_Control/MC_WE0
@@ -64,7 +67,7 @@ add wave -noupdate -expand -group MD -label WE /testbench_md_mas_mc/uut/controla
 add wave -noupdate -expand -group MD -label MD_RAM /testbench_md_mas_mc/uut/controlador_MD/MD/RAM
 add wave -noupdate -expand -group MD_Scratch -label MD_Scratch_RAM /testbench_md_mas_mc/uut/M_scratch/MD_scratch/RAM
 TreeUpdate [SetDefaultTree]
-WaveRestoreCursors {{Cursor 1} {95000 ps} 0}
+WaveRestoreCursors {{Cursor 1} {21940 ps} 0}
 quietly wave cursor active 1
 configure wave -namecolwidth 185
 configure wave -valuecolwidth 78
@@ -80,4 +83,4 @@ configure wave -griddelta 40
 configure wave -timeline 0
 configure wave -timelineunits ps
 update
-WaveRestoreZoom {0 ps} {182787 ps}
+WaveRestoreZoom {0 ps} {79516 ps}
