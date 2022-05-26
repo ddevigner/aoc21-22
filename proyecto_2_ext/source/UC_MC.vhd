@@ -45,7 +45,7 @@ entity UC_MC is
 		req_word		   : in STD_LOGIC_VECTOR (1 downto 0); -- Indica la palabra pedida por el procesador.
 		Bus_req      	   : out STD_LOGIC; -- Indica la peticion al arbitro del uso del bus
         buffer_enable	   : out STD_LOGIC; -- Habilita los buffers de direccion y datos.
-		rd_wr_addr		   : out STD_LOGIC;	-- Elige entre direccion de lectura o escritura.
+		buffer_addr		   : out STD_LOGIC;	-- Selecciona entre la direccion que llega por el bus o la direccion guardada en buffer.
 		MC_WE0       	   : out STD_LOGIC; -- Write enable de la via 0.
         MC_WE1       	   : out STD_LOGIC; -- Write enable de la via 1.
         MC_bus_Rd_Wr 	   : out STD_LOGIC; -- 0 si lectura, 1 si escritura en Memoria.
@@ -192,7 +192,7 @@ begin
 	wr_reset <= '0';
 	Bus_req <= '0';
 	buffer_enable <= '0';
-	rd_wr_addr <= '0';
+	buffer_addr <= '0';
 	MC_WE0 <= '0';
 	MC_WE1 <= '0';
 	MC_bus_Rd_Wr <= '0';
@@ -217,11 +217,11 @@ begin
 			Bus_req <= '1';
 			if (Bus_grant = '1') then
 				next_state <= Send_addr;
+				buffer_enable <= '1';
 				if (RE = '1') then
 					re_reset <= '1';
 				else
 					wr_enable <= '1';
-					buffer_enable <= '1';
 					MC_WE0 <= hit0;
 					MC_WE1 <= hit1;
 					ready <= '1';
@@ -231,15 +231,14 @@ begin
 
 	-- Estado Send_addr:
 	elsif (state = Send_addr) then 
+		buffer_addr <= '1';
 		MC_send_addr_ctrl <= '1';
 		Frame <= '1';
 
 		if (busy_wr = '0') then
 			block_addr <= not(addr_non_cacheable);
-		else 
-			rd_wr_addr <= '1';
+		else
 			MC_bus_Rd_Wr <= '1';
-
 			if (RE = '0' and WE = '0') or (RE = '1' and hit = '1') then
 				ready <= '1';
 			end if;
@@ -251,6 +250,7 @@ begin
 	
 	-- Estado Data_trnf:
 	elsif (state = Data_trnf) then
+		buffer_addr <= '1';
 		Frame <= '1';
 		if (Bus_TRDY = '1') then
 			if (busy_wr = '0') then
@@ -259,21 +259,23 @@ begin
 					mux_origen <= '1';
 					MC_WE0 <= not(via_2_rpl);
 					MC_WE1 <= via_2_rpl;
-
-					if (req_word = palabra_UC) then
-						re_enable <= '1';
-						ready <= '1';
-						mux_output <= '1';
+					
+					if (served_re = '0') then
+						if (req_word = palabra_UC) then
+							re_enable <= '1';
+							ready <= '1';
+							mux_output <= '1';
+						end if;
+					else 
+						if (RE = '0' and WE = '0') then
+							ready <= '1';
+						end if;
 					end if;
 
 					if (last_word_block = '1') then
 						next_state <= Fetch;
 						MC_tags_WE <= '1';
 						last_word  <= '1';
-					end if;
-
-					if (served_re = '1' and RE = '0' and WE = '0') then
-						ready <= '1';
 					end if;
 				else
 					next_state <= Fetch;

@@ -73,7 +73,7 @@ component UC_MC is
 		addr_non_cacheable : in STD_LOGIC; -- Indica que la direccion no debe almacenarse en MC. En este caso porque pertenece a la scratch
 		req_word	  : in STD_LOGIC_VECTOR(1 downto 0); -- Indica la palabra pedida por el procesador.
 		buffer_enable : out STD_LOGIC;
-		rd_wr_addr	  : out STD_LOGIC;
+		buffer_addr	  : out STD_LOGIC; 
 		MC_WE0 		  : out STD_LOGIC;
         MC_WE1 		  : out STD_LOGIC;
         MC_bus_Rd_Wr  : out STD_LOGIC; -- 1 para escritura en Memoria y 0 para lectura
@@ -168,8 +168,8 @@ signal inc_m, inc_w : std_logic;
 signal addr_non_cacheable, mux_output, last_word : std_logic;
 
 -- Nuevas señales para los buffers de MC.
-signal buffer_enable, rd_wr_addr : std_logic;
-signal saved_addr, saved_data : std_logic_vector (31 downto 0);
+signal buffer_enable, buffer_addr : std_logic;
+signal saved_addr, saved_data, mux_addr : std_logic_vector (31 downto 0);
 
 begin
  ------------------------------------------------------------------------------
@@ -193,9 +193,11 @@ addr_buffer: reg32 port map (
 -- guardarse en cache.
 addr_non_cacheable <= '1' when ADDR(31 downto 8) = x"100000" else '0';
 
-tag <= ADDR(31 downto 6);
-dir_cjto <= ADDR(5 downto 4); -- Emplazamiento asociativo.
-dir_word <= ADDR(3 downto 2) when (mux_origen='0') else palabra_UC;
+mux_addr <= ADDR when (buffer_addr = '0') else saved_addr; 
+
+tag <= mux_addr(31 downto 6);
+dir_cjto <= mux_addr(5 downto 4); -- Emplazamiento asociativo.
+dir_word <= mux_addr(3 downto 2) when (mux_origen = '0') else palabra_UC;
 
 data_buffer: reg32 port map (
 	Din   => Din,
@@ -274,7 +276,7 @@ Unidad_Control: UC_MC port map (
 	bus_DevSel 		   => bus_DevSel,
 	req_word		   => dir_word,
 	buffer_enable 	   => buffer_enable,
-	rd_wr_addr		   => rd_wr_addr,
+	buffer_addr 	   => buffer_addr,
 	MC_WE0 		  	   => WE_via0,
 	MC_WE1 		  	   => WE_via1,
 	MC_bus_Rd_Wr  	   => internal_MC_bus_Rd_Wr,
@@ -320,9 +322,8 @@ cont_w: counter port map (
 MC_bus_Rd_Wr <= internal_MC_bus_Rd_Wr;
 -- Si es escritura se manda la direccion de la palabra y si es un fallo la 
 -- direccion del bloque que causa el fallo
-MC_Bus_ADDR <= ADDR(31 downto 2)&"00" when (block_addr ='0' and rd_wr_addr = '0')
-		else saved_addr(31 downto 2)&"00" when (block_addr = '0' and rd_wr_addr = '1')
-		else ADDR(31 downto 4)&"0000";
+MC_Bus_ADDR <= mux_addr(31 downto 2)&"00" when (block_addr ='0')
+		  else mux_addr(31 downto 4)&"0000";
 
 MC_Bus_data_out <= saved_data; -- se usa para mandar el dato a escribir
 -------------------------------------------------------------------------------

@@ -6,6 +6,7 @@ add wave -noupdate -label CLK /testbench_md_mas_mc/uut/CLK
 add wave -noupdate -label reset /testbench_md_mas_mc/uut/reset
 add wave -noupdate -label IO_input /testbench_md_mas_mc/uut/IO_input
 add wave -noupdate -label ADDR /testbench_md_mas_mc/uut/ADDR
+add wave -noupdate -label Bus_Data_Addr /testbench_md_mas_mc/uut/Bus_Data_Addr
 add wave -noupdate -label Din /testbench_md_mas_mc/uut/Din
 add wave -noupdate -label Dout /testbench_md_mas_mc/uut/Dout
 add wave -noupdate -label RE /testbench_md_mas_mc/uut/RE
@@ -19,9 +20,11 @@ add wave -noupdate -group Arbitro -label last_word /testbench_md_mas_mc/uut/Arbi
 add wave -noupdate -group Arbitro -label priority /testbench_md_mas_mc/uut/Arbitraje/priority
 add wave -noupdate -group Arbitro -label Req0 /testbench_md_mas_mc/uut/Arbitraje/Req0
 add wave -noupdate -group Arbitro -label Req1 /testbench_md_mas_mc/uut/Arbitraje/Req1
+add wave -noupdate -expand -group MC -label saved_addr /testbench_md_mas_mc/uut/MC/saved_addr
+add wave -noupdate -expand -group MC -label saved_data /testbench_md_mas_mc/uut/MC/saved_data
+add wave -noupdate -expand -group MC -label mux_addr /testbench_md_mas_mc/uut/MC/mux_addr
 add wave -noupdate -expand -group MC -label @_MC_Way /testbench_md_mas_mc/uut/MC/Via_0/Dir_MC
 add wave -noupdate -expand -group MC -expand -group MC_UC -label {palabra_UC (UC)} /testbench_md_mas_mc/uut/MC/Unidad_Control/palabra_UC
-add wave -noupdate -expand -group MC -expand -group MC_UC -label is_busy /testbench_md_mas_mc/uut/MC/Unidad_Control/is_busy
 add wave -noupdate -expand -group MC -expand -group MC_UC -expand -group MC_UC_in -label state /testbench_md_mas_mc/uut/MC/Unidad_Control/state
 add wave -noupdate -expand -group MC -expand -group MC_UC -expand -group MC_UC_in -label hit /testbench_md_mas_mc/uut/MC/Unidad_Control/hit
 add wave -noupdate -expand -group MC -expand -group MC_UC -expand -group MC_UC_in -label addr_non_cacheable /testbench_md_mas_mc/uut/MC/Unidad_Control/addr_non_cacheable
@@ -30,7 +33,11 @@ add wave -noupdate -expand -group MC -expand -group MC_UC -expand -group MC_UC_i
 add wave -noupdate -expand -group MC -expand -group MC_UC -expand -group MC_UC_in -label via_2_rpl /testbench_md_mas_mc/uut/MC/Unidad_Control/via_2_rpl
 add wave -noupdate -expand -group MC -expand -group MC_UC -expand -group MC_UC_in -label Bus_grant /testbench_md_mas_mc/uut/MC/Unidad_Control/Bus_grant
 add wave -noupdate -expand -group MC -expand -group MC_UC -expand -group MC_UC_in -label last_word_block /testbench_md_mas_mc/uut/MC/Unidad_Control/last_word_block
+add wave -noupdate -expand -group MC -expand -group MC_UC -expand -group MC_UC_in -label served_re /testbench_md_mas_mc/uut/MC/Unidad_Control/served_re
+add wave -noupdate -expand -group MC -expand -group MC_UC -expand -group MC_UC_in -label busy_wr /testbench_md_mas_mc/uut/MC/Unidad_Control/busy_wr
+add wave -noupdate -expand -group MC -expand -group MC_UC -expand -group MC_UC_in -label req_word /testbench_md_mas_mc/uut/MC/Unidad_Control/req_word
 add wave -noupdate -expand -group MC -expand -group MC_UC -expand -group MC_UC_out -label next_state /testbench_md_mas_mc/uut/MC/Unidad_Control/next_state
+add wave -noupdate -expand -group MC -expand -group MC_UC -expand -group MC_UC_out -label buffer_enable /testbench_md_mas_mc/uut/MC/Unidad_Control/buffer_enable
 add wave -noupdate -expand -group MC -expand -group MC_UC -expand -group MC_UC_out -label Bus_req /testbench_md_mas_mc/uut/MC/Unidad_Control/Bus_req
 add wave -noupdate -expand -group MC -expand -group MC_UC -expand -group MC_UC_out -label MC_WE0 /testbench_md_mas_mc/uut/MC/Unidad_Control/MC_WE0
 add wave -noupdate -expand -group MC -expand -group MC_UC -expand -group MC_UC_out -label MC_WE1 /testbench_md_mas_mc/uut/MC/Unidad_Control/MC_WE1
@@ -55,9 +62,9 @@ add wave -noupdate -expand -group MC -expand -group MC_Storage -expand -group Vi
 add wave -noupdate -expand -group MD -label RE /testbench_md_mas_mc/uut/controlador_MD/MD/RE
 add wave -noupdate -expand -group MD -label WE /testbench_md_mas_mc/uut/controlador_MD/MD/WE
 add wave -noupdate -expand -group MD -label MD_RAM /testbench_md_mas_mc/uut/controlador_MD/MD/RAM
-add wave -noupdate -expand -group MD_Scratch -label MD_Scratch_RAM -expand /testbench_md_mas_mc/uut/M_scratch/MD_scratch/RAM
+add wave -noupdate -expand -group MD_Scratch -label MD_Scratch_RAM /testbench_md_mas_mc/uut/M_scratch/MD_scratch/RAM
 TreeUpdate [SetDefaultTree]
-WaveRestoreCursors {{Cursor 1} {1079059 ps} 0}
+WaveRestoreCursors {{Cursor 1} {95000 ps} 0}
 quietly wave cursor active 1
 configure wave -namecolwidth 185
 configure wave -valuecolwidth 78
@@ -73,4 +80,4 @@ configure wave -griddelta 40
 configure wave -timeline 0
 configure wave -timelineunits ps
 update
-WaveRestoreZoom {0 ps} {163071 ps}
+WaveRestoreZoom {0 ps} {182787 ps}
