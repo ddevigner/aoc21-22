@@ -159,7 +159,10 @@ begin
 		if (RE = '0' and WE = '0') or (hit = '1' and RE = '1') then ready <= '1';
 		else
 			Bus_req <= '1';
-			if (Bus_grant = '1') then next_state <= Send_addr; end if;
+			if (Bus_grant = '1') then
+				next_state <= Send_addr;
+				inc_m <= RE or (WE and not(hit));
+			end if;
 		end if;
 	
 	-- Estado Send_addr:
@@ -167,11 +170,8 @@ begin
 		MC_send_addr_ctrl <= '1';
 		Frame <= '1';
 
-		if (RE = '1') then
-			if (addr_non_cacheable = '0') then block_addr <= '1';
-			end if;
-		else MC_bus_Rd_Wr <= '1';
-		end if;
+		block_addr <= RE and not(addr_non_cacheable);
+		MC_bus_Rd_Wr <= not(RE);
 
 		if (Bus_DevSel = '1') then next_state <= Data_trnf;
 		end if;
@@ -184,10 +184,10 @@ begin
 				if (addr_non_cacheable = '0') then
 					count_enable <= '1';
 					mux_origen <= '1';
+					inc_w <= '1';
 
-					if (via_2_rpl = '0') then MC_WE0 <= '1';
-					else MC_WE1 <= '1';
-					end if;
+					MC_WE0 <= not(via_2_rpl);
+					MC_WE1 <= via_2_rpl;
 
 					if (last_word_block = '1') then 
 						next_state <= Fetch;
@@ -205,10 +205,9 @@ begin
 				ready <= '1';
 				MC_send_data <= '1';
 				last_word <= '1';
-				if (hit = '1' and addr_non_cacheable = '0') then
-					if (hit0 = '1') then MC_WE0 <= '1';
-					else MC_WE1 <= '1'; 
-					end if;
+				MC_WE0 <= hit0 and not(addr_non_cacheable);
+				MC_WE1 <= hit1 and not(addr_non_cacheable);
+				inc_w <= not(addr_non_cacheable);
 				end if;
 			end if;
 		end if;

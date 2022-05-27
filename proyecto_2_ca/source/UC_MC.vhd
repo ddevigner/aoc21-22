@@ -94,7 +94,10 @@ end component;
 --	   la ejecucion, si no, realiza peticion de bus y una vez concedido
 -- 	   comienza las politicas de Lectura/Escritura.
 --
---  2. Send_addr: la UC manda la dirección del dato necesitado, si ha habido 
+--  2. Sav_state: 
+-- 
+--
+--  3. Send_addr: la UC manda la dirección del dato necesitado, si ha habido 
 --	   Read-miss sobre direccion cacheable, se mandará la direccion de bloque,
 --     si no, será solo del dato, una vez el Worker identifique la dirección, 
 -- 	   comenzará la transferencia de datos.
@@ -225,8 +228,8 @@ begin
 					inc_m <= '1';
 				end if;
 			else
-				buffer_enable <= '1';
 				next_state <= Sav_state;
+				buffer_enable <= '1';
 				set_busy_wr <= '1';
 				wr_enable <= '1';
 				MC_WE0 <= hit0;
@@ -305,6 +308,8 @@ begin
 				last_word <= '1';
 				ready <= (not(RE) and not(WE)) or (RE and hit);
 			end if;
+		elsif
+			ready <= served_re and not(RE) and not(WE);
 		end if;
 	end if;
 end process;
