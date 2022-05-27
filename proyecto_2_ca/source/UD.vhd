@@ -25,12 +25,11 @@ entity UD is
 		RW_FP_EX        : in  STD_LOGIC_VECTOR (4 downto 0); -- Indica en que registro del banco FP escribe
 		RegWrite_FP_MEM : in  std_logic; -- Indica que la instruccion en EX escribe en el banco de registros de FP
 		RW_FP_MEM       : in  STD_LOGIC_VECTOR (4 downto 0); -- Indica en que registro del banco FP escribe.
-
+		Mem_Ready	    : in STD_LOGIC; -- Indica que la operacion en memoria puede terminar en el ciclo actual.
 		Kill_IF		    : out STD_LOGIC; -- Indica que la instruccion en IF no debe ejecutarse (fallo en la prediccion de salto tomado)
 		Parar_ID	    : out STD_LOGIC; -- Indica que las etapas ID y previas deben parar.
-		Parar_EX_FP	    : out STD_LOGIC;  -- Indica que las etapas EX y previas deben parar.
-		Parar_MEM		: out STD_LOGIC;
-		Mem_Ready 		: in STD_LOGIC
+		Parar_EX_FP	    : out STD_LOGIC; -- Indica que las etapas EX y previas deben parar.
+		Parar_MEM		: out STD_LOGIC; -- Indica que las etapas MEM y previas deben parar.
 	);
 end UD;
 

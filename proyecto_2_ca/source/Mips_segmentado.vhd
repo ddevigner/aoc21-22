@@ -133,26 +133,26 @@ end component;
 -- Completar el componente UD de los fuentes, instanciarlo y conectarlo donde se indica en la etapa ID
 component UD is
 	Port (   	
-		Reg_Rs_ID       : in  STD_LOGIC_VECTOR(4 downto 0); --registros Rs y Rt en la etapa ID
-		Reg_Rt_ID	    : in  STD_LOGIC_VECTOR(4 downto 0);
-		MemRead_EX	    : in  std_logic; -- info sobre la instr en EX (destino, si lee de memoria y si escribe en registro)
-		RegWrite_EX	    : in  std_logic;
-		RW_EX		    : in  STD_LOGIC_VECTOR(4 downto 0);
-		RegWrite_Mem    : in  std_logic; -- informacion sobre la instruccion en Mem (destino y si escribe en registro)
-		RW_Mem		    : in  STD_LOGIC_VECTOR(4 downto 0);
-		IR_op_code	    : in  STD_LOGIC_VECTOR(5 downto 0); -- c'odigo de operaci'on de la instrucci'on en IEEE
-		PCSrc		    : in  std_logic; -- 1 cuando se produce un salto 0 en caso contrario
-		FP_add_EX	    : in  std_logic; -- Indica si la instrucci'on en EX es un ADDFP
-		FP_done		    : in  std_logic;
-		RegWrite_FP_EX  : in  std_logic; -- Indica que la instruccion en EX escribe en el banco de registros de FP
-		RW_FP_EX	    : in  STD_LOGIC_VECTOR(4 downto 0); --Indica en que registro del banco FP escribe
-		RegWrite_FP_MEM : in  std_logic; -- Indica que la instruccion en EX escribe en el banco de registros de FP
-		RW_FP_MEM	    : in  STD_LOGIC_VECTOR(4 downto 0); --Indica en que registro del banco FP escribe
+		Reg_Rs_ID       : in STD_LOGIC_VECTOR(4 downto 0); --registros Rs y Rt en la etapa ID
+		Reg_Rt_ID	    : in STD_LOGIC_VECTOR(4 downto 0);
+		MemRead_EX	    : in std_logic; -- info sobre la instr en EX (destino, si lee de memoria y si escribe en registro)
+		RegWrite_EX	    : in std_logic;
+		RW_EX		    : in STD_LOGIC_VECTOR(4 downto 0);
+		RegWrite_Mem    : in std_logic; -- informacion sobre la instruccion en Mem (destino y si escribe en registro)
+		RW_Mem		    : in STD_LOGIC_VECTOR(4 downto 0);
+		IR_op_code	    : in STD_LOGIC_VECTOR(5 downto 0); -- c'odigo de operaci'on de la instrucci'on en IEEE
+		PCSrc		    : in std_logic; -- 1 cuando se produce un salto 0 en caso contrario
+		FP_add_EX	    : in std_logic; -- Indica si la instrucci'on en EX es un ADDFP
+		FP_done		    : in std_logic;
+		RegWrite_FP_EX  : in std_logic; -- Indica que la instruccion en EX escribe en el banco de registros de FP
+		RW_FP_EX	    : in STD_LOGIC_VECTOR(4 downto 0); --Indica en que registro del banco FP escribe
+		RegWrite_FP_MEM : in std_logic; -- Indica que la instruccion en EX escribe en el banco de registros de FP
+		RW_FP_MEM	    : in STD_LOGIC_VECTOR(4 downto 0); --Indica en que registro del banco FP escribe
+		Mem_Ready	    : in STD_LOGIC; -- Indica que la operacion en memoria puede terminar en el ciclo actual.
 		Kill_IF		    : out STD_LOGIC; -- Indica que la instrucci'on en IF no debe ejecutarse (fallo en la predicci'on de salto tomado)
 		Parar_ID	    : out STD_LOGIC; -- Indica que las etapas ID y previas deben parar
-		Parar_EX_FP	    : out STD_LOGIC;  -- Indica que las etapas EX y previas deben parar
+		Parar_EX_FP	    : out STD_LOGIC; -- Indica que las etapas EX y previas deben parar
 		Parar_MEM	    : out STD_LOGIC; -- Indica que las etapas MEM y previas deben parar
-		Mem_Ready	    : in STD_LOGIC
 	);
 end component;
 
@@ -383,14 +383,14 @@ signal Mux_A_out_FP, Mux_B_out_FP: std_logic_vector(31 downto 0);
 signal ADD_FP_out, ADD_FP_out_MEM, ADD_FP_out_WB: std_logic_vector(31 downto 0);
 
 -- Nuevas señales: UD.
-signal Kill_If, Parar_ID, Parar_EX_FP, Parar_Mem: std_logic;
+signal Kill_If, Parar_ID, Parar_EX_FP : std_logic;
 signal load_EX_FP : std_logic;
 -- Nuevas señales: contadores.
 signal c_en_est, c_en_dat, c_en_ctl : std_logic;
 signal n_ciclos, paradas_FP, paradas_datos, paradas_control : std_logic_vector(7 downto 0);
 -- NEW: Nuevas señales: memoria.
 signal Mem_ready : std_logic;
-signal io_input_bus : std_logic_vector(31 downto 0);
+signal Parar_Mem : std_logic;
 signal inc_paradas_mem : std_logic;
 signal paradas_mem : std_logic_vector(7 downto 0);
 
@@ -775,7 +775,7 @@ mux_dst: mux2_5bits port map (
 
 -- Mux de burbuja, elige entre la señal original de UC o 0. Sirve para propagar
 -- la burbuja en caso de que una ADDFP siga en computo.
-RegWrite_FP_EX_mux_out <= '0' when (load_EX_FP = '0') else RegWrite_FP_EX;
+RegWrite_FP_EX_mux_out <= RegWrite_FP_EX and load_EX_FP;
 
 -- Sumador FP. El numero de ciclos depende de los operandos. FP_add_EX indica 
 -- al sumador que debe realizar una suma en FP. Cuando termina activa la señal 
@@ -856,7 +856,7 @@ Mem_D: MD_mas_MC PORT MAP (
 	Din       => BusB_MEM,
 	WE        => MemWrite_MEM,
 	RE        => MemRead_MEM,
-	IO_input  => io_input_bus,
+	IO_input  => IO_input,
 	Mem_ready => Mem_ready,
 	Dout      => Mem_out
 );
@@ -884,8 +884,6 @@ Banco_MEM_WB: Banco_WB PORT MAP (
 	RW_MEM  	 => RW_MEM,
 	RW_WB   	 => RW_WB
 );
-RegWrite_MEM <= RegWrite_MEM and not(Parar_MEM);
-
 
 -- Banco de registros MEM/WB del FP.
 Banco_MEM_WB_FP: Banco_WB_FP PORT MAP (
@@ -901,6 +899,8 @@ Banco_MEM_WB_FP: Banco_WB_FP PORT MAP (
 	RW_FP_MEM  		=> RW_FP_MEM, 
 	RW_FP_WB   		=> RW_FP_WB
 );
+
+RegWrite_MEM <= RegWrite_MEM and not(Parar_MEM);
 RegWrite_FP_MEM <= RegWrite_FP_MEM and not(Parar_MEM);
 -------------------------------------------------------------------------------
 
