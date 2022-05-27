@@ -114,6 +114,8 @@ begin
 	-- Debe ser un acierto de lectura. Devolvemos un 2 al procesador
 	IO_input <= conv_std_logic_vector(2048, 32); -- x"00000800"
     Addr <= conv_std_logic_vector(68, 32); -- x"00000044"
+	RE <= '1';
+	WE <= '0';
 	wait for 1 ns;
     if Mem_ready = '0' then 
 		wait until Mem_ready ='1'; 
@@ -164,6 +166,8 @@ begin
 	-- Debe ser un acierto de lectura. Devolvemos un 2 al procesador
 	IO_input <= conv_std_logic_vector(2048, 32); -- x"00000800"
     Addr <= conv_std_logic_vector(68, 32); -- x"00000044"
+	RE <= '1';
+	WE <= '0';
 	wait for 1 ns;
     if Mem_ready = '0' then 
 		wait until Mem_ready ='1'; 
