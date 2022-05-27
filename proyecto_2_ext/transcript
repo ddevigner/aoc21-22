@@ -390,3 +390,54 @@ run
 # ** Note: Simulation time : 345000 ps.  Data written: 255, in ADDR = 0
 #    Time: 345 ns  Iteration: 1  Instance: /testbench_md_mas_mc/uut/controlador_MD/MD
 run
+run
+# ** Note: Simulation time : 365000 ps.  Data written: 2048, in ADDR = 0
+#    Time: 365 ns  Iteration: 1  Instance: /testbench_md_mas_mc/uut/M_scratch/MD_scratch
+run
+run
+# ** Note: Simulation time : 385000 ps.  Data written: 255, in ADDR = 4
+#    Time: 385 ns  Iteration: 1  Instance: /testbench_md_mas_mc/uut/M_scratch/MD_scratch
+run
+run
+# ** Note: Simulation time : 405000 ps.  Data written: 2048, in ADDR = 0
+#    Time: 405 ns  Iteration: 1  Instance: /testbench_md_mas_mc/uut/M_scratch/MD_scratch
+run
+run
+run
+run
+run
+run
+run
+# ** Note: Simulation time : 475000 ps.  Data written in via 1: 12, in Dir_cjto = 0
+#    Time: 475 ns  Iteration: 1  Instance: /testbench_md_mas_mc/uut/MC/Via_1
+run
+run
+# ** Note: Simulation time : 495000 ps.  Data written in via 1: 13, in Dir_cjto = 0
+#    Time: 495 ns  Iteration: 1  Instance: /testbench_md_mas_mc/uut/MC/Via_1
+run
+run
+# ** Note: Simulation time : 515000 ps.  Data written in via 1: 14, in Dir_cjto = 0
+#    Time: 515 ns  Iteration: 1  Instance: /testbench_md_mas_mc/uut/MC/Via_1
+run
+run
+# ** Note: Simulation time : 535000 ps.  Data written in via 1: 15, in Dir_cjto = 0
+#    Time: 535 ns  Iteration: 1  Instance: /testbench_md_mas_mc/uut/MC/Via_1
+# ** Note: Simulation time : 535000 ps.  Tag written in via 1: 4, in Dir_cjto = 0
+#    Time: 535 ns  Iteration: 1  Instance: /testbench_md_mas_mc/uut/MC/Via_1
+run
+run
+# ** Note: Simulation time : 555000 ps.  Data written: 2048, in ADDR = 0
+#    Time: 555 ns  Iteration: 1  Instance: /testbench_md_mas_mc/uut/M_scratch/MD_scratch
+run
+run
+run
+run
+run
+# ** Note: Simulation time : 605000 ps.  Data written: 2048, in ADDR = 0
+#    Time: 605 ns  Iteration: 1  Instance: /testbench_md_mas_mc/uut/M_scratch/MD_scratch
+run
+run
+run
+run
+# End time: 16:40:56 on May 27,2022, Elapsed time: 0:32:01
+# Errors: 0, Warnings: 43
