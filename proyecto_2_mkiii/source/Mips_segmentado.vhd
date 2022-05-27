@@ -150,7 +150,9 @@ component UD is
 		RW_FP_MEM	    : in  STD_LOGIC_VECTOR(4 downto 0); --Indica en que registro del banco FP escribe
 		Kill_IF		    : out STD_LOGIC; -- Indica que la instrucci'on en IF no debe ejecutarse (fallo en la predicci'on de salto tomado)
 		Parar_ID	    : out STD_LOGIC; -- Indica que las etapas ID y previas deben parar
-		Parar_EX_FP	    : out STD_LOGIC  -- Indica que las etapas EX y previas deben parar
+		Parar_EX_FP	    : out STD_LOGIC;  -- Indica que las etapas EX y previas deben parar
+		Parar_MEM	    : out STD_LOGIC; -- Indica que las etapas MEM y previas deben parar
+		Mem_Ready	    : in STD_LOGIC
 	);
 end component;
 
@@ -381,7 +383,7 @@ signal Mux_A_out_FP, Mux_B_out_FP: std_logic_vector(31 downto 0);
 signal ADD_FP_out, ADD_FP_out_MEM, ADD_FP_out_WB: std_logic_vector(31 downto 0);
 
 -- Nuevas señales: UD.
-signal Kill_If, Parar_ID, Parar_EX_FP: std_logic;
+signal Kill_If, Parar_ID, Parar_EX_FP, Parar_Mem: std_logic;
 signal load_EX_FP : std_logic;
 -- Nuevas señales: contadores.
 signal c_en_est, c_en_dat, c_en_ctl : std_logic;
@@ -430,7 +432,7 @@ c_r_control : counter port map (
 );
 
 -- NEW: Contador de Paradas de memoria.
-inc_paradas_mem <= '1'; -- when (...) else '0';
+inc_paradas_mem <= '1' when (Parar_MEM = '1') else '0'; -- when (...) else '0';
 cont_paradas_memoria : counter port map (
 	clk          => clk,
 	reset        => reset,
@@ -457,7 +459,7 @@ c_ciclos : counter port map (
 -------------------------------------------------------------------------------
 -- Señal load_PC: indica cuando el pc debe o no cargarse. Si hay riesgo de
 -- datos, estructural o ambos, el pc se congela.
-load_PC <= '0' when (Parar_ID = '1' or Parar_EX_FP = '1') else '1';
+load_PC <= '0' when (Parar_ID = '1' or Parar_EX_FP = '1' or Parar_MEM = '1') else '1';
 
 -- PC: registro pc.
 pc: reg32 port map (
@@ -470,7 +472,7 @@ pc: reg32 port map (
 
 -- Señal load_EX_FP: indica cuando el banco de registros EX debe cargar o no 
 -- datos. Si hay riesgo estructural, el banco deja de cargar datos.
-load_EX_FP <= not Parar_EX_FP;
+load_EX_FP <= not Parar_EX_FP and not Parar_MEM;
 
 -- Constantes: 0 y 4.
 four <= "00000000000000000000000000000100";
@@ -548,8 +550,11 @@ Unidad_Det: UD port map (
 	RW_FP_MEM       => RW_FP_MEM,
 	Kill_IF         => Kill_IF,
 	Parar_ID        => Parar_ID,
-	Parar_EX_FP     => Parar_EX_FP
+	Parar_EX_FP     => Parar_EX_FP,
+	Parar_MEM       => Parar_MEM,
+	Mem_Ready     	=> Mem_Ready
 );
+
 
 -- Codigo de operacion.
 IR_op_code <= IR_ID(31 downto 26);
@@ -808,7 +813,7 @@ Banco_EX_MEM: Banco_MEM PORT MAP (
 	ALU_out_MEM  => ALU_out_MEM, 
 	clk   		 => clk, 
 	reset 		 => reset, 
-	load  		 => '1', 
+	load  		 => Parar_Mem, 
 	MemWrite_EX  => MemWrite_EX,
 	MemRead_EX   => MemRead_EX, 
 	MemtoReg_EX  => MemtoReg_EX,
@@ -829,7 +834,7 @@ Banco_EX_FP_MEM: Banco_MEM_FP PORT MAP (
 	ADD_FP_out_MEM  => ADD_FP_out_MEM, 
 	clk             => clk, 
 	reset           => reset, 
-	load            => '1', 
+	load            => Parar_Mem, 
 	RegWrite_FP_EX  => RegWrite_FP_EX_mux_out, 
 	RegWrite_FP_MEM => RegWrite_FP_MEM, 
 	FP_mem_EX   	=> FP_mem_EX,
@@ -855,6 +860,8 @@ Mem_D: MD_mas_MC PORT MAP (
 	Mem_ready => Mem_ready,
 	Dout      => Mem_out
 );
+
+
 -------------------------------------------------------------------------------
 
 
@@ -870,13 +877,15 @@ Banco_MEM_WB: Banco_WB PORT MAP (
 	clk          => clk,
 	reset        => reset, 
 	load         => '1', 
-	MemtoReg_MEM => MemtoReg_MEM,
+	MemtoReg_MEM => MemtoReg_MEM ,
 	RegWrite_MEM => RegWrite_MEM,
 	MemtoReg_WB  => MemtoReg_WB,
 	RegWrite_WB  => RegWrite_WB, 
 	RW_MEM  	 => RW_MEM,
 	RW_WB   	 => RW_WB
 );
+RegWrite_MEM <= RegWrite_MEM and not(Parar_MEM);
+
 
 -- Banco de registros MEM/WB del FP.
 Banco_MEM_WB_FP: Banco_WB_FP PORT MAP (
@@ -892,6 +901,7 @@ Banco_MEM_WB_FP: Banco_WB_FP PORT MAP (
 	RW_FP_MEM  		=> RW_FP_MEM, 
 	RW_FP_WB   		=> RW_FP_WB
 );
+RegWrite_FP_MEM <= RegWrite_FP_MEM and not(Parar_MEM);
 -------------------------------------------------------------------------------
 
 

@@ -81,7 +81,7 @@ begin
 	-- Riesgo estructural.
 	parar_EX_FP_internal <= '1' when (FP_add_EX = '1' and FP_done = '0') else '0';
 	Parar_EX_FP <= '1' when (parar_EX_FP_internal = '1') else '0';
-	Parar_Mem <= '1' when (Mem_Ready = '0') else  '0';
+	Parar_Mem < = '1' when (Mem_Ready = '0') else  '0';
 
 end Behavioral;
 
