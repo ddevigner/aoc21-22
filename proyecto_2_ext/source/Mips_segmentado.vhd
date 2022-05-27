@@ -393,6 +393,8 @@ signal Mem_ready : std_logic;
 signal Parar_Mem : std_logic;
 signal inc_paradas_mem : std_logic;
 signal paradas_mem : std_logic_vector(7 downto 0);
+signal RegWrite_MEM_mux_out, RegWrite_FP_MEM_mux_out : std_logic;
+signal load_MEM : std_logic;
 
 begin
 -------------------------------------------------------------------------------
@@ -432,7 +434,7 @@ c_r_control : counter port map (
 );
 
 -- NEW: Contador de Paradas de memoria.
-inc_paradas_mem <= '1' when (Parar_MEM = '1') else '0'; -- when (...) else '0';
+inc_paradas_mem <= '1' when (Parar_MEM = '1') else '0';
 cont_paradas_memoria : counter port map (
 	clk          => clk,
 	reset        => reset,
@@ -775,7 +777,7 @@ mux_dst: mux2_5bits port map (
 
 -- Mux de burbuja, elige entre la señal original de UC o 0. Sirve para propagar
 -- la burbuja en caso de que una ADDFP siga en computo.
-RegWrite_FP_EX_mux_out <= RegWrite_FP_EX and load_EX_FP;
+RegWrite_FP_EX_mux_out <= '0' when (load_EX_FP = '0') else RegWrite_FP_EX;
 
 -- Sumador FP. El numero de ciclos depende de los operandos. FP_add_EX indica 
 -- al sumador que debe realizar una suma en FP. Cuando termina activa la señal 
@@ -807,13 +809,15 @@ mux_dst_FP: mux2_5bits port map (
 -------------------------------------------------------------------------------
 ---------------------------------- EX/MEM -------------------------------------
 -------------------------------------------------------------------------------
+load_MEM <= not(Parar_Mem);
+
 -- Banco de registros EX/MEM.
 Banco_EX_MEM: Banco_MEM PORT MAP (
 	ALU_out_EX   => ALU_out_EX, 
 	ALU_out_MEM  => ALU_out_MEM, 
 	clk   		 => clk, 
 	reset 		 => reset, 
-	load  		 => Parar_Mem, 
+	load  		 => load_MEM, 
 	MemWrite_EX  => MemWrite_EX,
 	MemRead_EX   => MemRead_EX, 
 	MemtoReg_EX  => MemtoReg_EX,
@@ -834,7 +838,7 @@ Banco_EX_FP_MEM: Banco_MEM_FP PORT MAP (
 	ADD_FP_out_MEM  => ADD_FP_out_MEM, 
 	clk             => clk, 
 	reset           => reset, 
-	load            => Parar_Mem, 
+	load            => load_MEM, 
 	RegWrite_FP_EX  => RegWrite_FP_EX_mux_out, 
 	RegWrite_FP_MEM => RegWrite_FP_MEM, 
 	FP_mem_EX   	=> FP_mem_EX,
@@ -868,6 +872,9 @@ Mem_D: MD_mas_MC PORT MAP (
 -------------------------------------------------------------------------------
 ---------------------------------- MEM/WB -------------------------------------
 -------------------------------------------------------------------------------
+RegWrite_MEM_mux_out <= RegWrite_MEM when (Parar_MEM = '0') else '0';
+RegWrite_FP_MEM_mux_out <= RegWrite_FP_MEM when (Parar_MEM = '0') else '0';
+
 -- Banco de registros MEM/WB.
 Banco_MEM_WB: Banco_WB PORT MAP (
 	ALU_out_MEM  => ALU_out_MEM,
@@ -877,8 +884,8 @@ Banco_MEM_WB: Banco_WB PORT MAP (
 	clk          => clk,
 	reset        => reset, 
 	load         => '1', 
-	MemtoReg_MEM => MemtoReg_MEM ,
-	RegWrite_MEM => RegWrite_MEM,
+	MemtoReg_MEM => MemtoReg_MEM,
+	RegWrite_MEM => RegWrite_MEM_mux_out,
 	MemtoReg_WB  => MemtoReg_WB,
 	RegWrite_WB  => RegWrite_WB, 
 	RW_MEM  	 => RW_MEM,
@@ -892,7 +899,7 @@ Banco_MEM_WB_FP: Banco_WB_FP PORT MAP (
 	clk   		   	=> clk, 
 	reset 		   	=> reset, 
 	load  		   	=> '1', 
-	RegWrite_FP_MEM => RegWrite_FP_MEM, 
+	RegWrite_FP_MEM => RegWrite_FP_MEM_mux_out, 
 	RegWrite_FP_WB 	=> RegWrite_FP_WB,
 	FP_mem_MEM 		=> FP_mem_MEM, 
 	FP_mem_WB  		=> FP_mem_WB, 
@@ -900,8 +907,6 @@ Banco_MEM_WB_FP: Banco_WB_FP PORT MAP (
 	RW_FP_WB   		=> RW_FP_WB
 );
 
-RegWrite_MEM <= RegWrite_MEM and not(Parar_MEM);
-RegWrite_FP_MEM <= RegWrite_FP_MEM and not(Parar_MEM);
 -------------------------------------------------------------------------------
 
 

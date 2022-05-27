@@ -53,15 +53,3 @@ count <= int_count;
 			
 
 end Behavioral;
-
-
-process (Direccion)
-begin
-   if Direccion >= x"A00" and Direccion <= x"AFF" then
-      dev_sel <= '1';
-      peripheral_@ <= Direccion(7 downto 0);
-   else 
-      dev_sel <= 0;
-   end if;
-end process;
-

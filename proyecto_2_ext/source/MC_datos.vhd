@@ -188,12 +188,12 @@ addr_buffer: reg32 port map (
 	Dout  => saved_addr
 );
 
+mux_addr <= ADDR when (buffer_addr = '0') else saved_addr; 
+
 -- Region Scratch: la region de direcciones 0x100000[00-FF] se envian a la MD 
 -- Scratch, sus datos recibidos deben reenviarse al procesador, y no deben 
 -- guardarse en cache.
 addr_non_cacheable <= '1' when mux_addr(31 downto 8) = x"100000" else '0';
-
-mux_addr <= ADDR when (buffer_addr = '0') else saved_addr; 
 
 tag <= mux_addr(31 downto 6);
 dir_cjto <= mux_addr(5 downto 4); -- Emplazamiento asociativo.
