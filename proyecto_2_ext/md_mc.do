@@ -1,84 +1,93 @@
 onerror {resume}
-quietly virtual signal -install /testbench_md_mas_mc/uut/MC { (context /testbench_md_mas_mc/uut/MC )(Tag &dir_cjto &dir_word )} RD_ADDR
-quietly virtual signal -install /testbench_md_mas_mc/uut { (context /testbench_md_mas_mc/uut )(MC/Tag &MC/dir_cjto &MC/dir_word & ADDR(1 downto 0) )} RD_ADDR
+quietly virtual signal -install /testbench/uut { /testbench/uut/IR_ID(15 downto 11)} Rd
 quietly WaveActivateNextPane {} 0
-add wave -noupdate -label CLK /testbench_md_mas_mc/uut/CLK
-add wave -noupdate -label reset /testbench_md_mas_mc/uut/reset
-add wave -noupdate -label IO_input /testbench_md_mas_mc/uut/IO_input
-add wave -noupdate -label ADDR /testbench_md_mas_mc/uut/ADDR
-add wave -noupdate -label Bus_Data_Addr /testbench_md_mas_mc/uut/Bus_Data_Addr
-add wave -noupdate -label Din /testbench_md_mas_mc/uut/Din
-add wave -noupdate -label Dout /testbench_md_mas_mc/uut/Dout
-add wave -noupdate -label RE /testbench_md_mas_mc/uut/RE
-add wave -noupdate -label WE /testbench_md_mas_mc/uut/WE
-add wave -noupdate -label Mem_Ready /testbench_md_mas_mc/uut/Mem_ready
-add wave -noupdate -expand -group Arbitro -color Gold -label overlap /testbench_md_mas_mc/uut/Arbitraje/overlap
-add wave -noupdate -expand -group Arbitro -label bus_frame /testbench_md_mas_mc/uut/Arbitraje/bus_frame
-add wave -noupdate -expand -group Arbitro -label Bus_TRDY /testbench_md_mas_mc/uut/Arbitraje/Bus_TRDY
-add wave -noupdate -expand -group Arbitro -label Grant0 /testbench_md_mas_mc/uut/Arbitraje/Grant0
-add wave -noupdate -expand -group Arbitro -label Grant1 /testbench_md_mas_mc/uut/Arbitraje/Grant1
-add wave -noupdate -expand -group Arbitro -label last_word /testbench_md_mas_mc/uut/Arbitraje/last_word
-add wave -noupdate -expand -group Arbitro -label priority /testbench_md_mas_mc/uut/Arbitraje/priority
-add wave -noupdate -expand -group Arbitro -label Req0 /testbench_md_mas_mc/uut/Arbitraje/Req0
-add wave -noupdate -expand -group Arbitro -label Req1 /testbench_md_mas_mc/uut/Arbitraje/Req1
-add wave -noupdate -expand -group IO_Master -label IO_M_bus_Grant /testbench_md_mas_mc/uut/Modulo_IO/IO_M_bus_Grant
-add wave -noupdate -expand -group IO_Master -label bus_TRDY /testbench_md_mas_mc/uut/Modulo_IO/bus_TRDY
-add wave -noupdate -expand -group IO_Master -label Bus_DevSel /testbench_md_mas_mc/uut/Modulo_IO/Bus_DevSel
-add wave -noupdate -expand -group IO_Master -label IO_M_Req /testbench_md_mas_mc/uut/Modulo_IO/IO_M_Req
-add wave -noupdate -expand -group IO_Master -label IO_M_bus_Frame /testbench_md_mas_mc/uut/Modulo_IO/IO_M_bus_Frame
-add wave -noupdate -expand -group IO_Master -label IO_M_last_word /testbench_md_mas_mc/uut/Modulo_IO/IO_M_last_word
-add wave -noupdate -expand -group IO_Master -label IO_M_Addr /testbench_md_mas_mc/uut/Modulo_IO/IO_M_Addr
-add wave -noupdate -expand -group IO_Master -label IO_M_Data /testbench_md_mas_mc/uut/Modulo_IO/IO_M_Data
-add wave -noupdate -expand -group IO_Master -label state /testbench_md_mas_mc/uut/Modulo_IO/state
-add wave -noupdate -expand -group IO_Master -label next_state /testbench_md_mas_mc/uut/Modulo_IO/next_state
-add wave -noupdate -expand -group MC -label saved_addr /testbench_md_mas_mc/uut/MC/saved_addr
-add wave -noupdate -expand -group MC -label saved_data /testbench_md_mas_mc/uut/MC/saved_data
-add wave -noupdate -expand -group MC -label mux_addr /testbench_md_mas_mc/uut/MC/mux_addr
-add wave -noupdate -expand -group MC -label @_MC_Way /testbench_md_mas_mc/uut/MC/Via_0/Dir_MC
-add wave -noupdate -expand -group MC -expand -group MC_UC -label state /testbench_md_mas_mc/uut/MC/Unidad_Control/state
-add wave -noupdate -expand -group MC -expand -group MC_UC -label next_state /testbench_md_mas_mc/uut/MC/Unidad_Control/next_state
-add wave -noupdate -expand -group MC -expand -group MC_UC -label {palabra_UC (UC)} /testbench_md_mas_mc/uut/MC/Unidad_Control/palabra_UC
-add wave -noupdate -expand -group MC -expand -group MC_UC -expand -group MC_UC_in -label hit /testbench_md_mas_mc/uut/MC/Unidad_Control/hit
-add wave -noupdate -expand -group MC -expand -group MC_UC -expand -group MC_UC_in -label addr_non_cacheable /testbench_md_mas_mc/uut/MC/Unidad_Control/addr_non_cacheable
-add wave -noupdate -expand -group MC -expand -group MC_UC -expand -group MC_UC_in -label bus_TRDY /testbench_md_mas_mc/uut/MC/Unidad_Control/bus_TRDY
-add wave -noupdate -expand -group MC -expand -group MC_UC -expand -group MC_UC_in -label Bus_DevSel /testbench_md_mas_mc/uut/MC/Unidad_Control/Bus_DevSel
-add wave -noupdate -expand -group MC -expand -group MC_UC -expand -group MC_UC_in -label via_2_rpl /testbench_md_mas_mc/uut/MC/Unidad_Control/via_2_rpl
-add wave -noupdate -expand -group MC -expand -group MC_UC -expand -group MC_UC_in -label Bus_grant /testbench_md_mas_mc/uut/MC/Unidad_Control/Bus_grant
-add wave -noupdate -expand -group MC -expand -group MC_UC -expand -group MC_UC_in -label last_word_block /testbench_md_mas_mc/uut/MC/Unidad_Control/last_word_block
-add wave -noupdate -expand -group MC -expand -group MC_UC -expand -group MC_UC_in -label served_re /testbench_md_mas_mc/uut/MC/Unidad_Control/served_re
-add wave -noupdate -expand -group MC -expand -group MC_UC -expand -group MC_UC_in -label busy_wr /testbench_md_mas_mc/uut/MC/Unidad_Control/busy_wr
-add wave -noupdate -expand -group MC -expand -group MC_UC -expand -group MC_UC_in -label req_word /testbench_md_mas_mc/uut/MC/Unidad_Control/req_word
-add wave -noupdate -expand -group MC -expand -group MC_UC -expand -group MC_UC_out -label inc_m /testbench_md_mas_mc/uut/MC/Unidad_Control/inc_m
-add wave -noupdate -expand -group MC -expand -group MC_UC -expand -group MC_UC_out -label inc_w /testbench_md_mas_mc/uut/MC/Unidad_Control/inc_w
-add wave -noupdate -expand -group MC -expand -group MC_UC -expand -group MC_UC_out -label buffer_addr /testbench_md_mas_mc/uut/MC/Unidad_Control/buffer_addr
-add wave -noupdate -expand -group MC -expand -group MC_UC -expand -group MC_UC_out -label buffer_enable /testbench_md_mas_mc/uut/MC/Unidad_Control/buffer_enable
-add wave -noupdate -expand -group MC -expand -group MC_UC -expand -group MC_UC_out -label Bus_req /testbench_md_mas_mc/uut/MC/Unidad_Control/Bus_req
-add wave -noupdate -expand -group MC -expand -group MC_UC -expand -group MC_UC_out -label MC_WE0 /testbench_md_mas_mc/uut/MC/Unidad_Control/MC_WE0
-add wave -noupdate -expand -group MC -expand -group MC_UC -expand -group MC_UC_out -label MC_WE1 /testbench_md_mas_mc/uut/MC/Unidad_Control/MC_WE1
-add wave -noupdate -expand -group MC -expand -group MC_UC -expand -group MC_UC_out -label MC_bus_Rd_Wr /testbench_md_mas_mc/uut/MC/Unidad_Control/MC_bus_Rd_Wr
-add wave -noupdate -expand -group MC -expand -group MC_UC -expand -group MC_UC_out -label MC_tags_WE /testbench_md_mas_mc/uut/MC/Unidad_Control/MC_tags_WE
-add wave -noupdate -expand -group MC -expand -group MC_UC -expand -group MC_UC_out -label mux_origen /testbench_md_mas_mc/uut/MC/Unidad_Control/mux_origen
-add wave -noupdate -expand -group MC -expand -group MC_UC -expand -group MC_UC_out -label block_addr /testbench_md_mas_mc/uut/MC/Unidad_Control/block_addr
-add wave -noupdate -expand -group MC -expand -group MC_UC -expand -group MC_UC_out -label MC_send_addr_ctrl /testbench_md_mas_mc/uut/MC/Unidad_Control/MC_send_addr_ctrl
-add wave -noupdate -expand -group MC -expand -group MC_UC -expand -group MC_UC_out -label MC_send_data /testbench_md_mas_mc/uut/MC/Unidad_Control/MC_send_data
-add wave -noupdate -expand -group MC -expand -group MC_UC -expand -group MC_UC_out -label Frame /testbench_md_mas_mc/uut/MC/Unidad_Control/Frame
-add wave -noupdate -expand -group MC -expand -group MC_UC -expand -group MC_UC_out -label count_enable /testbench_md_mas_mc/uut/MC/Unidad_Control/count_enable
-add wave -noupdate -expand -group MC -expand -group MC_UC -expand -group MC_UC_out -label last_word /testbench_md_mas_mc/uut/MC/Unidad_Control/last_word
-add wave -noupdate -expand -group MC -expand -group MC_UC -expand -group MC_UC_out -label mux_output /testbench_md_mas_mc/uut/MC/Unidad_Control/mux_output
-add wave -noupdate -expand -group MC -expand -group MC_Storage -expand -group Via_0 -label hit_0 /testbench_md_mas_mc/uut/MC/Via_0/hit
-add wave -noupdate -expand -group MC -expand -group MC_Storage -expand -group Via_0 -label Via_0_Dout /testbench_md_mas_mc/uut/MC/Via_0/Dout
-add wave -noupdate -expand -group MC -expand -group MC_Storage -expand -group Via_0 -label Via_0_tags /testbench_md_mas_mc/uut/MC/Via_0/MC_Tags
-add wave -noupdate -expand -group MC -expand -group MC_Storage -expand -group Via_0 -label Via_0_data -expand /testbench_md_mas_mc/uut/MC/Via_0/MC_data
-add wave -noupdate -expand -group MC -expand -group MC_Storage -expand -group Via_1 -label hit_1 /testbench_md_mas_mc/uut/MC/Via_1/hit
-add wave -noupdate -expand -group MC -expand -group MC_Storage -expand -group Via_1 -label Via_1_Dout /testbench_md_mas_mc/uut/MC/Via_1/Dout
-add wave -noupdate -expand -group MC -expand -group MC_Storage -expand -group Via_1 -label Via_1_tags /testbench_md_mas_mc/uut/MC/Via_1/MC_Tags
-add wave -noupdate -expand -group MC -expand -group MC_Storage -expand -group Via_1 -label Via_1_data -expand /testbench_md_mas_mc/uut/MC/Via_1/MC_data
-add wave -noupdate -group MD -label RE /testbench_md_mas_mc/uut/controlador_MD/MD/RE
-add wave -noupdate -group MD -label WE /testbench_md_mas_mc/uut/controlador_MD/MD/WE
-add wave -noupdate -group MD -label MD_RAM -expand /testbench_md_mas_mc/uut/controlador_MD/MD/RAM
-add wave -noupdate -group MD_Scratch -label MD_Scratch_RAM -expand /testbench_md_mas_mc/uut/M_scratch/MD_scratch/RAM
+add wave -noupdate -label {Riesgos control} /testbench/uut/c_r_control/int_count
+add wave -noupdate -label {Riesgos de datos} /testbench/uut/c_r_datos/int_count
+add wave -noupdate -label {Riesgos estructurales} /testbench/uut/c_r_estructural/int_count
+add wave -noupdate -label Ciclos /testbench/uut/c_ciclos/int_count
+add wave -noupdate -label CLK /testbench/clk
+add wave -noupdate -label Reset /testbench/reset
+add wave -noupdate -expand -group IF -label MemI /testbench/uut/Mem_I/RAM
+add wave -noupdate -expand -group IF -label PC /testbench/uut/PC_out
+add wave -noupdate -expand -group IF -label {New PC} /testbench/uut/PC_in
+add wave -noupdate -expand -group IF -label load_PC /testbench/uut/load_PC
+add wave -noupdate -expand -group IF -label MemI_out /testbench/uut/MemI_out
+add wave -noupdate -expand -group IF -label IR_in /testbench/uut/IR_in
+add wave -noupdate -expand -group IF -group Signals_IF -label Parar_ID /testbench/uut/Parar_ID
+add wave -noupdate -expand -group IF -group Signals_IF -label Parar_EX /testbench/uut/Parar_EX_FP
+add wave -noupdate -expand -group IF -group Signals_IF -label Kill_if /testbench/uut/Kill_If
+add wave -noupdate -expand -group IF -group Signals_IF -label Z /testbench/uut/Z
+add wave -noupdate -expand -group IF -group Signals_IF -label Branch /testbench/uut/Branch
+add wave -noupdate -expand -group IF -group Signals_IF -label PCSrc /testbench/uut/PCSrc
+add wave -noupdate -expand -group ID -label IR /testbench/uut/IR_ID
+add wave -noupdate -expand -group ID -label Rs /testbench/uut/Reg_Rs_ID
+add wave -noupdate -expand -group ID -label Rt /testbench/uut/Reg_Rt_ID
+add wave -noupdate -expand -group ID -label CO /testbench/uut/IR_op_code
+add wave -noupdate -expand -group ID -label A /testbench/uut/BusA
+add wave -noupdate -expand -group ID -label B /testbench/uut/BusB
+add wave -noupdate -expand -group ID -label InmSex /testbench/uut/inm_ext
+add wave -noupdate -expand -group ID -label Rd /testbench/uut/Rd
+add wave -noupdate -expand -group ID -label BR32 /testbench/uut/INT_Register_bank/reg_file
+add wave -noupdate -expand -group ID -label BR32_FP /testbench/uut/FP_Register_bank/reg_file
+add wave -noupdate -expand -group ID -label load_EX_FP /testbench/uut/load_EX_FP
+add wave -noupdate -expand -group EX -label RegWrite_EX /testbench/uut/RegWrite_EX
+add wave -noupdate -expand -group EX -label MemRead_EX /testbench/uut/MemRead_EX
+add wave -noupdate -expand -group EX -label MemWrite_EX /testbench/uut/MemWrite_EX
+add wave -noupdate -expand -group EX -group EX_INT -group MuxA -label MuxA_ctrl /testbench/uut/MUX_ctrl_A
+add wave -noupdate -expand -group EX -group EX_INT -group MuxA -label MuxA_out /testbench/uut/Mux_A_out
+add wave -noupdate -expand -group EX -group EX_INT -group MuxA -label {(0) A_EX} /testbench/uut/BusA_EX
+add wave -noupdate -expand -group EX -group EX_INT -group MuxA -label {(1) ALUOut_MEM} /testbench/uut/ALU_out_MEM
+add wave -noupdate -expand -group EX -group EX_INT -group MuxA -label {(2) busW} /testbench/uut/BusW
+add wave -noupdate -expand -group EX -group EX_INT -group MuxA -label {(3) 0} /testbench/uut/cero
+add wave -noupdate -expand -group EX -group EX_INT -group MuxB -label {(0) B_EX} /testbench/uut/BusB_EX
+add wave -noupdate -expand -group EX -group EX_INT -group MuxB -label {(1) ALUOut_MEM} /testbench/uut/ALU_out_MEM
+add wave -noupdate -expand -group EX -group EX_INT -group MuxB -label {(2) busW} /testbench/uut/BusW
+add wave -noupdate -expand -group EX -group EX_INT -group MuxB -label {(3) 0} /testbench/uut/cero
+add wave -noupdate -expand -group EX -group EX_INT -group MuxB -label MuxB_out /testbench/uut/Mux_B_out
+add wave -noupdate -expand -group EX -group EX_INT -group MuxB -label MuxB_Ctrl /testbench/uut/MUX_ctrl_B
+add wave -noupdate -expand -group EX -group EX_INT -group ALUSrc -label {(0) MuxB} /testbench/uut/Mux_B_out
+add wave -noupdate -expand -group EX -group EX_INT -group ALUSrc -label {(1) InmSex_EX} /testbench/uut/inm_ext_EX
+add wave -noupdate -expand -group EX -group EX_INT -group ALUSrc -label ALUSrc_out /testbench/uut/ALU_Src_out
+add wave -noupdate -expand -group EX -group EX_INT -label ALUOut /testbench/uut/ALU_out_EX
+add wave -noupdate -expand -group EX -group EX_INT -group MuxMDSrc -label {(0) MuxB} /testbench/uut/Mux_B_out
+add wave -noupdate -expand -group EX -group EX_INT -group MuxMDSrc -label {(1) B_FP_EX} /testbench/uut/busB_FP_EX
+add wave -noupdate -expand -group EX -group EX_INT -group MuxMDSrc -label MDSrc_out /testbench/uut/BusB_4_MD
+add wave -noupdate -expand -group EX -group EX_INT -group RegDst -label {(0) Rt_EX} /testbench/uut/Reg_Rt_EX
+add wave -noupdate -expand -group EX -group EX_INT -group RegDst -label {(1) Rd_EX} /testbench/uut/Reg_Rd_EX
+add wave -noupdate -expand -group EX -group EX_INT -group RegDst -label RW /testbench/uut/RW_EX
+add wave -noupdate -expand -group EX -group EX_INT -label Rs_EX /testbench/uut/Reg_Rs_EX
+add wave -noupdate -expand -group EX -group EX_FP -label RegWrite_FP_EX_mux_out /testbench/uut/RegWrite_FP_EX_mux_out
+add wave -noupdate -expand -group EX -group EX_FP -label FP_mem_EX /testbench/uut/FP_mem_EX
+add wave -noupdate -expand -group EX -group EX_FP -label A_FP_EX /testbench/uut/busA_FP_EX
+add wave -noupdate -expand -group EX -group EX_FP -label B_FP_EX /testbench/uut/busB_FP_EX
+add wave -noupdate -expand -group EX -group EX_FP -label ALUFP_ON /testbench/uut/FP_add_EX
+add wave -noupdate -expand -group EX -group EX_FP -label ALUFP_DONE /testbench/uut/FP_done
+add wave -noupdate -expand -group EX -group EX_FP -label ALUFP_OUT /testbench/uut/ADD_FP_out
+add wave -noupdate -expand -group EX -group EX_FP -label Rs_FP_EX /testbench/uut/Reg_Rs_FP_EX
+add wave -noupdate -expand -group EX -group EX_FP -label Rt_FP_EX /testbench/uut/Reg_Rt_FP_EX
+add wave -noupdate -expand -group EX -group EX_FP -label Rd_FP_EX /testbench/uut/Reg_Rd_FP_EX
+add wave -noupdate -expand -group EX -group EX_FP -label RW_FP_EX /testbench/uut/RW_FP_EX
+add wave -noupdate -expand -group MEM -label Mem_ready /testbench/uut/Mem_ready
+add wave -noupdate -expand -group MEM -expand -group MEM_INT -label RegWrite_MEM /testbench/uut/RegWrite_MEM
+add wave -noupdate -expand -group MEM -expand -group MEM_INT -label MemRead_MEM /testbench/uut/MemRead_MEM
+add wave -noupdate -expand -group MEM -expand -group MEM_INT -label MemWrite_MEM /testbench/uut/MemWrite_MEM
+add wave -noupdate -expand -group MEM -expand -group MEM_INT -label ALUOut_MEM /testbench/uut/ALU_out_MEM
+add wave -noupdate -expand -group MEM -expand -group MEM_INT -label B_MEM /testbench/uut/BusB_MEM
+add wave -noupdate -expand -group MEM -expand -group MEM_INT -label RW_MEM /testbench/uut/RW_MEM
+add wave -noupdate -expand -group MEM -expand -group MEM_INT -label MD_DOUT /testbench/uut/Mem_out
+add wave -noupdate -expand -group MEM -group MEM_FP -label RegWrite_FP_MEM /testbench/uut/RegWrite_FP_MEM
+add wave -noupdate -expand -group MEM -group MEM_FP -label FP_mem_MEM /testbench/uut/FP_mem_MEM
+add wave -noupdate -expand -group MEM -group MEM_FP -label ALUFP_OUT_MEM /testbench/uut/ADD_FP_out_MEM
+add wave -noupdate -expand -group MEM -group MEM_FP -label RW_FP_MEM /testbench/uut/RW_FP_MEM
+add wave -noupdate -expand -group WB -expand -group WB_INT -label RegWrite_WB /testbench/uut/RegWrite_WB
+add wave -noupdate -expand -group WB -expand -group WB_INT -group MemToReg -label {(0) ALUOut_WB} /testbench/uut/ALU_out_WB
+add wave -noupdate -expand -group WB -expand -group WB_INT -group MemToReg -label {(1) MDR} /testbench/uut/MDR
+add wave -noupdate -expand -group WB -expand -group WB_INT -group MemToReg -label busW /testbench/uut/BusW
+add wave -noupdate -expand -group WB -expand -group WB_FP -label ALUFP_OUT_WB /testbench/uut/ADD_FP_out_WB
+add wave -noupdate -expand -group WB -expand -group WB_FP -label MDR /testbench/uut/MDR
+add wave -noupdate -expand -group WB -expand -group WB_FP -label BusW_FP /testbench/uut/BusW_FP
 TreeUpdate [SetDefaultTree]
-WaveRestoreCursors {{Cursor 1} {250083 ps} 0}
+WaveRestoreCursors {{Cursor 1} {50123 ps} 0}
 quietly wave cursor active 1
 configure wave -namecolwidth 185
 configure wave -valuecolwidth 78
@@ -94,4 +103,4 @@ configure wave -griddelta 40
 configure wave -timeline 0
 configure wave -timelineunits ps
 update
-WaveRestoreZoom {0 ps} {79516 ps}
+WaveRestoreZoom {0 ps} {104068 ps}
