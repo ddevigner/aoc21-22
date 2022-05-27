@@ -13,7 +13,7 @@ COMPONENT MIPs_segmentado is
     	clk      : in  STD_LOGIC;
 	   	reset    : in  STD_LOGIC;
 		output   : out STD_LOGIC_VECTOR (31 downto 0);
-      	IO_input : out STD_LOGIC_VECTOR (31 downto 0)
+      	IO_input : in STD_LOGIC_VECTOR (31 downto 0)
    );
 END COMPONENT;
 
@@ -32,6 +32,8 @@ uut: MIPs_segmentado PORT MAP(
    output   => output,
    IO_input => IO_input
 );
+
+IO_input <= x"00ABCDEF";
 
 -- Clock process definitions
 CLK_process :process

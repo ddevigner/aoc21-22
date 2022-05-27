@@ -86,67 +86,7 @@ begin
 	wait for clk_period;
 
 	---------------------------------------------------------------------------
-	-- Prueba 2. Write-Miss: TAG1 SET2 W0
-	--	@MD[24] = x"000000FF"
-	---------------------------------------------------------------------------
-	-- Debe ser un fallo de escritura. NO se trae el bloque. Escribimos FF en 
-	-- memoria.
-	Addr <= conv_std_logic_vector(96, 32); -- x"0000004C"
-	RE <= '0';
-	WE <= '1';
-	wait for 1 ns;
-    if Mem_ready = '0' then 
-		wait until Mem_ready ='1'; 
-	end if;
-	wait for 1 ns;
-    -- A veces un pulso espureo (en este caso en Mem_ready) puede hacer que 
-	-- vuestro banco de pruebas se adelante. Si esperamos un ns desaparecera el 
-	-- pulso espureo, pero no el real.
-	if Mem_ready = '0' then 
-		wait until Mem_ready ='1'; 
-	end if;
-	wait for clk_period;
-
-	---------------------------------------------------------------------------
-	-- Prueba 3. Read-Hit: TAG1 SET0 W0
-	--	Dout = @MC_D[Set0, W0, 1] = 2
-	---------------------------------------------------------------------------
-	-- Debe ser un acierto de lectura. Devolvemos un 2 al procesador
-	IO_input <= conv_std_logic_vector(2048, 32); -- x"00000800"
-    Addr <= conv_std_logic_vector(68, 32); -- x"00000044"
-	RE <= '1';
-	WE <= '0';
-	wait for 1 ns;
-    if Mem_ready = '0' then 
-		wait until Mem_ready ='1'; 
-	end if;
-	wait for clk_period;
-	
-	---------------------------------------------------------------------------
-	-- Prueba 4. Write de Memoria Scratch, no cacheable.
-	--	@MD_S[1] = x"000000FF"
-	---------------------------------------------------------------------------
-	-- Escritura en la memoria scratch (no cacheable). Se debe escribir FF en 
-	-- la posicion 1 (4/4).
-	Addr <= x"10000004"; 
-	RE <= '0';
-	WE <= '1';
-	wait for 1 ns;
-    if Mem_ready = '0' then 
-		wait until Mem_ready ='1'; 
-	end if;
-	wait for 1 ns;
-    -- A veces un pulso espureo (en este caso en Mem_ready) puede hacer que 
-	-- vuestro banco de pruebas se adelante. Si esperamos un ns desaparecera el 
-	-- pulso espureo, pero no el real.
-	if Mem_ready = '0' then 
-		wait until Mem_ready ='1'; 
-	end if;
-	wait for clk_period;
-
-	
-	---------------------------------------------------------------------------
-	-- Prueba 5. Intruccion que no accede a memoria
+	-- Prueba 2. Intruccion que no accede a memoria
 	--	
 	---------------------------------------------------------------------------
 
@@ -160,20 +100,46 @@ begin
 	wait for clk_period;
 
 	---------------------------------------------------------------------------
-	-- Prueba 6. Read-Hit: TAG1 SET0 W0
-	--	Dout = @MC_D[Set0, W0, 1] = 2
+	-- Prueba 3. Intruccion que no accede a memoria
+	--	
 	---------------------------------------------------------------------------
-	-- Debe ser un acierto de lectura. Devolvemos un 2 al procesador
-	IO_input <= conv_std_logic_vector(2048, 32); -- x"00000800"
-    Addr <= conv_std_logic_vector(68, 32); -- x"00000044"
-	RE <= '1';
-	WE <= '0';
+
+    Addr <= conv_std_logic_vector(1, 32); -- x"00000001"
 	wait for 1 ns;
-    if Mem_ready = '0' then 
+	RE <= '0';
+	WE <= '0';
+	if Mem_ready = '0' then 
 		wait until Mem_ready ='1'; 
 	end if;
 	wait for clk_period;
+	
+	---------------------------------------------------------------------------
+	-- Prueba 4. Read-Hit: TAG1 SET0 W0.
+	--	
+	---------------------------------------------------------------------------
+	-- Debe ser un acierto de lectura. 
+	RE <= '1';
+	Addr <= conv_std_logic_vector(64, 32); -- x"00000040"
+	wait for 1 ns;
+	-- Este wait espera hasta que se ponga Mem_ready a uno.
+    if Mem_ready = '0' then
+		wait until Mem_ready ='1';
+	end if;
+	wait for clk_period;
 
+	---------------------------------------------------------------------------
+	-- Prueba 3. Intruccion que no accede a memoria
+	--	
+	---------------------------------------------------------------------------
+
+    Addr <= conv_std_logic_vector(2, 32); -- x"00000002"
+	wait for 1 ns;
+	RE <= '0';
+	WE <= '0';
+	if Mem_ready = '0' then 
+		wait until Mem_ready ='1'; 
+	end if;
+	wait for clk_period;
 	
 
 	-- Si no cambiamos los valores nos quedamos pidiendo todo el rato el mismo
