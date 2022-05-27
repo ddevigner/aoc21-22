@@ -207,7 +207,7 @@ begin
 				last_word <= '1';
 				MC_WE0 <= hit0 and not(addr_non_cacheable);
 				MC_WE1 <= hit1 and not(addr_non_cacheable);
-				inc_w <= not(addr_non_cacheable);
+				inc_w <= not(addr_non_cacheable) and hit;
 			end if;
 		end if;
 	end if;
