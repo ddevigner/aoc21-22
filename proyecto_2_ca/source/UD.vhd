@@ -29,7 +29,7 @@ entity UD is
 		Kill_IF		    : out STD_LOGIC; -- Indica que la instruccion en IF no debe ejecutarse (fallo en la prediccion de salto tomado)
 		Parar_ID	    : out STD_LOGIC; -- Indica que las etapas ID y previas deben parar.
 		Parar_EX_FP	    : out STD_LOGIC; -- Indica que las etapas EX y previas deben parar.
-		Parar_MEM		: out STD_LOGIC; -- Indica que las etapas MEM y previas deben parar.
+		Parar_MEM		: out STD_LOGIC -- Indica que las etapas MEM y previas deben parar.
 	);
 end UD;
 

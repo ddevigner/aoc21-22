@@ -308,12 +308,8 @@ begin
 				last_word <= '1';
 				ready <= (not(RE) and not(WE)) or (RE and hit);
 			end if;
-		else
-			if busy_wr = '0' then
-				ready <= served_re and not(RE) and not(WE);
-			else
-				ready <= (not(RE) and not(WE)) or (RE and hit);
-			end if;
+		elsif
+			ready <= served_re and not(RE) and not(WE);
 		end if;
 	end if;
 end process;
