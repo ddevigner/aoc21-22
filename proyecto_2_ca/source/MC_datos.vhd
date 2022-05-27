@@ -274,7 +274,7 @@ Unidad_Control: UC_MC port map (
 	hit1 	   		   => hit1,
 	bus_TRDY   		   => bus_TRDY, 
 	bus_DevSel 		   => bus_DevSel,
-	req_word		   => dir_word,
+	req_word		   => saved_addr (3 downto 2),
 	buffer_enable 	   => buffer_enable,
 	buffer_addr 	   => buffer_addr,
 	MC_WE0 		  	   => WE_via0,

@@ -277,23 +277,24 @@ begin
 					MC_WE0 <= not(via_2_rpl);
 					MC_WE1 <= via_2_rpl;
 					inc_w <= '1';
-					
-					if (served_re = '0') then
-						if (req_word = palabra_UC) then
-							set_served_re <= '1';
-							re_enable <= '1';
-							ready <= '1';
-							mux_output <= '1';
-						end if;
-					else
-						ready <= not(RE) and not(WE);
-					end if;
 
 					if (last_word_block = '1') then
 						next_state <= Fetch;
 						MC_tags_WE <= '1';
 						last_word  <= '1';
+					else 
+						if (served_re = '0') then
+							if (req_word = palabra_UC) then
+								set_served_re <= '1';
+								re_enable <= '1';
+								ready <= '1';
+								mux_output <= '1';
+							end if;
+						else
+							ready <= not(RE) and not(WE);
+						end if;
 					end if;
+
 				else
 					next_state <= Fetch;
 					ready <= '1';

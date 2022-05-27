@@ -71,13 +71,13 @@ begin
 	reset <= '0';
 	
 	---------------------------------------------------------------------------
-	-- Prueba 1. Write-Miss: TAG0 SET0 W0.
+	-- Prueba 1. Write-Miss: TAG0 SET0 W0 WORD 1.
 	--	@MD[1] = FF
 	---------------------------------------------------------------------------
 	-- Debe ser un fallo de escritura. Escribimos FF en @0.
 	WE <= '1';
 	Addr <= conv_std_logic_vector(4, 32); -- x"00000004"
-	-- La idea de estos wait es esperar a que la se�al Mem_ready se active (y 
+	-- La idea de estos wait es esperar a que la señal Mem_ready se active (y 
 	-- si ya esta activa no hacer nada).
 	wait for 1 ns;
     if Mem_ready = '0' then 
@@ -93,8 +93,8 @@ begin
 	wait for clk_period;
 
 	---------------------------------------------------------------------------
-	-- Prueba 2. Read-Miss: TAG0 SET0 W3.
-	--	@MC_T[SET0] = 0, @MC_D[SET0 W1 0-3] = [0xFE,0xFF,0xFE,0xFE], Dout = FE
+	-- Prueba 2. Read-Miss: TAG0 SET0 W0 WORD 3
+	--	@MC_T[SET0] = 0, @MC_D[SET0 W0 0-3] = [0xFE,0xFF,0xFE,0xFE], Dout = FE
 	---------------------------------------------------------------------------
 	-- Debe ser un fallo de lectura. Devolvemos un FF al procesador
     Addr <= conv_std_logic_vector(12, 32); -- x"0000000C"
@@ -118,7 +118,7 @@ begin
 	Addr <= conv_std_logic_vector(0, 32); -- x"00000000"
 	RE <= '0';
 	WE <= '1';
-	-- La idea de estos wait es esperar a que la se�al Mem_ready se active (y 
+	-- La idea de estos wait es esperar a que la señal Mem_ready se active (y 
 	-- si ya esta activa no hacer nada).
 	wait for 1 ns;
     if Mem_ready = '0' then 
