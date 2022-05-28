@@ -16,6 +16,15 @@ Implementación y ampliacion de un procesador MIPS de las siguientes caracterís
     - **Riesgos de control**: un salto no puede determinarse hasta etapa Decod, por lo que siempre entrará una instrucción al pipeline.
     - **Riesgos estructurales**: una operación en coma flotante tiene variada duración, por lo inutiliza la ruta de datos para el restro de instrucciones.
 
+## [Proyecto 2](https://github.com/ddevigner/aoc21-22/tree/main/proyecto_2)
+Ampliacion del procesador MIPS mediante la implementación de una jerarquía de memoria de las siguientes características:
+  - **Bus multiplexado semi síncrono**.
+  - **Memoria cache** con política de escritura en acierto _write-through_, política de escritura en fallo _write-around_ y política de remplazo _fifo_.
+  - **Memoria de datos** con acceso retardado para simular un entorno de memoria real.
+  - **Memoria de datos Scratch** con acceso más rapido que la memoria de datos normal.
+  - **IO Master** que accede constantemente al bus y escribe en memoria.
+  - **Arbitro** que gestiona el acceso a bus entre los diferentes masters.
+
 ## [Fast-MIPS](https://github.com/ddevigner/aoc2-21-22/tree/main/fast-mips)
 Programa que traduce un programa ensamblador MIPS (Proyecto 1), codifica las instrucciones y las parsea en formato RAM de VHDL.
 - Ubicado en la carpeta [fast-mips/dist/](https://github.com/ddevigner/aoc2-21-22/tree/main/fast-mips/dist)[fast-mips.exe](https://github.com/ddevigner/aoc2-21-22/blob/main/fast-mips/dist/fast-mips.exe)
