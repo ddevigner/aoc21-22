@@ -1,5 +1,10 @@
--- TestBench Template 
-
+----------------------------------------------------------------------------- ;
+-- TEST_01.vhd                                                                ;
+-- Authors: Rael Clariana (760617) & Devid Dokash (780131).                   ;
+-- Description: testbench implementado para probar puntos variados de la 	  ;
+-- 	memoria cache.														      ;
+-- Usage: para utilizarlo usar la primera ram de datos de tests_rams.txt	  ;
+----------------------------------------------------------------------------- ;
 LIBRARY ieee;
 USE ieee.std_logic_1164.ALL;
 USE ieee.numeric_std.ALL;

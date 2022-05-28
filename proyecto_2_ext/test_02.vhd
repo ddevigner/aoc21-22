@@ -1,5 +1,10 @@
--- TestBench Template 
-
+----------------------------------------------------------------------------- ;
+-- TEST_02.vhd                                                                ;
+-- Authors: Rael Clariana (760617) & Devid Dokash (780131).                   ;
+-- Description: testbench implementado para probar el punto opcional uno del  ;
+-- 	proyecto 2: incluir un buffer para las escrituras en MD. 				  ;
+-- Usage: para utilizarlo usar la primera ram de datos de tests_rams.txt	  ;
+----------------------------------------------------------------------------- ;
 LIBRARY ieee;
 USE ieee.std_logic_1164.ALL;
 USE ieee.numeric_std.ALL;
@@ -71,62 +76,36 @@ begin
 	reset <= '0';
 	
 	---------------------------------------------------------------------------
-	-- Prueba 1. Write-Miss: TAG0 SET0 W0 WORD 1.
-	--	@MD[1] = FF
+	-- Prueba 1. Read-Miss: TAG1 SET0 W0.
+	--	@MC_T[0] = 1, @MC_D[Set0, W0, 0-3] = [1,2,3,4]
 	---------------------------------------------------------------------------
-	-- Debe ser un fallo de escritura. Escribimos FF en @0.
-	WE <= '1';
-	Addr <= conv_std_logic_vector(4, 32); -- x"00000004"
-	-- La idea de estos wait es esperar a que la señal Mem_ready se active (y 
-	-- si ya esta activa no hacer nada).
-	wait for 1 ns;
-    if Mem_ready = '0' then 
-		wait until Mem_ready ='1'; 
-	end if;
-	wait for 1 ns;
-    -- A veces un pulso espureo (en este caso en Mem_ready) puede hacer que 
-	-- vuestro banco de pruebas se adelante. si esperamos un ns desaparecera el 
-	-- pulso espureo, pero no el real.
-	if Mem_ready = '0' then 
-		wait until Mem_ready ='1'; 
-	end if;
-	wait for clk_period;
-
-	---------------------------------------------------------------------------
-	-- Prueba 2. Read-Miss: TAG0 SET0 W0 WORD 3
-	--	@MC_T[SET0] = 0, @MC_D[SET0 W0 0-3] = [0xFE,0xFF,0xFE,0xFE], Dout = FE
-	---------------------------------------------------------------------------
-	-- Debe ser un fallo de lectura. Devolvemos un FF al procesador
-    Addr <= conv_std_logic_vector(12, 32); -- x"0000000C"
+	-- Debe ser un fallo de lectura. Traemos: 1,2,3 y 4 al cjto 0 via 0. 
+	-- Mandamos al mips la primera palabra (un 1).
 	RE <= '1';
-	WE <= '0';
+	Addr <= conv_std_logic_vector(64, 32); -- x"00000040"
 	wait for 1 ns;
-    if Mem_ready = '0' then 
-		wait until Mem_ready ='1'; 
+	-- Este wait espera hasta que se ponga Mem_ready a uno.
+    if Mem_ready = '0' then
+		wait until Mem_ready ='1';
 	end if;
 	wait for clk_period;
-	
-	---------------------------------------------------------------------------
-	-- Prueba 3. Write-Hit: TAG0 SET0 W0
-	--	@MD[0] = @MC_D[SET0, W0, 0] = x"000000FF"
-	---------------------------------------------------------------------------
-	-- IO_input. Segundo valor
-	IO_input <= conv_std_logic_vector(2048, 32); -- x"00000800"
 
-	-- Debe ser un acierto de escritura. Escribimos FF en @18 y en la tercera 
-	-- palabra del bloque de MC del cjto 0 via 0.
-	Addr <= conv_std_logic_vector(0, 32); -- x"00000000"
+	---------------------------------------------------------------------------
+	-- Prueba 2. Write-Miss: TAG1 SET2 W0
+	--	@MD[24] = x"000000FF"
+	---------------------------------------------------------------------------
+	-- Debe ser un fallo de escritura. NO se trae el bloque. Escribimos FF en 
+	-- memoria.
+	Addr <= conv_std_logic_vector(96, 32); -- x"00000060"
 	RE <= '0';
 	WE <= '1';
-	-- La idea de estos wait es esperar a que la señal Mem_ready se active (y 
-	-- si ya esta activa no hacer nada).
 	wait for 1 ns;
     if Mem_ready = '0' then 
 		wait until Mem_ready ='1'; 
 	end if;
 	wait for 1 ns;
     -- A veces un pulso espureo (en este caso en Mem_ready) puede hacer que 
-	-- vuestro banco de pruebas se adelante. si esperamos un ns desaparecera el 
+	-- vuestro banco de pruebas se adelante. Si esperamos un ns desaparecera el 
 	-- pulso espureo, pero no el real.
 	if Mem_ready = '0' then 
 		wait until Mem_ready ='1'; 
@@ -134,11 +113,12 @@ begin
 	wait for clk_period;
 
 	---------------------------------------------------------------------------
-	-- Prueba 4. Read-Hit: TAG0 SET0 W2.
-	--	Dout = 'FE'
+	-- Prueba 3. Read-Hit: TAG1 SET0 W0
+	--	Dout = @MC_D[Set0, W0, 1] = 2
 	---------------------------------------------------------------------------
-	-- Debe ser un acierto de lectura. Devolvemos un FE al procesador
-    Addr <= conv_std_logic_vector(8, 32); -- x"00000008"
+	-- Debe ser un acierto de lectura. Devolvemos un 2 al procesador
+	IO_input <= conv_std_logic_vector(2048, 32); -- x"00000800"
+    Addr <= conv_std_logic_vector(68, 32); -- x"00000044"
 	RE <= '1';
 	WE <= '0';
 	wait for 1 ns;
@@ -147,10 +127,8 @@ begin
 	end if;
 	wait for clk_period;
 	
-
-
 	---------------------------------------------------------------------------
-	-- Prueba 5. Write de Memoria Scratch, no cacheable.
+	-- Prueba 4. Write de Memoria Scratch, no cacheable.
 	--	@MD_S[1] = x"000000FF"
 	---------------------------------------------------------------------------
 	-- Escritura en la memoria scratch (no cacheable). Se debe escribir FF en 
@@ -170,60 +148,38 @@ begin
 		wait until Mem_ready ='1'; 
 	end if;
 	wait for clk_period;
+
 	
 	---------------------------------------------------------------------------
-	-- Prueba 6. Read-Miss: TAG4 SET0 W0 WORD 0
-	--	@MC_T[SET0] = 4, @MC_D[SET0 W1 0-3] = [0xc,0xd,0xe,0xf]
+	-- Prueba 5. Intruccion que no accede a memoria
+	--	
 	---------------------------------------------------------------------------
-	-- Debe ser fallo de lectura y reemplazar el cjto 0 de la via 0. Traemos 
-	-- c,d,e,f.
-	Addr <= conv_std_logic_vector(256, 32); -- x"00000100"
-	RE <= '1';
+
+    Addr <= conv_std_logic_vector(0, 32); -- x"00000000"
+	wait for 1 ns;
+	RE <= '0';
 	WE <= '0';
-	wait for 1 ns;
-    if Mem_ready = '0' then 
-		wait until Mem_ready ='1'; 
-	end if;
-	wait for 1 ns;
-    -- A veces un pulso espureo (en este caso en Mem_ready) puede hacer que 
-	-- vuestro banco de pruebas se adelante. Si esperamos un ns desaparecera el 
-	-- pulso espureo, pero no el real.
 	if Mem_ready = '0' then 
 		wait until Mem_ready ='1'; 
 	end if;
 	wait for clk_period;
 
 	---------------------------------------------------------------------------
-	-- Prueba 7. Read de Memoria Scratch, no cacheable.
-	--	Dout = @MD_S[1] = x"000000FF"
+	-- Prueba 6. Read-Hit: TAG1 SET0 W0
+	--	Dout = @MC_D[Set0, W0, 1] = 2
 	---------------------------------------------------------------------------
-	-- Lectura de la memoria scratch (no cacheable). Se debe leer FF de la 
-	-- posicion 1 (4/4).
-	Addr <= x"10000004"; 
+	-- Debe ser un acierto de lectura. Devolvemos un 2 al procesador
+	IO_input <= conv_std_logic_vector(2048, 32); -- x"00000800"
+    Addr <= conv_std_logic_vector(68, 32); -- x"00000044"
 	RE <= '1';
 	WE <= '0';
 	wait for 1 ns;
     if Mem_ready = '0' then 
 		wait until Mem_ready ='1'; 
 	end if;
-	wait for 1 ns;
-    -- A veces un pulso espureo (en este caso en Mem_ready) puede hacer que 
-	-- vuestro banco de pruebas se adelante. Si esperamos un ns desaparecera el 
-	-- pulso espureo, pero no el real.	  
-	if Mem_ready = '0' then 
-		wait until Mem_ready ='1'; 
-	end if;
 	wait for clk_period;
 
-	---------------------------------------------------------------------------
-	-- Prueba 8. Read de Master_IO
-	--	Dout = x"00000800"
-	---------------------------------------------------------------------------
-	-- Leemos el valor que ha escrito Master_IO. El ultimo es x"00000800".
-	Addr <= x"10000000";
-	RE <= '1';
-	WE <= '0';
-	wait for 1 ns;
+	
 
 	-- Si no cambiamos los valores nos quedamos pidiendo todo el rato el mismo
 	-- valor a la memoria scratch. Se puede ver como una y otra vez habra que 
