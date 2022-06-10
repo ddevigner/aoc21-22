@@ -28,7 +28,7 @@ Ampliacion del procesador MIPS mediante la implementación de una jerarquía de 
 ## [Fast-MIPS](https://github.com/ddevigner/aoc2-21-22/tree/main/fast-mips)
 Parseador de un programa ensamblador MIPS (Proyecto 1), codifica las instrucciones y las devuelve en formato RAM de VHDL.
 - Ubicado en la carpeta [fast-mips/dist/](https://github.com/ddevigner/aoc2-21-22/tree/main/fast-mips/dist)[fast-mips.exe](https://github.com/ddevigner/aoc2-21-22/blob/main/fast-mips/dist/fast-mips.exe)
-- Utilizacion
+- Utilizacion:
 ```bash
   fast-mips <file>
 ```
